@@ -6,16 +6,16 @@
 title: SpiderBlog
 subtitle: '一个专注于分享爬虫实践相关的博客'
 description: '喜欢的编程语言是Python，喜欢做爬虫与数据相关'
-keywords: 'Python,爬虫,数据'
+keywords: 'Python,Spider,Data'
 author: 'Mr. Zhou'
 language: zh-CN # en
 timezone: ''
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://spiderblog.cn
 root: /
-permalink: :year/:month/:day/:title/
+permalink: :title.html
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
@@ -102,8 +102,14 @@ deploy:
   repo: git@github.com:squabbysheep/squabbysheep.github.io.git
   branch: master
 
+# 自动生成sitemap
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
+  url: http://spiderblog.cn
 
-
-
-
-
+# nofollow:
+#    enable: true
+#    exclude:
+#    - www.spiderblog.cn
