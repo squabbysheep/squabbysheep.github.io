@@ -27,16 +27,13 @@ def power(x=1):
 #### 3.可变参数
 
 ```python
-def cale(numbers):
+def cale(*numbers):
     sum = 0
     for n in numbers:
         sum = sum + n * n
     return sum
-```
 
-```python
-nums = [1,2,3]
-cale(*nums)
+cale(1,2,3)
 ```
 
 #### 4.关键字参数
