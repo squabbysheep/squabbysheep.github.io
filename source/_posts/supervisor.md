@@ -11,7 +11,7 @@ categories:
 
 #### 专业名称解释
 
-```
+```python
 supervisor：要安装的软件的名称。
 supervisord：装好supervisor软件后，supervisord用于启动supervisor服务。
 supervisorctl：用于管理supervisor配置文件中program。
@@ -23,7 +23,7 @@ supervisorctl：用于管理supervisor配置文件中program。
 
 #### 安装
 
-```
+```python
 yum install epel-release
 yum install -y supervisor
 systemctl enable supervisord # 开机自启动
@@ -40,12 +40,12 @@ ps -ef|grep supervisord # 查看是否存在supervisord进程
 
 #### 配置为supervisor服务
 
-```
+```python
 vim /usr/lib/systemd/system/supervisord.service
 # 将下面一段配置信息粘贴进去(类似/usr/bin/supervisord的路径需要自己修改对应的)
 ```
 
-```
+```python
 [Unit]
 Description=Process Monitoring and Control Daemon
 After=rc-local.service nss-user-lookup.target
@@ -64,14 +64,14 @@ RestartSec=42s   # 重启之前等待42秒
 WantedBy=multi-user.target
 ```
 
-```
+```python
 启动服务
 systemctl enable supervisord
 检查是否启动成功
 systemctl is-enabled supervisord  # 出现enabled，则启动成功
 ```
 
-```
+```python
 # 可以使用如下命令管理supervisor服务了
 systemctl stop supervisord
 systemctl start supervisord
@@ -84,7 +84,7 @@ systemctl restart supervisord
 
 #### 开放到外网
 
-```
+```python
 port=*:9001                ;Web管理后台运行的IP和端口，如果开放到公网，需要注意安全性
 username=user              ;登录管理后台的用户名
 password=123               ;登录管理后台的密码
@@ -94,7 +94,7 @@ password=123               ;登录管理后台的密码
 
 - 讲解
 
-```
+```python
 #项目名
 [program:blog]
 #脚本目录
@@ -125,7 +125,7 @@ stdout_logfile_backups = 20
 
 - 例子
 
-```
+```python
 [program:test] 
 directory=/root 
 command=/usr/sbin/tinyproxy -c /etc/tinyproxy/tinyproxy.conf
