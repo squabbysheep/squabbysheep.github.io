@@ -16,6 +16,7 @@ Xpath
 正则表达式
 Scrapy
 scrapyd
+Scrapy-redis
 Pyspider
 CSS提取
 JS逆向
@@ -25,11 +26,13 @@ Mongodb
 Linux-centos7
 HTTP协议
 selenium
-日志系统
+日志系统logging
 分布式爬虫系统设计
 防屏蔽：IP代理池（vps和免费代理池）
 防屏蔽：cookie池
 防屏蔽：验证码问题
+软件工程设计
+Kafka
 ```
 
 #### MyTask-ready
@@ -39,4 +42,6 @@ docker
 flask
 django
 ```
+
+#### 爬虫相关要求
 
