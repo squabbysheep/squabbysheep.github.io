@@ -26,6 +26,9 @@ def __init__(self):
 # 实例方法
 def print_score(self):
     pass
+# 类方法用@classmethod修饰，形参为cls
+# 类实例方法，形参为self
+# 静态方法用@staticmethod修饰，对象直接调用，实际上跟该类没有太大关系
 ```
 
 #### Property
@@ -126,6 +129,14 @@ print(Chain().status.user.timeline.list)
 # 输出: /status/user/timeline/list
 print(Chain().users('Jason').repos)
 # 输出: /users/Jason/repos
+```
+
+```python
+# 何动态获取和设置对象的属性 has,get,set > attr
+if hasattr(Parent，'x'):
+    print(getattr(Parent, 'x'))
+    setattr(Parent, 'x', 3)
+print(getattr(Parent, 'x'))
 ```
 
 [未完，待补充]()
