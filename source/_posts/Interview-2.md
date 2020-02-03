@@ -41,7 +41,7 @@ groupdel group_name # 删除一个用户组
 tar -cvf archive.tar file1 file2 dir1  # 创建一个非压缩的 tar包
 tar -tf archive.tar # 显示一个包中的内容
 tar -xvf archive.tar -C /tmp # 解压压缩包到/tmp目录下
-# -c 压缩 -x 解压
+# -c 压缩 -x 解压 -v 显示所有过程 -f 压缩包名字
 tar -cvfj archive.tar.bz2 dir1  # 创建一个 bzip2 格式的压缩包
 tar -xvfj archive.tar.bz2       # 解压一个 bzip2 格式的压缩包
 tar -cvfz archive.tar.gz dir1   # 创建一个 gzip 格式的压缩包

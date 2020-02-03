@@ -46,3 +46,9 @@ systemctl stop firewalld.service
 systemctl disable firewalld.service
 ```
 
+#### 启动防火墙
+
+```python
+systemctl start firewalld
+```
+
