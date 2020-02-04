@@ -2,7 +2,6 @@
 title: Function-param
 date: 2020-01-06 14:01:32
 tags:
-- function
 categories:
 - Python
 ---

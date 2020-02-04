@@ -1,10 +1,10 @@
 ---
-title: supervisor
+title: Supervisor
 date: 2020-01-08 13:33:52
 tags:
-- linux
+- Linux
 categories:
-- linux
+- Linux
 ---
 
 ### Supervisor

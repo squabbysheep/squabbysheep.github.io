@@ -2,9 +2,9 @@
 title: Process-run-background
 date: 2020-01-06 10:42:01
 tags:
-- centos7
+- Centos7
 categories:
-- linux
+- Linux
 ---
 
 #### 0. “&” 

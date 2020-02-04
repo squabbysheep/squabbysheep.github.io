@@ -1,12 +1,12 @@
 ---
-title: linux-utils
+title: Linux-utils
 date: 2020-01-09 14:41:18
 tags:
-- linux
+- Linux
 categories:
-- linux
+- Linux
 keywords:
-- linux-utils
+- Linux-utils
 ---
 
 #### axel

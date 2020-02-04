@@ -83,7 +83,7 @@ print((date1-date1).days + 1)
 ```python
 # sys模块
 sys.path 主要是对 Python 解释器的系统环境参数的操作（动态的改变 Python 解释器搜索路径）
-sys.argv 命令行参数 List，第一个元素是程序本身路径
+sys.argv 命令行参数 List，第一个元素是程序本身代码（即此.py程序）# 有时候带路径
 sys.exit(n) 退出程序，正常退出时 exit(0)
 sys.maxint 最大的 Int 值
 sys.maxunicode 最大的 Unicode 值
@@ -109,6 +109,7 @@ Python 是强类型的动态脚本语言。  # 强类型
 ```
 
 ```python
+# 性能分析
 import cProfile
 cProfile.run('func(agrs)')   # 字符串
 ```

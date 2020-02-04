@@ -1,13 +1,11 @@
 ---
-title: centos7-yum
+title: Centos7-yum
 date: 2020-01-09 12:04:59
 tags:
-- linux
-- yum
+- Linux
 keywords:
-- yum
 categories:
-- linux
+- Linux
 ---
 
 #### 安装源和更新

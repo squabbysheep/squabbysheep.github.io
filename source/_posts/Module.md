@@ -2,7 +2,6 @@
 title: Module
 date: 2020-01-07 14:35:32
 tags:
-- module
 categories:
 - Python
 ---

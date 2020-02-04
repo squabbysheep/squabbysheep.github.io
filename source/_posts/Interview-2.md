@@ -3,11 +3,11 @@ title: Interview-2
 date: 2020-01-27 22:28:51
 tags:
 - Interview
-- linux
+- Linux
 categories:
 - Interview
 keywords:
-- linux
+- Linux
 ---
 
 ```python

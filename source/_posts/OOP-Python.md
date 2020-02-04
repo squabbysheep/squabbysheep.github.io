@@ -1,5 +1,5 @@
 ---
-title: object-oriented-programming
+title: OOP-Python
 date: 2020-01-07 15:43:24
 tags:
 - OOP

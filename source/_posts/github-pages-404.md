@@ -1,5 +1,5 @@
 ---
-title: github-pages-404
+title: Github-pages-404
 date: 2020-01-07 14:59:05
 tags:
 - GitHub

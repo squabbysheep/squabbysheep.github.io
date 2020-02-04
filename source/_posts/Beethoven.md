@@ -1,12 +1,12 @@
 ---
-title: 贝多芬
+title: Beethoven
 date: 2020-01-15 19:26:30 
 tags:
-- 贝多芬
+- Beethoven
 categories:
-- 贝多芬
+- Beethoven
 keywords:
-- 贝多芬
+- Beethoven
 ---
 
 #### os
@@ -20,12 +20,24 @@ os.getppid()
 #### multiprocessing
 
 ```python
-from multiprocessing import Process
-from multiprocessing import Pool
-# 部署分布式
+# 部署分布式（master）
+import queue
+task_queue = queue.Queue()  # 队列，后面会通过BaseManager封装，注册到网络上
 from multiprocessing.managers import BaseManager
-BaseManager.register()
-manager = BaseManager()
+class QueueManager(BaseManager):
+    pass
+QueueManager.register('get_task_queue', callable=lambda: task_queue)  # 必须注册
+manager = QueueManager(address=('', 5000), authkey=b'abc')
+task = manager.get_task_queue()  # 获取队列queue
+manager.start()  # 开启
+manager.shutdown()  # 关闭
+# slave
+class QueueManager(BaseManager):
+    pass
+QueueManager.register('get_task_queue')  # 一定要注册
+m = QueueManager(address=(master_ip, 5000), authkey=b'abc')
+m.connect()
+task = m.get_task_queue()
 ```
 
 #### threading

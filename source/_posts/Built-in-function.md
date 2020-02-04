@@ -1,8 +1,7 @@
 ---
-title: sorted
+title: Built-in-function
 date: 2020-01-07 13:22:55
 tags:
-- function
 categories:
 - Python
 ---
@@ -20,5 +19,12 @@ sorted(iterable,key,reverse)
 
 ```
 Python体现在代码简洁，一般情况，核心代码越简洁，开发效率和运行效率越高  --Jason的个人见解
+```
+
+#### 匿名函数
+
+```python
+# 格式
+lambda x: x*x
 ```
 

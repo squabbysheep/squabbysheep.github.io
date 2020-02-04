@@ -1,8 +1,8 @@
 ---
-title: decorator
+title: Decorator
 date: 2020-01-07 13:45:00
 tags:
-- decorator
+- Decorator
 categories:
 - Python
 ---

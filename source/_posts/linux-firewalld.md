@@ -1,13 +1,13 @@
 ---
-title: linux-firewalld
+title: Linux-firewalld
 date: 2020-01-09 15:12:42
 tags:
-- linux
+- Linux
 categories:
-- linux
+- Linux
 keywords:
-- linux
-- firewalld
+- Linux
+- Firewalld
 ---
 
 #### 开启端口

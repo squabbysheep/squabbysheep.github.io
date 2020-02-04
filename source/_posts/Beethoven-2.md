@@ -1,12 +1,12 @@
 ---
-title: 贝多芬-2
+title: Beethoven-2
 date: 2020-01-18 20:26:30
 tags:
-- 贝多芬
+- Beethoven
 categories:
-- 贝多芬
+- Beethoven
 keywords:
-- 贝多芬
+- Beethoven
 ---
 
 #### socket
@@ -22,7 +22,7 @@ s.send(bytes)  # 发送
 s.recv(1024)  # 接收bytes,没有数据了，则为空
 s.close()
 # TCP服务端
-s.bind(('127.0.0.1', 80))
+s.bind(('127.0.0.1', 80))  # 对外服务绑定0.0.0.0
 s.listen(5)  # 等待连接的最大数量
 while True:
     # 接受一个新连接:

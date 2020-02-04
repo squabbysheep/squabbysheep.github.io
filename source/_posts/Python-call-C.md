@@ -2,9 +2,9 @@
 title: Python-call-C
 date: 2020-01-03 12:19:08
 tags:
-- ctypes
+- C&C++
 categories:
-- c&c++
+- C&C++
 ---
 
 ### Python3 调用C语言代码

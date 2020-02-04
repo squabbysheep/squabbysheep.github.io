@@ -1,12 +1,12 @@
 ---
-title: file-io
+title: File-io
 date: 2020-01-27 15:15:17
 tags:
 - Interview
 categories:
 - Interview
 keywords:
-- io
+- IO
 ---
 
 #### 4G 内存怎么读取一个 5G 的数据？

@@ -1,12 +1,12 @@
 ---
-title: linux-command
+title: Linux-command
 date: 2020-01-29 01:48:56
 tags:
-- linux
+- Linux
 categories:
-- linux
+- Linux
 keywords:
-- port
+- Port
 ---
 
 #### port

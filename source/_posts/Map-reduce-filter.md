@@ -2,7 +2,6 @@
 title: Map-reduce-filter
 date: 2020-01-07 13:11:41
 tags:
-- function
 categories:
 - Python
 ---
