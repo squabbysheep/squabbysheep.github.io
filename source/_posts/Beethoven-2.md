@@ -177,7 +177,7 @@ def application(environ, start_response):
     ...
 ```
 
-#### falsk
+#### flask
 
 ```python
 from flask import Flask
