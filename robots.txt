@@ -1,0 +1,8 @@
+User-agent: * Allow: /
+Allow: /archives/
+Allow: /categories/
+Allow: /tags/
+
+
+Sitemap: http://www.langzi.fun/sitemap.xml
+Sitemap: http://www.langzi.fun/baidusitemap.xml
