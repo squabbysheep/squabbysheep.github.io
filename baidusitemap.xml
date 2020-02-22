@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://spiderblog.cn/Git.html</loc>
+    <lastmod>2020-02-22</lastmod>
+  </url>  <url>
+    <loc>http://spiderblog.cn/Xpath.html</loc>
+    <lastmod>2020-02-22</lastmod>
+  </url>  <url>
+    <loc>http://spiderblog.cn/Sorting_algorithm.html</loc>
+    <lastmod>2020-02-22</lastmod>
+  </url>  <url>
     <loc>http://spiderblog.cn/Scrapy_shell.html</loc>
     <lastmod>2020-02-22</lastmod>
   </url>  <url>

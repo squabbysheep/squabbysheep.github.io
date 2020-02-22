@@ -207,6 +207,208 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://spiderblog.cn/Git.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar_bear.png">
+      <meta itemprop="name" content="Mr.Zhou">
+      <meta itemprop="description" content="喜欢的编程语言是Python，喜欢做爬虫与数据相关">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SpiderBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Git.html" class="post-title-link" itemprop="url">Git</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-02-23 01:26:32 / 修改时间：00:49:25" itemprop="dateCreated datePublished" datetime="2020-02-23T01:26:32+08:00">2020-02-23</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="查看不同"><a href="#查看不同" class="headerlink" title="查看不同"></a>查看不同</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff</span><br></pre></td></tr></table></figure>
+<h4 id="回退"><a href="#回退" class="headerlink" title="回退"></a>回退</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD^ </span><br><span class="line"><span class="meta">#</span><span class="bash"> HEAD 表示当前版本，^和^^, 或者直接是版本id号</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard 1094a</span><br><span class="line"><span class="meta">#</span><span class="bash"> git reset --hard commit_id</span></span><br></pre></td></tr></table></figure>
+<h4 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git log [--pretty=oneline]</span><br><span class="line"><span class="meta">#</span><span class="bash"> git <span class="built_in">log</span> --graph命令可以看到分支合并图</span></span><br><span class="line">git log --graph --pretty=oneline --abbrev-commit</span><br></pre></td></tr></table></figure>
+<h4 id="查看历史命令"><a href="#查看历史命令" class="headerlink" title="查看历史命令"></a>查看历史命令</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reflog</span><br></pre></td></tr></table></figure>
+<h4 id="查看工作区和版本库里面最新版本的区别"><a href="#查看工作区和版本库里面最新版本的区别" class="headerlink" title="查看工作区和版本库里面最新版本的区别"></a>查看工作区和版本库里面最新版本的区别</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff HEAD -- readme.txt</span><br></pre></td></tr></table></figure>
+<h4 id="丢弃修改"><a href="#丢弃修改" class="headerlink" title="丢弃修改"></a>丢弃修改</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- readme.txt</span><br><span class="line"><span class="meta">#</span><span class="bash"> git checkout -- file</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 只能丢弃未add的</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 如果已经add了，则需要使用git reset HEAD &lt;file&gt;命令，再调用git checkout -- readme.txt</span></span><br><span class="line">git reset HEAD readme.txt # 撤销add的文件</span><br><span class="line">git checkout -- readme.txt</span><br></pre></td></tr></table></figure>
+<h4 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 先删除文件，再使用命令删除版本库里面的文件，并且再commit</span></span><br><span class="line">git rm test.txt</span><br><span class="line">git commit -m "remove test.txt"</span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果误删则git checkout -- test.txt还原</span></span><br><span class="line">git checkout -- test.txt</span><br></pre></td></tr></table></figure>
+<h4 id="关联仓库"><a href="#关联仓库" class="headerlink" title="关联仓库"></a>关联仓库</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin "url"</span><br><span class="line"><span class="meta">#</span><span class="bash"> 把本地库的所有内容推送到远程库上</span></span><br><span class="line">git push -u origin master</span><br><span class="line"><span class="meta">#</span><span class="bash"> 由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。</span></span><br></pre></td></tr></table></figure>
+<h4 id="推送代码"><a href="#推送代码" class="headerlink" title="推送代码"></a>推送代码</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git push origin master</span><br><span class="line"><span class="meta">#</span><span class="bash"> master 是仓库</span></span><br></pre></td></tr></table></figure>
+<h4 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 创建+切换分支</span></span><br><span class="line">git checkout -b dev</span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建分支</span></span><br><span class="line">git branch &lt;name&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout &lt;name&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="查看当前分支"><a href="#查看当前分支" class="headerlink" title="查看当前分支"></a>查看当前分支</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 会列出所有分支，当前分支前面会标一个*号</span></span><br><span class="line">git branch</span><br></pre></td></tr></table></figure>
+<h4 id="合并分支"><a href="#合并分支" class="headerlink" title="合并分支"></a>合并分支</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 分支走在了主分支前面，并没有变成两个不同分支</span></span><br><span class="line">git merge dev</span><br><span class="line"><span class="meta">#</span><span class="bash"> Fast-forward <span class="string">"快进模式"</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 切换回主分支，再合并（重点理解为什么）</span></span><br></pre></td></tr></table></figure>
+<h4 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch -d dev # 和查看当前分支相同</span><br><span class="line">git branch -D feature-vulcan # 强制删除未合并的分支</span><br></pre></td></tr></table></figure>
+<h4 id="禁用Fast-forward-：”快进模式”"><a href="#禁用Fast-forward-：”快进模式”" class="headerlink" title="禁用Fast-forward ：”快进模式”"></a>禁用Fast-forward ：”快进模式”</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git merge --no-ff -m "merge with no-ff" dev</span><br><span class="line"><span class="meta">#</span><span class="bash"> 因为本次合并要创建一个新的commit，所以加上-m参数，把commit描述写进去。</span></span><br></pre></td></tr></table></figure>
+<h4 id="保存现场"><a href="#保存现场" class="headerlink" title="保存现场"></a>保存现场</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git stash</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看保存的现场</span></span><br><span class="line">git stash list</span><br><span class="line"><span class="meta">#</span><span class="bash"> 恢复现场方法一</span></span><br><span class="line">git stash apply</span><br><span class="line">git stash drop</span><br><span class="line">git stash apply stash@&#123;0&#125; # 好像没什么区别</span><br><span class="line"><span class="meta">#</span><span class="bash"> 恢复现场方法二</span></span><br><span class="line">git stash pop # 常用</span><br></pre></td></tr></table></figure>
+<h4 id="查看远程库信息"><a href="#查看远程库信息" class="headerlink" title="查看远程库信息"></a>查看远程库信息</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote [-v]</span><br><span class="line"><span class="meta">#</span><span class="bash"> 加上-v，信息更详细</span></span><br></pre></td></tr></table></figure>
+<h4 id="分支推送原则"><a href="#分支推送原则" class="headerlink" title="分支推送原则"></a>分支推送原则</h4><ul>
+<li><code>master</code>分支是主分支，因此要时刻与远程同步；</li>
+<li><code>dev</code>分支是开发分支，团队所有成员都需要在上面工作，所以也需要与远程同步；</li>
+<li><code>bug</code>分支只用于在本地修复bug，就没必要推到远程了，除非老板要看看你每周到底修复了几个bug；</li>
+<li><code>feature</code>分支是否推到远程，取决于你是否和你的小伙伴合作在上面开发。</li>
+</ul>
+<h4 id="拷贝远程分支到本地（远程合作常用）"><a href="#拷贝远程分支到本地（远程合作常用）" class="headerlink" title="拷贝远程分支到本地（远程合作常用）"></a>拷贝远程分支到本地（远程合作常用）</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b dev origin/dev</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置dev和origin/dev的链接</span></span><br><span class="line">git branch --set-upstream-to=origin/dev dev</span><br><span class="line"><span class="meta">#</span><span class="bash"> git branch --<span class="built_in">set</span>-upstream-to &lt;branch-name&gt; origin/&lt;branch-name&gt;</span></span><br><span class="line">git pull # 下载更新</span><br></pre></td></tr></table></figure>
+<h4 id="特殊命令（多人合作）"><a href="#特殊命令（多人合作）" class="headerlink" title="特殊命令（多人合作）"></a>特殊命令（多人合作）</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git rebase</span><br><span class="line"><span class="meta">#</span><span class="bash"> rebase操作可以把本地未push的分叉提交历史整理成直线；</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> rebase的目的是使得我们在查看历史提交的变化时更容易，因为分叉的提交需要三方对比。</span></span><br></pre></td></tr></table></figure>
+<h4 id="创建标签"><a href="#创建标签" class="headerlink" title="创建标签"></a>创建标签</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git tag v1.0</span><br><span class="line"><span class="meta">#</span><span class="bash"> git tag &lt;name&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="对commit打标签"><a href="#对commit打标签" class="headerlink" title="对commit打标签"></a>对commit打标签</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag v0.9 f52c633  # id号</span><br></pre></td></tr></table></figure>
+<h4 id="查看标签"><a href="#查看标签" class="headerlink" title="查看标签"></a>查看标签</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git tag # 查看标签</span><br><span class="line">git show v0.9  # git show &lt;tagname&gt;查看标签信息</span><br><span class="line"><span class="meta">#</span><span class="bash"> 注意，标签不是按时间顺序列出，而是按字母排序的。</span></span><br><span class="line"></span><br><span class="line">git tag -a v0.1 -m "version 0.1 released" 1094adb</span><br><span class="line"><span class="meta">#</span><span class="bash"> 还可以创建带有说明的标签，用-a指定标签名，-m指定说明文字</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 标签总是和某个commit挂钩。如果这个commit既出现在master分支，又出现在dev分支，那么在这两个分支上都可以看到这个标签</span></span><br></pre></td></tr></table></figure>
+<h4 id="标签操作"><a href="#标签操作" class="headerlink" title="标签操作"></a>标签操作</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 删除标签</span></span><br><span class="line">git tag -d v0.1  # 命令git tag -d &lt;tagname&gt;可以删除一个本地标签；</span><br><span class="line"><span class="meta">#</span><span class="bash"> git push origin &lt;tagname&gt; 推送标签到远程库</span></span><br><span class="line">git push origin v1.0 # 某一个</span><br><span class="line">git push origin --tags  # 所有标签</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果标签已经推送到远程，要删除远程标签就麻烦一点，先从本地删除</span></span><br><span class="line">git tag -d v0.9</span><br><span class="line">git push origin :refs/tags/v0.9</span><br><span class="line"><span class="meta">#</span><span class="bash"> 命令git push origin :refs/tags/&lt;tagname&gt;可以删除一个远程标签。</span></span><br></pre></td></tr></table></figure>
+<h4 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> .gitignore文件（不想被git提示的，文件名写入其中即可）</span></span><br><span class="line">git check-ignore # 查找错误规则</span><br><span class="line">git add -f App.class # 强制添加</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 别名</span></span><br><span class="line">git config --global alias.st status # git status改为git st (即status改为st)</span><br><span class="line"><span class="meta">#</span><span class="bash"> 丧心病狂</span></span><br><span class="line">git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit"</span><br><span class="line"><span class="meta">#</span><span class="bash"> 配置文件cat .git/config ,直接修改[<span class="built_in">alias</span>]即可还原</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://spiderblog.cn/Sorting_algorithm.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar_bear.png">
+      <meta itemprop="name" content="Mr.Zhou">
+      <meta itemprop="description" content="喜欢的编程语言是Python，喜欢做爬虫与数据相关">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SpiderBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Sorting_algorithm.html" class="post-title-link" itemprop="url">Sorting_algorithm</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-22 23:08:11" itemprop="dateCreated datePublished" datetime="2020-02-22T23:08:11+08:00">2020-02-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-23 00:33:31" itemprop="dateModified" datetime="2020-02-23T00:33:31+08:00">2020-02-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h3><h5 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">稳定：如果a原本在b前面，而a&#x3D;b，排序之后a仍然在b的前面；</span><br><span class="line">不稳定：如果a原本在b的前面，而a&#x3D;b，排序之后a可能会出现在b的后面；</span><br><span class="line">内排序：所有排序操作都在内存中完成；</span><br><span class="line">外排序：由于数据太大，因此把数据放在磁盘中，而排序通过磁盘和内存的数据传输才能进行；</span><br><span class="line">时间复杂度：一个算法执行所耗费的时间。</span><br><span class="line">空间复杂度：运行完一个程序所需内存的大小。</span><br></pre></td></tr></table></figure>
+<h5 id="算法总结"><a href="#算法总结" class="headerlink" title="算法总结"></a>算法总结</h5><p><img src="https://images2017.cnblogs.com/blog/849589/201710/849589-20171015233043168-1867817869.png" alt="算法总结.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">图片名词解释</span><br><span class="line">n: 数据规模</span><br><span class="line">k: “桶”的个数</span><br><span class="line">In-place: 占用常数内存，不占用额外内存</span><br><span class="line">Out-place: 占用额外内存</span><br></pre></td></tr></table></figure>
+<h5 id="算法分类"><a href="#算法分类" class="headerlink" title="算法分类"></a>算法分类</h5><p><img src="https://images2017.cnblogs.com/blog/849589/201710/849589-20171015233220637-1055088118.png" alt="算法分类.png"></p>
+<h3 id="算法详解"><a href="#算法详解" class="headerlink" title="算法详解"></a>算法详解</h3><h5 id="1-冒泡-Bubble-Sort"><a href="#1-冒泡-Bubble-Sort" class="headerlink" title="1. 冒泡 Bubble Sort"></a>1. 冒泡 Bubble Sort</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">相邻两两比较、交换</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">最佳情况：T(n) &#x3D; O(n)   最差情况：T(n) &#x3D; O(n2)   平均情况：T(n) &#x3D; O(n2)</span><br></pre></td></tr></table></figure>
+<h5 id="2-选择排序-Selection-Sort"><a href="#2-选择排序-Selection-Sort" class="headerlink" title="2. 选择排序 Selection Sort"></a>2. 选择排序 Selection Sort</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在未排list中找到最小，放到排序后的list末尾</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">最佳情况：T(n) &#x3D; O(n2)  最差情况：T(n) &#x3D; O(n2)  平均情况：T(n) &#x3D; O(n2)</span><br></pre></td></tr></table></figure>
+<h5 id="3-插入排序-Insertion-Sort"><a href="#3-插入排序-Insertion-Sort" class="headerlink" title="3. 插入排序 Insertion Sort"></a>3. 插入排序 Insertion Sort</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将未排序的list，一个一个插入到已排序的list中</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">最佳情况：T(n) &#x3D; O(n)   最坏情况：T(n) &#x3D; O(n2)   平均情况：T(n) &#x3D; O(n2)</span><br></pre></td></tr></table></figure>
+<h5 id="4-希尔排序-Shell-Sort"><a href="#4-希尔排序-Shell-Sort" class="headerlink" title="4. 希尔排序 Shell Sort"></a>4. 希尔排序 Shell Sort</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">插入排序的变种：定义增量，以增量为间隔，进行插入排序，逐渐减小增量</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">最佳情况：T(n) &#x3D; O(nlog2 n)  最坏情况：T(n) &#x3D; O(nlog2 n)  平均情况：T(n) &#x3D;O(nlog n)</span><br></pre></td></tr></table></figure>
+<h5 id="5-归并排序-Merge-Sort"><a href="#5-归并排序-Merge-Sort" class="headerlink" title="5. 归并排序 Merge Sort"></a>5. 归并排序 Merge Sort</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">将list不断分为两个子序列，直到只有1个或者2个元素（递归）</span><br><span class="line">将两个排序好的子序列合并成一个最终的排序序列（返回值）</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">最佳情况：T(n) &#x3D; O(n)  最差情况：T(n) &#x3D; O(nlogn)  平均情况：T(n) &#x3D; O(nlogn)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge_sort</span><span class="params">(arr)</span>:</span></span><br><span class="line">    <span class="comment"># divide to two</span></span><br><span class="line">    <span class="keyword">if</span> len(arr) &lt; <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span> arr</span><br><span class="line">    mid = int(len(arr)/<span class="number">2</span>)</span><br><span class="line">    left = merge_sort(arr[:mid])</span><br><span class="line">    right = merge_sort(arr[mid:])</span><br><span class="line">    <span class="keyword">return</span> merge(left, right)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge</span><span class="params">(left, right)</span>:</span></span><br><span class="line">    result = []</span><br><span class="line">    j = <span class="number">0</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> i &lt; len(left) <span class="keyword">and</span> j &lt; len(right):</span><br><span class="line">        <span class="keyword">if</span> left[i] &lt; right[j]:</span><br><span class="line">            result.append(left[i])</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            result.append(right[j])</span><br><span class="line">            j += <span class="number">1</span></span><br><span class="line">    <span class="comment"># add the larger part both left and right</span></span><br><span class="line">    result += left[i:]</span><br><span class="line">    result += right[j:]</span><br><span class="line">    <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure>
+<h5 id="6-快速排序-Quick-Sort"><a href="#6-快速排序-Quick-Sort" class="headerlink" title="6. 快速排序 Quick Sort"></a>6. 快速排序 Quick Sort</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一个基准，左边list小于或等于基准，右边list大于list</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">最佳情况：T(n) &#x3D; O(nlogn)   最差情况：T(n) &#x3D; O(n2)   平均情况：T(n) &#x3D; O(nlogn)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">qucik_sort</span><span class="params">(alist)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> len(alist) &lt;= <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> alist</span><br><span class="line">    <span class="keyword">return</span> qucik_sort([i <span class="keyword">for</span> i <span class="keyword">in</span> alist[<span class="number">1</span>:] <span class="keyword">if</span> i &lt; alist[<span class="number">0</span>]]) + alist[<span class="number">0</span>:<span class="number">1</span>] + qucik_sort([i <span class="keyword">for</span> i <span class="keyword">in</span> alist[<span class="number">1</span>:] <span class="keyword">if</span> i &gt;= alist[<span class="number">0</span>]])</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">一行快排</span><br><span class="line">def qs(a): return qs([i for i in a[1:] if i &lt;&#x3D; a[0]]) + a[0:1] + qs([i for i in a[1:] if i &gt; a[0]]) if len(a) &gt; 1 else a</span><br></pre></td></tr></table></figure>
+<h5 id="7-堆排序-Heap-Sort"><a href="#7-堆排序-Heap-Sort" class="headerlink" title="7. 堆排序 Heap Sort"></a>7. 堆排序 Heap Sort</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;blog.csdn.net&#x2F;weixin_40596016&#x2F;article&#x2F;details&#x2F;79711682</span><br></pre></td></tr></table></figure>
+<h5 id="8-计数排序-Counting-Sort"><a href="#8-计数排序-Counting-Sort" class="headerlink" title="8. 计数排序 Counting Sort"></a>8. 计数排序 Counting Sort</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">它只能对整数进行排序</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">最佳情况：T(n) &#x3D; O(n+k)  最差情况：T(n) &#x3D; O(n+k)  平均情况：T(n) &#x3D; O(n+k)</span><br></pre></td></tr></table></figure>
+<h5 id="9-桶排序-Bucket-Sort"><a href="#9-桶排序-Bucket-Sort" class="headerlink" title="9. 桶排序 Bucket Sort"></a>9. 桶排序 Bucket Sort</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">桶排序是计数排序的升级版</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">最佳情况：T(n) &#x3D; O(n+k)   最差情况：T(n) &#x3D; O(n+k)   平均情况：T(n) &#x3D; O(n2)</span><br></pre></td></tr></table></figure>
+<h5 id="10-基数排序-Radix-Sort"><a href="#10-基数排序-Radix-Sort" class="headerlink" title="10. 基数排序 Radix Sort"></a>10. 基数排序 Radix Sort</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">最佳情况：T(n) &#x3D; O(n * k)   最差情况：T(n) &#x3D; O(n * k)   平均情况：T(n) &#x3D; O(n * k)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://spiderblog.cn/Scrapy_shell.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -259,6 +461,210 @@
       
           <h4 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 给scrapy shell 调试加上headers</span></span><br><span class="line">scrapy shell <span class="comment"># 进入shell,但没有url</span></span><br><span class="line">headers = &#123;<span class="string">'User-Agent'</span>: <span class="string">'User-Agent:Mozilla/5.0 (Windows NT 6.1; rv:2.0.1) Gecko/20100101 Firefox/4.0.1'</span>&#125;</span><br><span class="line">req = scrapy.Request(url=<span class="string">'url'</span>,headers=headers)</span><br><span class="line">fetch(req) <span class="comment"># 如此就等价于scrapy shell url # 添加了headers</span></span><br></pre></td></tr></table></figure>
 
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://spiderblog.cn/Xpath.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar_bear.png">
+      <meta itemprop="name" content="Mr.Zhou">
+      <meta itemprop="description" content="喜欢的编程语言是Python，喜欢做爬虫与数据相关">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SpiderBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Xpath.html" class="post-title-link" itemprop="url">Xpath</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-22 02:08:10" itemprop="dateCreated datePublished" datetime="2020-02-22T02:08:10+08:00">2020-02-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-23 00:42:18" itemprop="dateModified" datetime="2020-02-23T00:42:18+08:00">2020-02-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Xpath/" itemprop="url" rel="index">
+                    <span itemprop="name">Xpath</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="选取节点"><a href="#选取节点" class="headerlink" title="选取节点"></a>选取节点</h4><ul>
+<li>节点是通过沿着路径或者 step 来选取的</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">表达式</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">node_name</td>
+<td align="left">选取此节点的所有子节点。</td>
+</tr>
+<tr>
+<td align="left">/</td>
+<td align="left">从根节点选取。</td>
+</tr>
+<tr>
+<td align="left">//</td>
+<td align="left">从匹配选择的当前节点选择文档中的节点，而不考虑它们的位置。</td>
+</tr>
+<tr>
+<td align="left">.</td>
+<td align="left">选取当前节点。</td>
+</tr>
+<tr>
+<td align="left">..</td>
+<td align="left">选取当前节点的父节点。</td>
+</tr>
+<tr>
+<td align="left">@</td>
+<td align="left"><strong>选取属性。</strong></td>
+</tr>
+</tbody></table>
+<h4 id="谓语"><a href="#谓语" class="headerlink" title="谓语"></a>谓语</h4><ul>
+<li>谓语用来查找某个特定的节点或者包含某个指定的值的节点。</li>
+<li>谓语被嵌在方括号中。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">路径表达式</th>
+<th align="left">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">/bookstore/book[1]</td>
+<td align="left">选取属于 bookstore 子元素的第一个 book 元素。</td>
+</tr>
+<tr>
+<td align="left">/bookstore/book[last()]</td>
+<td align="left">选取属于 bookstore 子元素的最后一个 book 元素。</td>
+</tr>
+<tr>
+<td align="left">/bookstore/book[last()-1]</td>
+<td align="left">选取属于 bookstore 子元素的倒数第二个 book 元素。</td>
+</tr>
+<tr>
+<td align="left">/bookstore/book[position()&lt;3]</td>
+<td align="left">选取最前面的两个属于 bookstore 元素的子元素的 book 元素。</td>
+</tr>
+<tr>
+<td align="left">//title[@lang]</td>
+<td align="left">选取所有拥有名为 lang 的属性的 title 元素。</td>
+</tr>
+<tr>
+<td align="left">//title[@lang=’eng’]</td>
+<td align="left">选取所有 title 元素，且这些元素拥有值为 eng 的 lang 属性。</td>
+</tr>
+<tr>
+<td align="left">/bookstore/book[price&gt;35.00]</td>
+<td align="left">选取 bookstore 元素的所有 book 元素，且其中的 price 元素的值须大于 35.00。</td>
+</tr>
+<tr>
+<td align="left">/bookstore/book[price&gt;35.00]/title</td>
+<td align="left">选取 bookstore 元素中的 book 元素的所有 title 元素，且其中的 price 元素的值须大于 35.00。</td>
+</tr>
+</tbody></table>
+<h4 id="XPath-通配符"><a href="#XPath-通配符" class="headerlink" title="XPath 通配符"></a>XPath 通配符</h4><table>
+<thead>
+<tr>
+<th align="left">通配符</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">*</td>
+<td align="left">匹配任何元素节点。</td>
+</tr>
+<tr>
+<td align="left">@*</td>
+<td align="left">匹配任何属性节点。</td>
+</tr>
+<tr>
+<td align="left">node()</td>
+<td align="left">匹配任何类型的节点。</td>
+</tr>
+</tbody></table>
+<ul>
+<li>通过在路径表达式中使用“|”运算符，您可以选取若干个路径。</li>
+</ul>
+<h4 id="步的语法"><a href="#步的语法" class="headerlink" title="步的语法"></a>步的语法</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">轴名称::节点测试[谓语]</span><br></pre></td></tr></table></figure>
+
+<h4 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h4><ul>
+<li>XPath 表达式可返回节点集、字符串、逻辑值以及数字。（与python基本一样）</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">运算符</th>
+<th align="left">描述</th>
+<th align="left">实例</th>
+<th align="left">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">|</td>
+<td align="left">计算两个节点集</td>
+<td align="left">//book | //cd</td>
+<td align="left">返回所有拥有 book 和 cd 元素的节点集</td>
+</tr>
+<tr>
+<td align="left">div</td>
+<td align="left">除法</td>
+<td align="left">8 div 4</td>
+<td align="left">2</td>
+</tr>
+</tbody></table>
 
       
     </div>
@@ -778,258 +1184,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://spiderblog.cn/Interview-3.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar_bear.png">
-      <meta itemprop="name" content="Mr.Zhou">
-      <meta itemprop="description" content="喜欢的编程语言是Python，喜欢做爬虫与数据相关">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SpiderBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Interview-3.html" class="post-title-link" itemprop="url">Interview-3</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-01-27 23:06:10 / 修改时间：23:51:33" itemprop="dateCreated datePublished" datetime="2020-01-27T23:06:10+08:00">2020-01-27</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Interview/" itemprop="url" rel="index">
-                    <span itemprop="name">Interview</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="Python-的内存管理机制及调优手段？"><a href="#Python-的内存管理机制及调优手段？" class="headerlink" title="Python 的内存管理机制及调优手段？"></a>Python 的内存管理机制及调优手段？</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 内存管理机制：引用计数、垃圾回收、内存池</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.引用计数</span></span><br><span class="line">当一个 Python 对象被引用时，引用计数加<span class="number">1</span>，</span><br><span class="line">当不再被一个变量，减<span class="number">1</span>，</span><br><span class="line">当引用计数等于<span class="number">0</span>时对象被删除。</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 2.垃圾回收</span></span><br><span class="line"><span class="number">2.1</span> 引用计数</span><br><span class="line">当引用计数为<span class="number">0</span>,则被回收 （对循环引用，失效）</span><br><span class="line"><span class="number">2.2</span> 标记清除 </span><br><span class="line">针对循环引用，先将循环引用摘掉，得出有效计数</span><br><span class="line"><span class="number">2.3</span> 分代回收</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 3. 内存池</span></span><br><span class="line">用于管理对小块内存的申请和释放（小于<span class="number">256</span>字节的，直接在内存池申请内存）</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">调优手段（了解）</span><br><span class="line"><span class="number">1.</span>手动垃圾回收</span><br><span class="line"><span class="number">2.</span>调高垃圾回收阈值</span><br><span class="line"><span class="number">3.</span>避免循环引用（手动解循环引用和使用弱引用）</span><br></pre></td></tr></table></figure>
-
-<h3 id="内存泄露是什么？如何避免？"><a href="#内存泄露是什么？如何避免？" class="headerlink" title="内存泄露是什么？如何避免？"></a>内存泄露是什么？如何避免？</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 由于设计错误，失去对该段内存的控制，造成内存浪费。</span></span><br><span class="line"><span class="comment"># 有 __del__() 函数的对象间的循环引用是导致内存泄漏的主凶</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 避免</span></span><br><span class="line">不使用一个对象时使用 <span class="keyword">del</span> object 删除一个引用计数</span><br><span class="line">可以通过 sys.getrefcount(obj) 获取对象的引用计数，根据返回值是否为 <span class="number">0</span> 判断是否内存泄漏</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://spiderblog.cn/Interview-2.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar_bear.png">
-      <meta itemprop="name" content="Mr.Zhou">
-      <meta itemprop="description" content="喜欢的编程语言是Python，喜欢做爬虫与数据相关">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SpiderBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Interview-2.html" class="post-title-link" itemprop="url">Interview-2</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-01-27 22:28:51" itemprop="dateCreated datePublished" datetime="2020-01-27T22:28:51+08:00">2020-01-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-04 15:17:41" itemprop="dateModified" datetime="2020-02-04T15:17:41+08:00">2020-02-04</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Interview/" itemprop="url" rel="index">
-                    <span itemprop="name">Interview</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 日志以文本可以存储在“/var/log/”目录下后缀名为.log</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看服务占用的端口</span></span><br><span class="line">netstat -anp | grep service_name</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grep 是查找匹配条件的行</span><br><span class="line">find 是搜索匹配条件的文件（找文件）</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Linux 重定向命令有哪些？有什么区别?</span></span><br><span class="line"><span class="number">1.</span> 重定向&gt;   覆盖</span><br><span class="line"><span class="number">2.</span> 重定向&gt;&gt;  追加</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 10 个常用的 Linux 命令</span></span><br><span class="line">pwd 显示工作路径</span><br><span class="line">ls 查看目录中的文件</span><br><span class="line">rm -f file1   <span class="comment"># 删文件 -f 不给提示</span></span><br><span class="line">rmdir dir1    <span class="comment"># 删目录</span></span><br><span class="line">groupadd group_name <span class="comment"># 创建一个新用户组</span></span><br><span class="line">groupdel group_name <span class="comment"># 删除一个用户组</span></span><br><span class="line">tar -cvf archive.tar file1 file2 dir1  <span class="comment"># 创建一个非压缩的 tar包</span></span><br><span class="line">tar -tf archive.tar <span class="comment"># 显示一个包中的内容</span></span><br><span class="line">tar -xvf archive.tar -C /tmp <span class="comment"># 解压压缩包到/tmp目录下</span></span><br><span class="line"><span class="comment"># -c 压缩 -x 解压 -v 显示所有过程 -f 压缩包名字</span></span><br><span class="line">tar -cvfj archive.tar.bz2 dir1  <span class="comment"># 创建一个 bzip2 格式的压缩包</span></span><br><span class="line">tar -xvfj archive.tar.bz2       <span class="comment"># 解压一个 bzip2 格式的压缩包</span></span><br><span class="line">tar -cvfz archive.tar.gz dir1   <span class="comment"># 创建一个 gzip 格式的压缩包</span></span><br><span class="line">tar -xvfz archive.tar.gz        <span class="comment"># 解压一个 gzip 格式的压缩包</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 关机</span></span><br><span class="line">reboot  <span class="comment"># 重启</span></span><br><span class="line">shutdown –r now  <span class="comment"># 重启，会给其他用户提示</span></span><br><span class="line">shutdown -h <span class="number">20</span>:<span class="number">25</span>   <span class="comment">#  定时关机</span></span><br><span class="line">shutdown -h +<span class="number">10</span>  <span class="comment"># 十分钟后关机</span></span><br><span class="line">init <span class="number">0</span>  <span class="comment"># 关机</span></span><br><span class="line">init <span class="number">6</span>  <span class="comment"># 重启</span></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://spiderblog.cn/File-io.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar_bear.png">
-      <meta itemprop="name" content="Mr.Zhou">
-      <meta itemprop="description" content="喜欢的编程语言是Python，喜欢做爬虫与数据相关">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SpiderBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/File-io.html" class="post-title-link" itemprop="url">File-io</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-01-27 15:15:17" itemprop="dateCreated datePublished" datetime="2020-01-27T15:15:17+08:00">2020-01-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-04 15:01:36" itemprop="dateModified" datetime="2020-02-04T15:01:36+08:00">2020-02-04</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Interview/" itemprop="url" rel="index">
-                    <span itemprop="name">Interview</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="4G-内存怎么读取一个-5G-的数据？"><a href="#4G-内存怎么读取一个-5G-的数据？" class="headerlink" title="4G 内存怎么读取一个 5G 的数据？"></a>4G 内存怎么读取一个 5G 的数据？</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法一:</span></span><br><span class="line"><span class="comment"># 生成器，分多次读取</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_read</span><span class="params">(file, separator)</span>:</span>  <span class="comment"># 流对象，分隔符</span></span><br><span class="line">    buffer = <span class="string">""</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="keyword">while</span> separator <span class="keyword">in</span> buffer:  <span class="comment"># 此处while比if更合适, 处理buffer有多个separator</span></span><br><span class="line">            pos = buffer.index(separator)  <span class="comment"># 获取第一个下标</span></span><br><span class="line">            <span class="keyword">yield</span> separator[:pos]</span><br><span class="line">            buffer = buffer[pos + len(separator):]</span><br><span class="line">        chunk = file.read(<span class="number">2000</span>)  <span class="comment"># 太小也会降低效率</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> chunk:</span><br><span class="line">            <span class="keyword">yield</span> buffer</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        buffer = buffer + chunk</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'f.txt'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> my_read(f, separator=<span class="string">'\n'</span>):</span><br><span class="line">        print(line)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法二:</span></span><br><span class="line"><span class="comment"># linux命令split切割成小文件</span></span><br><span class="line">split -l <span class="number">300</span> big.txt -d -a <span class="number">4</span> big_  <span class="comment"># 系数不是字母而是数字（-d），后缀系数为四位数（-a 4）</span></span><br><span class="line">split -b <span class="number">10</span>m big.txt big_          <span class="comment"># 按照大小切割</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><a href="https://blog.csdn.net/mxgsgtc/article/details/12048919" target="_blank" rel="external nofollow noopener noreferrer">linux命令split切割成小文件</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1101,20 +1255,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-count">34</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
