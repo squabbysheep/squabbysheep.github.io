@@ -4,5 +4,5 @@ Allow: /categories/
 Allow: /tags/
 
 
-Sitemap: http://www.langzi.fun/sitemap.xml
-Sitemap: http://www.langzi.fun/baidusitemap.xml
+Sitemap: http://spiderblog.cn/sitemap.xml
+Sitemap: http://spiderblog.cn/baidusitemap.xml
