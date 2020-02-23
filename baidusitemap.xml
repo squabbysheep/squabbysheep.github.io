@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://spiderblog.cn/ADSL-IP-PROXY.html</loc>
+    <lastmod>2020-02-23</lastmod>
+  </url>  <url>
+    <loc>http://spiderblog.cn/PEP8.html</loc>
+    <lastmod>2020-02-23</lastmod>
+  </url>  <url>
+    <loc>http://spiderblog.cn/Logging.html</loc>
+    <lastmod>2020-02-22</lastmod>
+  </url>  <url>
     <loc>http://spiderblog.cn/Git.html</loc>
     <lastmod>2020-02-22</lastmod>
   </url>  <url>
@@ -35,9 +44,6 @@
     <lastmod>2020-02-04</lastmod>
   </url>  <url>
     <loc>http://spiderblog.cn/Function-param.html</loc>
-    <lastmod>2020-02-04</lastmod>
-  </url>  <url>
-    <loc>http://spiderblog.cn/ADSL-IP-PROXY.html</loc>
     <lastmod>2020-02-04</lastmod>
   </url>  <url>
     <loc>http://spiderblog.cn/Python-call-C.html</loc>

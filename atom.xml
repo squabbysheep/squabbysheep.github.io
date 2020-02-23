@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://spiderblog.cn/"/>
-  <updated>2020-02-22T16:49:25.479Z</updated>
+  <updated>2020-02-23T14:03:22.154Z</updated>
   <id>http://spiderblog.cn/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PEP8</title>
+    <link href="http://spiderblog.cn/PEP8.html"/>
+    <id>http://spiderblog.cn/PEP8.html</id>
+    <published>2020-02-23T13:48:46.000Z</published>
+    <updated>2020-02-23T14:03:22.154Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">TODO 表示需要做而未做的一些待完成的事项，有助于事后的检索，以及对整体项目做进一步的修改迭代。</span><br><span class="line"><span class="comment"># 规范例子如下:</span></span><br><span class="line"><span class="comment"># TODO(worder_name): [2020-02-23, 2020-02-28] Explain what to do.</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;TODO&quot;&gt;&lt;a href=&quot;#TODO&quot; class=&quot;headerlink&quot; title=&quot;TODO&quot;&gt;&lt;/a&gt;TODO&lt;/h4&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;p
+      
+    
+    </summary>
+    
+    
+      <category term="PEP8" scheme="http://spiderblog.cn/categories/PEP8/"/>
+    
+    
+      <category term="PEP8" scheme="http://spiderblog.cn/tags/PEP8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Logging</title>
+    <link href="http://spiderblog.cn/Logging.html"/>
+    <id>http://spiderblog.cn/Logging.html</id>
+    <published>2020-02-22T18:25:02.000Z</published>
+    <updated>2020-02-22T19:13:41.409Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="日志级别"><a href="#日志级别" class="headerlink" title="日志级别"></a>日志级别</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line">logging.debug(<span class="string">"Hello"</span>)</span><br><span class="line">logging.info(<span class="string">"Hello"</span>)</span><br><span class="line">logging.warning(<span class="string">"Hello"</span>) <span class="comment"># 默认</span></span><br><span class="line">logging.error(<span class="string">"Hello"</span>)</span><br><span class="line">logging.critical(<span class="string">"Hello"</span>)</span><br></pre></td></tr></table></figure><h4 id="控制级别"><a href="#控制级别" class="headerlink" title="控制级别"></a>控制级别</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line">logging.basicConfig(level=logging.NOTSET)  <span class="comment"># 设置日志级别</span></span><br></pre></td></tr></table></figure><h4 id="控制日志格式"><a href="#控制日志格式" class="headerlink" title="控制日志格式"></a>控制日志格式</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">logging.basicConfig(level=logging.DEBUG,</span><br><span class="line">             format=<span class="string">'[%(levelname)s][%(asctime)s][%(filename)s][%(message)s]'</span>)</span><br><span class="line"><span class="comment"># 推荐格式'[%(levelname)s][%(asctime)s][%(filename)s][%(message)s]'</span></span><br></pre></td></tr></table></figure><h4 id="基本操作流程（经典案例）"><a href="#基本操作流程（经典案例）" class="headerlink" title="基本操作流程（经典案例）"></a>基本操作流程（经典案例）</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">logger = logging.getLogger()</span><br><span class="line">logger.setLevel(logging.DEBUG)  <span class="comment"># 设置为最低</span></span><br><span class="line"></span><br><span class="line">log_dir = os.path.join(os.getcwd(), <span class="string">'Logs'</span>)</span><br><span class="line">log_file = os.path.join(log_dir, <span class="string">'spider_error.log'</span>)</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(log_dir):</span><br><span class="line">    os.mkdir(log_dir)</span><br><span class="line"></span><br><span class="line">file_handler = logging.FileHandler(log_file, mode=<span class="string">'a'</span>)  <span class="comment"># 日志文件</span></span><br><span class="line">file_handler.setLevel(logging.ERROR)</span><br><span class="line">file_handler.setFormatter(logging.Formatter(<span class="string">'[%(levelname)s][%(asctime)s][%(message)s]'</span>))</span><br><span class="line">logger.addHandler(file_handler)</span><br><span class="line"></span><br><span class="line">console_handler = logging.StreamHandler()  <span class="comment"># 控制台</span></span><br><span class="line">console_handler.setLevel(logging.INFO)</span><br><span class="line">console_handler.setFormatter(logging.Formatter(<span class="string">'[%(levelname)s][%(asctime)s][%(message)s]'</span>))</span><br><span class="line">logger.addHandler(console_handler)</span><br><span class="line"><span class="comment"># 所有日志都到logger里面,需要输出到哪里，就过滤，拷贝到哪里。</span></span><br></pre></td></tr></table></figure><p><a href="https://www.cnblogs.com/CJOKER/p/8295272.html" target="_blank" rel="external nofollow noopener noreferrer">logging参考连接</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;日志级别&quot;&gt;&lt;a href=&quot;#日志级别&quot; class=&quot;headerlink&quot; title=&quot;日志级别&quot;&gt;&lt;/a&gt;日志级别&lt;/h4&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;p
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="http://spiderblog.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="http://spiderblog.cn/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>Git</title>
@@ -330,9 +382,9 @@
       <category term="Interview" scheme="http://spiderblog.cn/categories/Interview/"/>
     
     
-      <category term="Interview" scheme="http://spiderblog.cn/tags/Interview/"/>
-    
       <category term="Linux" scheme="http://spiderblog.cn/tags/Linux/"/>
+    
+      <category term="Interview" scheme="http://spiderblog.cn/tags/Interview/"/>
     
   </entry>
   
@@ -483,58 +535,6 @@
       
       
         &lt;h4 id=&quot;开启端口&quot;&gt;&lt;a href=&quot;#开启端口&quot; class=&quot;headerlink&quot; title=&quot;开启端口&quot;&gt;&lt;/a&gt;开启端口&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pr
-      
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://spiderblog.cn/categories/Linux/"/>
-    
-    
-      <category term="Linux" scheme="http://spiderblog.cn/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux-utils</title>
-    <link href="http://spiderblog.cn/Linux-utils.html"/>
-    <id>http://spiderblog.cn/Linux-utils.html</id>
-    <published>2020-01-09T06:41:18.000Z</published>
-    <updated>2020-02-04T07:02:04.740Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="axel"><a href="#axel" class="headerlink" title="axel"></a>axel</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 多线程下载工具-替代curl和wget</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 使用</span></span><br><span class="line">axel -n 20 http://download.redis.io/releases/redis-5.0.7.tar.gz</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h4 id=&quot;axel&quot;&gt;&lt;a href=&quot;#axel&quot; class=&quot;headerlink&quot; title=&quot;axel&quot;&gt;&lt;/a&gt;axel&lt;/h4&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pr
-      
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://spiderblog.cn/categories/Linux/"/>
-    
-    
-      <category term="Linux" scheme="http://spiderblog.cn/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Centos7-yum</title>
-    <link href="http://spiderblog.cn/Centos7-yum.html"/>
-    <id>http://spiderblog.cn/Centos7-yum.html</id>
-    <published>2020-01-09T04:04:59.000Z</published>
-    <updated>2020-02-04T07:07:43.879Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="安装源和更新"><a href="#安装源和更新" class="headerlink" title="安装源和更新"></a>安装源和更新</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 这操作很重要，可以避免很多版本性bug</span></span><br><span class="line">yum install -y epel-release</span><br><span class="line">yum update -y</span><br></pre></td></tr></table></figure><h4 id="安装Python"><a href="#安装Python" class="headerlink" title="安装Python"></a>安装Python</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install python36</span><br></pre></td></tr></table></figure><h4 id="安装Redis"><a href="#安装Redis" class="headerlink" title="安装Redis"></a>安装Redis</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum install redis</span><br><span class="line"># 配置文件默认在&#x2F;etc&#x2F;redis.conf </span><br><span class="line"># redis-server &#x2F;etc&#x2F;redis.conf  # 运行服务</span><br><span class="line"># redis-cli -a password  # 登录</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">编译安装redis链接：https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_39185919&#x2F;article&#x2F;details&#x2F;100564713</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h4 id=&quot;安装源和更新&quot;&gt;&lt;a href=&quot;#安装源和更新&quot; class=&quot;headerlink&quot; title=&quot;安装源和更新&quot;&gt;&lt;/a&gt;安装源和更新&lt;/h4&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gut
       
     
     </summary>
