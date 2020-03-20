@@ -10,6 +10,6 @@ permalink: /404
 </center>
 
 <blockquote class="blockquote-center">
-    SpiderBlog
+    SpiderBlog.cn
 </blockquote>
 

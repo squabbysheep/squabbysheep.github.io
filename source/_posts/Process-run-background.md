@@ -20,6 +20,7 @@ categories:
 nohup ping www.ibm.com &
 # nohup 的用途就是让提交的命令忽略 hangup 信号
 # 标准输出和标准错误缺省会被重定向到 nohup.out 文件中，也可使用 >filename 2>&1 来重定向文件名
+nohup python3 run.py >/dev/null 2>&1 &
 ```
 
 #### 2. setsid

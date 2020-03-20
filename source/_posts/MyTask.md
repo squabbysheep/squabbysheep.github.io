@@ -10,7 +10,7 @@ categories:
 #### MyTask-studing
 
 ```
-精通Python-面向对象编程
+多熟悉Python-面向对象编程
 熟悉常用函数库
 Xpath
 正则表达式
@@ -42,6 +42,3 @@ docker
 flask
 django
 ```
-
-#### 爬虫相关要求
-
