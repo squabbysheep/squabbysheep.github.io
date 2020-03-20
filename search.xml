@@ -1,6 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Linux-1</title>
+    <url>/Linux-1.html</url>
+    <content><![CDATA[<h4 id="Linux复习笔记"><a href="#Linux复习笔记" class="headerlink" title="Linux复习笔记"></a>Linux复习笔记</h4><h5 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 1.添加用户</span><br><span class="line">useradd xm</span><br><span class="line">useradd -d &#x2F;home&#x2F;xm xm  # 指定家目录</span><br><span class="line">useradd -g gxm xm  # 指定用户组gxm</span><br><span class="line"># 2.密码</span><br><span class="line">passwd xm</span><br><span class="line"># 3.删除用户</span><br><span class="line">userdel xm</span><br><span class="line">userdel -r xm  # 删除家目录</span><br><span class="line"># 4.查询用户信息</span><br><span class="line">id xm</span><br><span class="line"># 5.切换用户</span><br><span class="line">su xm</span><br><span class="line">exit  # 退回原来的用户</span><br><span class="line"># 6.修改用户的组</span><br><span class="line">usermod -g gxm xm</span><br><span class="line"># 7.修改用户家目录</span><br><span class="line">usermod -d &#x2F;home&#x2F;xm xm</span><br></pre></td></tr></table></figure>
+
+<h5 id="用户组管理"><a href="#用户组管理" class="headerlink" title="用户组管理"></a>用户组管理</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 1.添加用户组</span><br><span class="line">groupadd xm</span><br><span class="line"># 2.删除用户组</span><br><span class="line">groupdel xm</span><br></pre></td></tr></table></figure>
+
+<h5 id="用户相关文件"><a href="#用户相关文件" class="headerlink" title="用户相关文件"></a>用户相关文件</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 用户的配置文件，记录用户的各种信息（用户名，用户id，组id，家目录，shell）</span><br><span class="line">&#x2F;etc&#x2F;passwd</span><br><span class="line"># 密码的配置文件（登录名:加密口令:最后修改时间:最小间隔:最大间隔:警告时间:不活动时间:失效时间:标志）</span><br><span class="line">&#x2F;etc&#x2F;shadow</span><br><span class="line"># 组的配置文件（组名，组id）</span><br><span class="line">&#x2F;etc&#x2F;group</span><br></pre></td></tr></table></figure>
+
+<h5 id="文件权限管理"><a href="#文件权限管理" class="headerlink" title="文件权限管理"></a>文件权限管理</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chown xm a.txt  # 修改所属用户 </span><br><span class="line">chgrp gxm a.txt  # 修改所属组</span><br><span class="line">chown xm:gxm a.txt  # 同时修改（特殊用法）</span><br><span class="line">-R  递归生效</span><br><span class="line"># 修改文件权限 u g o a 可以 +- rwx</span><br><span class="line">chmod o-x a.txt</span><br><span class="line">chmod 421 a.txt # r-- -w- --x</span><br></pre></td></tr></table></figure>
+
+<h5 id="任务调度"><a href="#任务调度" class="headerlink" title="任务调度"></a>任务调度</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> /etc/crontab  <span class="comment"># 服务名为 crond  </span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> systemctl restart crond</span></span><br><span class="line">crontab  </span><br><span class="line">-e 编辑  # 格式*/1 8,12 * * 0-7 ll /root &gt;&gt; /root/to.log  # *和,和-和*/n</span><br><span class="line">        # 格式 * * * * * /home/mytask1.sh # 直接跟shell脚本 # 要注意执行权限</span><br><span class="line">-l 查询</span><br><span class="line">-r 删除当前用户所有的crontab任务</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Pip</title>
+    <url>/Pip.html</url>
+    <content><![CDATA[<h4 id="设置pip源"><a href="#设置pip源" class="headerlink" title="设置pip源"></a>设置pip源</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd  # 回到家目录</span><br><span class="line">mkdir .pip</span><br><span class="line">vim .pip&#x2F;pip.conf</span><br><span class="line">写入如下内容</span><br><span class="line">[global]</span><br><span class="line">timeout &#x3D; 6000</span><br><span class="line">index-url &#x3D; http:&#x2F;&#x2F;pypi.douban.com&#x2F;simple</span><br><span class="line">trusted-host &#x3D; pypi.douban.com</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Pip</category>
+      </categories>
+      <tags>
+        <tag>Pip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Scrapy-redis</title>
+    <url>/Scrapy-redis.html</url>
+    <content><![CDATA[<h4 id="Scrapy-redis"><a href="#Scrapy-redis" class="headerlink" title="Scrapy-redis"></a>Scrapy-redis</h4><h5 id="setting"><a href="#setting" class="headerlink" title="setting"></a>setting</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 启用调度redis中的存储请求队列</span></span><br><span class="line">SCHEDULER = <span class="string">"scrapy_redis.scheduler.Scheduler"</span></span><br><span class="line"><span class="comment"># 确保所有蜘蛛通过redis共享同一个过滤器。</span></span><br><span class="line">DUPEFILTER_CLASS = <span class="string">"scrapy_redis.dupefilter.RFPDupeFilter"</span></span><br><span class="line"><span class="comment"># 不清理redis队列，允许暂停/恢复爬网。</span></span><br><span class="line">SCHEDULER_PERSIST = <span class="literal">True</span></span><br><span class="line"><span class="comment"># 使用优先级队列调度请求。（默认）</span></span><br><span class="line">SCHEDULER_QUEUE_CLASS = <span class="string">'scrapy_redis.queue.PriorityQueue'</span></span><br><span class="line"><span class="comment"># 备用队列。</span></span><br><span class="line">SCHEDULER_QUEUE_CLASS = <span class="string">'scrapy_redis.queue.FifoQueue'</span></span><br><span class="line">SCHEDULER_QUEUE_CLASS = <span class="string">'scrapy_redis.queue.LifoQueue'</span></span><br><span class="line"><span class="comment"># 防止蜘蛛在分布式爬网时关闭的最大空闲时间。这仅在队列类为SpiderQueue或SpiderStack时有效，并且在蜘蛛第一次启动时也可能会阻止这么长的时间（因为队列为空）。</span></span><br><span class="line">SCHEDULER_IDLE_BEFORE_CLOSE = <span class="number">10</span></span><br><span class="line"><span class="comment"># 将爬取的item存储在redis数据库中</span></span><br><span class="line">ITEM_PIPELINES = &#123;</span><br><span class="line">    <span class="string">'scrapy_redis.pipelines.RedisPipeline'</span>: <span class="number">300</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 存储item的redis的key</span></span><br><span class="line">REDIS_ITEMS_KEY = <span class="string">'%(spider)s:items'</span></span><br><span class="line"><span class="comment"># 默认情况下，item的序列化程序是ScrapyJSONEncoder。</span></span><br><span class="line">REDIS_ITEMS_SERIALIZER = <span class="string">'json.dumps'</span></span><br><span class="line"><span class="comment"># 连接Redis时，使用的主机和端口（可选）。</span></span><br><span class="line">REDIS_HOST = <span class="string">'localhost'</span></span><br><span class="line">REDIS_PORT = <span class="number">6379</span></span><br><span class="line"><span class="comment"># 指定用于连接Redis的完整URL（可选）。</span></span><br><span class="line"><span class="comment"># 如果设置，它将优先于REDIS_HOST和REDIS_PORT设置。</span></span><br><span class="line">REDIS_URL = <span class="string">'redis://user:pass@hostname:9001'</span></span><br><span class="line"><span class="comment"># 自定义Redis客户端参数（即：套接字超时等）</span></span><br><span class="line">REDIS_PARAMS  = &#123;&#125;</span><br><span class="line"><span class="comment"># 是否对初始urls去重，默认False，为不去重</span></span><br><span class="line">REDIS_START_URLS_AS_SET = <span class="literal">False</span></span><br><span class="line"><span class="comment"># 获取起始URL默认的redis key。</span></span><br><span class="line">REDIS_START_URLS_KEY = <span class="string">'%(name)s:start_urls'</span></span><br><span class="line"><span class="comment"># 使用utf-8以外的其他编码对redis进行编码，默认是utf-8</span></span><br><span class="line"><span class="comment"># REDIS_ENCODING = 'latin1'</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="spider编写"><a href="#spider编写" class="headerlink" title="spider编写"></a>spider编写</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MySpider</span><span class="params">(RedisSpider)</span>:</span></span><br><span class="line">    name = <span class="string">'myspider'</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        <span class="comment"># do stuff</span></span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="启动spider"><a href="#启动spider" class="headerlink" title="启动spider"></a>启动spider</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 1. run the spider:</span></span><br><span class="line">scrapy runspider myspider.py</span><br><span class="line"><span class="comment"># 2. push urls to redis:</span></span><br><span class="line">redis-cli lpush myspider:start_urls http://google.com</span><br><span class="line"><span class="comment"># 两者先后顺序不重要，因为 SCHEDULER_IDLE_BEFORE_CLOSE = 10 会等待</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Scrapy-redis</category>
+      </categories>
+      <tags>
+        <tag>Scrapy-redis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CSV</title>
+    <url>/CSV.html</url>
+    <content><![CDATA[<h4 id="CSV"><a href="#CSV" class="headerlink" title="CSV"></a>CSV</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'test.csv'</span>, <span class="string">'a'</span>, encoding=<span class="string">'utf-8-sig'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(<span class="string">','</span>.join(test_list) + <span class="string">'\n'</span>)</span><br><span class="line"><span class="comment"># 使用utf-8-sig，避免格式错误</span></span><br><span class="line"><span class="comment"># csv是使用","来实现分隔吗,要注意输入值含有逗号会出现结果异常</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>CSV</category>
+      </categories>
+      <tags>
+        <tag>CSV</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Email</title>
+    <url>/Email.html</url>
+    <content><![CDATA[<h4 id="发送邮件，带附件"><a href="#发送邮件，带附件" class="headerlink" title="发送邮件，带附件"></a>发送邮件，带附件</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> smtplib</span><br><span class="line"><span class="keyword">from</span> email <span class="keyword">import</span> encoders</span><br><span class="line"><span class="keyword">from</span> email.header <span class="keyword">import</span> Header</span><br><span class="line"><span class="keyword">from</span> email.mime.text <span class="keyword">import</span> MIMEText</span><br><span class="line"><span class="keyword">from</span> email.mime.multipart <span class="keyword">import</span> MIMEMultipart</span><br><span class="line"><span class="keyword">from</span> email.mime.base <span class="keyword">import</span> MIMEBase</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">send_email</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 邮件一般是由标题，发信人，收件人，邮件内容，附件等构成</span></span><br><span class="line">    msg = MIMEMultipart()</span><br><span class="line">    msg[<span class="string">'From'</span>] = Header(<span class="string">'Worker&lt;1837722596@qq.com&gt;'</span>)  <span class="comment"># 发件人</span></span><br><span class="line">    msg[<span class="string">'To'</span>] = Header(<span class="string">'Administrators&lt;17859717522@163.com&gt;'</span>)  <span class="comment"># 收件人</span></span><br><span class="line">    msg[<span class="string">'Subject'</span>] = Header(<span class="string">'Work in 2020.'</span>, <span class="string">'utf-8'</span>).encode()  <span class="comment"># 标题</span></span><br><span class="line">    msg.attach(MIMEText(<span class="string">'hello, work completed.'</span>, <span class="string">'plain'</span>, <span class="string">'utf-8'</span>))  <span class="comment"># 内容</span></span><br><span class="line"></span><br><span class="line">    zip_path = os.path.join(os.path.abspath(<span class="string">'.'</span>), <span class="string">'test.zip'</span>)</span><br><span class="line">    <span class="keyword">with</span> open(zip_path, <span class="string">'rb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        mime = MIMEBase(<span class="string">'zip'</span>, <span class="string">'zip'</span>, filename=zip_path)</span><br><span class="line">        <span class="comment"># 加上必要的头信息:</span></span><br><span class="line">        mime.add_header(<span class="string">'Content-Disposition'</span>, <span class="string">'attachment'</span>, filename=(<span class="string">'utf8'</span>, <span class="string">''</span>, <span class="string">'test1.zip'</span>))</span><br><span class="line">        mime.add_header(<span class="string">'Content-ID'</span>, <span class="string">'&lt;0&gt;'</span>)</span><br><span class="line">        mime.add_header(<span class="string">'X-Attachment-Id'</span>, <span class="string">'0'</span>)</span><br><span class="line">        <span class="comment"># 把附件的内容读进来:</span></span><br><span class="line">        mime.set_payload(f.read())</span><br><span class="line">    encoders.encode_base64(mime)</span><br><span class="line">    msg.attach(mime)</span><br><span class="line"></span><br><span class="line">    server = smtplib.SMTP(<span class="string">"smtp.qq.com"</span>, <span class="number">25</span>)</span><br><span class="line">    server.starttls()  <span class="comment"># 加密</span></span><br><span class="line">    server.login(<span class="string">"1837722596@qq.com"</span>, <span class="string">"gphfapcvqmjubeje"</span>)  <span class="comment"># 授权码</span></span><br><span class="line">    server.sendmail(<span class="string">"1837722596@qq.com"</span>, [<span class="string">"17859717522@163.com"</span>, ], msg.as_string())</span><br><span class="line">    server.quit()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    send_email()</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PEP8</title>
     <url>/PEP8.html</url>
     <content><![CDATA[<h4 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">TODO 表示需要做而未做的一些待完成的事项，有助于事后的检索，以及对整体项目做进一步的修改迭代。</span><br><span class="line"><span class="comment"># 规范例子如下:</span></span><br><span class="line"><span class="comment"># TODO(worder_name): [2020-02-23, 2020-02-28] Explain what to do.</span></span><br></pre></td></tr></table></figure>
@@ -323,7 +400,31 @@
     <url>/Scrapy-1.html</url>
     <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">命令加上参数 --nolog 可以去掉log日志输出</span><br></pre></td></tr></table></figure>
 
-]]></content>
+<h4 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> scrapy.downloadermiddlewares.retry <span class="keyword">import</span> RetryMiddleware <span class="comment"># 参考这个写即可</span></span><br><span class="line"><span class="comment"># 设置最大等待时间、失败重试次数</span></span><br><span class="line">DOWNLOAD_TIMEOUT = <span class="number">10</span></span><br><span class="line">RETRY_ENABLED = <span class="literal">True</span>  <span class="comment"># 失败重试</span></span><br><span class="line">RETRY_TIMES = <span class="number">5</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="scrapy复习笔记"><a href="#scrapy复习笔记" class="headerlink" title="scrapy复习笔记"></a>scrapy复习笔记</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">allowed_domains = [] <span class="comment"># 与OffsiteMiddleware中间件挂钩</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">scrapy.FormRequest() <span class="comment"># post请求</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> scrapy.downloadermiddlewares.retry <span class="keyword">import</span> RetryMiddleware </span><br><span class="line"><span class="comment"># 异常处理，必须看源码，必须对异常进行处理</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">get()和getall()</span><br><span class="line">get(default&#x3D;&#39;not-found&#39;) #设置默认值</span><br><span class="line">.attrib[&#39;src&#39;]  # 获取属性值，它返回第一个匹配元素的属性</span><br><span class="line">scrapy css特有的::text和::attr(name)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; response.css(&#39;base&#39;).attrib   # 变成dict了</span><br><span class="line">&#123;&#39;href&#39;: &#39;http:&#x2F;&#x2F;example.com&#x2F;&#39;&#125;</span><br><span class="line">&gt;&gt;&gt; response.css(&#39;base&#39;).attrib[&#39;href&#39;]</span><br><span class="line">&#39;http:&#x2F;&#x2F;example.com&#x2F;&#39;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 例子</span><br><span class="line">&gt;&gt;&gt; response.xpath(&#39;&#x2F;&#x2F;base&#x2F;@href&#39;).get()</span><br><span class="line">&#39;http:&#x2F;&#x2F;example.com&#x2F;&#39;</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; response.css(&#39;base::attr(href)&#39;).get()</span><br><span class="line">&#39;http:&#x2F;&#x2F;example.com&#x2F;&#39;</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; response.css(&#39;base&#39;).attrib[&#39;href&#39;]</span><br><span class="line">&#39;http:&#x2F;&#x2F;example.com&#x2F;&#39;</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; response.xpath(&#39;&#x2F;&#x2F;a[contains(@href, &quot;image&quot;)]&#x2F;@href&#39;).getall()</span><br><span class="line">[&#39;image1.html&#39;,</span><br><span class="line"> &#39;image2.html&#39;,</span><br><span class="line"> &#39;image3.html&#39;,</span><br><span class="line"> &#39;image4.html&#39;,</span><br><span class="line"> &#39;image5.html&#39;]</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; response.css(&#39;a[href*&#x3D;image]::attr(href)&#39;).getall()</span><br><span class="line">[&#39;image1.html&#39;,</span><br><span class="line"> &#39;image2.html&#39;,</span><br><span class="line"> &#39;image3.html&#39;,</span><br><span class="line"> &#39;image4.html&#39;,</span><br><span class="line"> &#39;image5.html&#39;]</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; response.xpath(&#39;&#x2F;&#x2F;a[contains(@href, &quot;image&quot;)]&#x2F;img&#x2F;@src&#39;).getall()</span><br><span class="line">[&#39;image1_thumb.jpg&#39;,</span><br><span class="line"> &#39;image2_thumb.jpg&#39;,</span><br><span class="line"> &#39;image3_thumb.jpg&#39;,</span><br><span class="line"> &#39;image4_thumb.jpg&#39;,</span><br><span class="line"> &#39;image5_thumb.jpg&#39;]</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; response.css(&#39;a[href*&#x3D;image] img::attr(src)&#39;).getall()</span><br><span class="line">[&#39;image1_thumb.jpg&#39;,</span><br><span class="line"> &#39;image2_thumb.jpg&#39;,</span><br><span class="line"> &#39;image3_thumb.jpg&#39;,</span><br><span class="line"> &#39;image4_thumb.jpg&#39;,</span><br><span class="line"> &#39;image5_thumb.jpg&#39;]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; response.xpath(&#39;&#x2F;&#x2F;span&#x2F;text()&#39;).get()</span><br><span class="line">&#39;good&#39;</span><br><span class="line">&gt;&gt;&gt; response.css(&#39;span::text&#39;).get()</span><br><span class="line">&#39;good&#39;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Selector类可以用文本直接构造，用于xpath解析</span><br><span class="line">&gt;&gt;&gt; from scrapy.selector import Selector</span><br><span class="line">&gt;&gt;&gt; body &#x3D; &#39;&lt;html&gt;&lt;body&gt;&lt;span&gt;good&lt;&#x2F;span&gt;&lt;&#x2F;body&gt;&lt;&#x2F;html&gt;&#39;</span><br><span class="line">&gt;&gt;&gt; Selector(text&#x3D;body).xpath(&#39;&#x2F;&#x2F;span&#x2F;text()&#39;).get()</span><br><span class="line">&#39;good&#39;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">response.css(&#39;.shout&#39;).xpath(&#39;.&#x2F;time&#x2F;@datetime&#39;).getall()  # xpath的&#39;.&#39;点号必须加上</span><br></pre></td></tr></table></figure>
+
+<h5 id="scrapy-shell"><a href="#scrapy-shell" class="headerlink" title="scrapy shell"></a>scrapy shell</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fetch(url[, redirect=<span class="literal">True</span>])   <span class="comment">#  Fetch URL and update local objects</span></span><br><span class="line">fetch(req)                    <span class="comment">#  Fetch a scrapy.Request and update local objects</span></span><br><span class="line">shelp()           <span class="comment"># Shell help (print this help)  很重要，常用，类似于help</span></span><br><span class="line">view(response)    <span class="comment"># View response in a browser</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># scrapy.shell.inspect_response的用法如下：便于运行时，检查</span></span><br><span class="line"><span class="keyword">from</span> scrapy.shell <span class="keyword">import</span> inspect_response</span><br><span class="line">inspect_response(response, self)</span><br></pre></td></tr></table></figure>
+
+<h5 id="请求"><a href="#请求" class="headerlink" title="请求"></a>请求</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FormRequest.from_response()</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Scrapy</category>
       </categories>
@@ -704,6 +805,10 @@
     <url>/Linux-utils.html</url>
     <content><![CDATA[<h4 id="axel"><a href="#axel" class="headerlink" title="axel"></a>axel</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 多线程下载工具-替代curl和wget</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 使用</span></span><br><span class="line">axel -n 20 http://download.redis.io/releases/redis-5.0.7.tar.gz</span><br></pre></td></tr></table></figure>
 
+<h4 id="lrzsz"><a href="#lrzsz" class="headerlink" title="lrzsz"></a>lrzsz</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 一款linux下命令行界面上支持上传和下载的第三方工具</span></span><br><span class="line">rz  <span class="comment"># 选择文件进行上传</span></span><br><span class="line">sz 文件名  <span class="comment"># sz后面跟文件名可以进行文件从linux上面下载</span></span><br><span class="line">yum install -y lrzsz  <span class="comment"># yum 安装完毕之后可以直接rz尝试使用</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="kill"><a href="#kill" class="headerlink" title="kill"></a>kill</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">python3</span><br><span class="line"><span class="keyword">import</span> subprocess</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line">(status, output) = subprocess.getstatusoutput(<span class="string">'ps -ef | grep python3'</span>)</span><br><span class="line">subprocess.getstatusoutput(<span class="string">'kill -9 &#123;&#125;'</span>.format(<span class="string">' '</span>.join(set(re.findall(<span class="string">r'\d&#123;3,6&#125;'</span>, output)))))</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>Linux</category>
@@ -719,9 +824,13 @@
 
 <h4 id="安装Python"><a href="#安装Python" class="headerlink" title="安装Python"></a>安装Python</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install python36</span><br></pre></td></tr></table></figure>
 
-<h4 id="安装Redis"><a href="#安装Redis" class="headerlink" title="安装Redis"></a>安装Redis</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install redis</span><br><span class="line"># 配置文件默认在&#x2F;etc&#x2F;redis.conf </span><br><span class="line"># redis-server &#x2F;etc&#x2F;redis.conf  # 运行服务</span><br><span class="line"># redis-cli -a password  # 登录</span><br></pre></td></tr></table></figure>
+<h4 id="安装Redis"><a href="#安装Redis" class="headerlink" title="安装Redis"></a>安装Redis</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install redis</span><br><span class="line"># 配置文件默认在&#x2F;etc&#x2F;redis.conf </span><br><span class="line"># 修改bind 127.0.0.1为0.0.0.0 修改port 6379为8888 修改protected-mode yes为no</span><br><span class="line"># 修改 requirepass foobared 为自己的密码</span><br><span class="line"># redis-server &#x2F;etc&#x2F;redis.conf  # 运行服务</span><br><span class="line"># redis-cli -h 127.0.0.1 -p 8888 -a password  # 登录</span><br><span class="line"># nohup redis-server &#x2F;etc&#x2F;redis.conf &gt;&#x2F;dev&#x2F;null 2&gt;&amp;1 &amp;  # 后台运行</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">编译安装redis链接：https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_39185919&#x2F;article&#x2F;details&#x2F;100564713</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装Mongodb"><a href="#安装Mongodb" class="headerlink" title="安装Mongodb"></a>安装Mongodb</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 1.创建仓库文件</span><br><span class="line">vim &#x2F;etc&#x2F;yum.repos.d&#x2F;mongodb-org-3.4.repo</span><br><span class="line">添加如下内容</span><br><span class="line">[mongodb-org-3.4]</span><br><span class="line">name&#x3D;MongoDB Repository</span><br><span class="line">baseurl&#x3D;https:&#x2F;&#x2F;repo.mongodb.org&#x2F;yum&#x2F;redhat&#x2F;$releasever&#x2F;mongodb-org&#x2F;3.4&#x2F;x86_64&#x2F;</span><br><span class="line">gpgcheck&#x3D;1</span><br><span class="line">enabled&#x3D;1</span><br><span class="line">gpgkey&#x3D;https:&#x2F;&#x2F;www.mongodb.org&#x2F;static&#x2F;pgp&#x2F;server-3.4.asc</span><br><span class="line"># 2.yum安装</span><br><span class="line">yum install -y mongodb-org</span><br><span class="line"># 3.修改配置文件，解除ip地址绑定信息</span><br><span class="line">vim &#x2F;etc&#x2F;mongod.conf</span><br><span class="line">修改为0.0.0.0 端口也修改为27027</span><br><span class="line"># 启动，重启</span><br><span class="line">systemctl start firewalld</span><br><span class="line">systemctl start mongod</span><br><span class="line">systemctl restart mongod</span><br><span class="line"># 检查</span><br><span class="line">cat &#x2F;var&#x2F;log&#x2F;mongodb&#x2F;mongod.log</span><br><span class="line">mongo</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 卸载</span><br><span class="line">yum erase $(rpm -qa | grep mongodb-org)</span><br><span class="line">rm -r &#x2F;var&#x2F;log&#x2F;mongodb</span><br><span class="line">rm -r &#x2F;var&#x2F;lib&#x2F;mongo</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -857,11 +966,10 @@
   <entry>
     <title>MyTask</title>
     <url>/MyTask.html</url>
-    <content><![CDATA[<h4 id="MyTask-studing"><a href="#MyTask-studing" class="headerlink" title="MyTask-studing"></a>MyTask-studing</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">精通Python-面向对象编程</span><br><span class="line">熟悉常用函数库</span><br><span class="line">Xpath</span><br><span class="line">正则表达式</span><br><span class="line">Scrapy</span><br><span class="line">scrapyd</span><br><span class="line">Scrapy-redis</span><br><span class="line">Pyspider</span><br><span class="line">CSS提取</span><br><span class="line">JS逆向</span><br><span class="line">Mysql</span><br><span class="line">Redis</span><br><span class="line">Mongodb</span><br><span class="line">Linux-centos7</span><br><span class="line">HTTP协议</span><br><span class="line">selenium</span><br><span class="line">日志系统logging</span><br><span class="line">分布式爬虫系统设计</span><br><span class="line">防屏蔽：IP代理池（vps和免费代理池）</span><br><span class="line">防屏蔽：cookie池</span><br><span class="line">防屏蔽：验证码问题</span><br><span class="line">软件工程设计</span><br><span class="line">Kafka</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<h4 id="MyTask-studing"><a href="#MyTask-studing" class="headerlink" title="MyTask-studing"></a>MyTask-studing</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">多熟悉Python-面向对象编程</span><br><span class="line">熟悉常用函数库</span><br><span class="line">Xpath</span><br><span class="line">正则表达式</span><br><span class="line">Scrapy</span><br><span class="line">scrapyd</span><br><span class="line">Scrapy-redis</span><br><span class="line">Pyspider</span><br><span class="line">CSS提取</span><br><span class="line">JS逆向</span><br><span class="line">Mysql</span><br><span class="line">Redis</span><br><span class="line">Mongodb</span><br><span class="line">Linux-centos7</span><br><span class="line">HTTP协议</span><br><span class="line">selenium</span><br><span class="line">日志系统logging</span><br><span class="line">分布式爬虫系统设计</span><br><span class="line">防屏蔽：IP代理池（vps和免费代理池）</span><br><span class="line">防屏蔽：cookie池</span><br><span class="line">防屏蔽：验证码问题</span><br><span class="line">软件工程设计</span><br><span class="line">Kafka</span><br></pre></td></tr></table></figure>
 
 <h4 id="MyTask-ready"><a href="#MyTask-ready" class="headerlink" title="MyTask-ready"></a>MyTask-ready</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker</span><br><span class="line">flask</span><br><span class="line">django</span><br></pre></td></tr></table></figure>
-
-<h4 id="爬虫相关要求"><a href="#爬虫相关要求" class="headerlink" title="爬虫相关要求"></a>爬虫相关要求</h4>]]></content>
+]]></content>
       <categories>
         <category>MyTask</category>
       </categories>
@@ -985,7 +1093,7 @@
     <url>/Process-run-background.html</url>
     <content><![CDATA[<h4 id="0-“-amp-”"><a href="#0-“-amp-”" class="headerlink" title="0. “&amp;”"></a>0. “&amp;”</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">一般我们可在结尾加上&quot;&amp;&quot;来将命令同时放入后台运行</span><br><span class="line">但是关掉会话之后，进程就会被杀掉</span><br></pre></td></tr></table></figure>
 
-<h4 id="1-nohup"><a href="#1-nohup" class="headerlink" title="1. nohup"></a>1. nohup</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nohup ping www.ibm.com &amp;</span><br><span class="line"># nohup 的用途就是让提交的命令忽略 hangup 信号</span><br><span class="line"># 标准输出和标准错误缺省会被重定向到 nohup.out 文件中，也可使用 &gt;filename 2&gt;&amp;1 来重定向文件名</span><br></pre></td></tr></table></figure>
+<h4 id="1-nohup"><a href="#1-nohup" class="headerlink" title="1. nohup"></a>1. nohup</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nohup ping www.ibm.com &amp;</span><br><span class="line"># nohup 的用途就是让提交的命令忽略 hangup 信号</span><br><span class="line"># 标准输出和标准错误缺省会被重定向到 nohup.out 文件中，也可使用 &gt;filename 2&gt;&amp;1 来重定向文件名</span><br><span class="line">nohup python3 run.py &gt;&#x2F;dev&#x2F;null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
 
 <h4 id="2-setsid"><a href="#2-setsid" class="headerlink" title="2. setsid"></a>2. setsid</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">setsid ping www.ibm.com</span><br><span class="line"># 将命令进程放到1号进程下面（就不是子进程了，不再接收hangup信号）</span><br></pre></td></tr></table></figure>
 

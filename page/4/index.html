@@ -207,6 +207,436 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://spiderblog.cn/OOP-Python.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar_bear.png">
+      <meta itemprop="name" content="Mr.Zhou">
+      <meta itemprop="description" content="喜欢的编程语言是Python，喜欢做爬虫与数据相关">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SpiderBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/OOP-Python.html" class="post-title-link" itemprop="url">OOP-Python</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-07 15:43:24" itemprop="dateCreated datePublished" datetime="2020-01-07T15:43:24+08:00">2020-01-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-04 14:59:10" itemprop="dateModified" datetime="2020-02-04T14:59:10+08:00">2020-02-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OOP/" itemprop="url" rel="index">
+                    <span itemprop="name">OOP</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="Technical-Term"><a href="#Technical-Term" class="headerlink" title="Technical Term"></a>Technical Term</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class 类</span><br><span class="line">instance 实例</span><br><span class="line">method 方法</span><br><span class="line">subclass 子类</span><br><span class="line">super class 父类</span><br></pre></td></tr></table></figure>
+
+<h4 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 初始化</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="comment"># 实例方法</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_score</span><span class="params">(self)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="comment"># 类方法用@classmethod修饰，形参为cls</span></span><br><span class="line"><span class="comment"># 类实例方法，形参为self</span></span><br><span class="line"><span class="comment"># 静态方法用@staticmethod修饰，对象直接调用，实际上跟该类没有太大关系</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Property"><a href="#Property" class="headerlink" title="Property"></a>Property</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 实例属性</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line"><span class="comment"># 类属性</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">    name = <span class="string">'Student'</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="限制实例的属性"><a href="#限制实例的属性" class="headerlink" title="限制实例的属性"></a>限制实例的属性</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 由于Python是动态语言，根据类创建的实例可以任意绑定属性</span></span><br><span class="line"><span class="comment"># 使用__slots__限制实例的属性</span></span><br><span class="line"><span class="comment"># __slots__定义的属性仅对当前类实例起作用，对继承的子类是不起作用的</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">    __slots__ = (<span class="string">'name'</span>, <span class="string">'age'</span>) <span class="comment"># 用tuple定义允许绑定的属性名称</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="实例属性检查与暴露"><a href="#实例属性检查与暴露" class="headerlink" title="实例属性检查与暴露"></a>实例属性检查与暴露</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># @property装饰器：负责把一个方法变成属性调用</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">score</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._score</span><br><span class="line"><span class="meta">    @score.setter</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">score</span><span class="params">(self, value)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="多重继承"><a href="#多重继承" class="headerlink" title="多重继承"></a>多重继承</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># C3算法：MRO(Method Resolution Order)方法解析顺序</span><br><span class="line"># super()可以帮我们执⾏MRO中下⼀个⽗类的⽅法.</span><br><span class="line"># MixIn设计模式（多重继承设计模式）</span><br></pre></td></tr></table></figure>
+
+<h4 id="定制类"><a href="#定制类" class="headerlink" title="定制类"></a>定制类</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># __len__(self) 与 len()</span><br><span class="line"># __str__(self) 与 print()打印  # __repr__(self)</span><br><span class="line"># __iter__(self) 和 __next__(self)</span><br><span class="line"># __getitem__(self, n) # fib[12]和fib[5:12]</span><br><span class="line"># __delitem__(self, key)  # 与__setitem__(self,name,value)类似，每次都调用</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># __setitem__(self,name,value)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self[<span class="string">'B'</span>] = <span class="string">'BB'</span></span><br><span class="line">        self[<span class="string">'D'</span>] = <span class="string">'DD'</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__setitem__</span><span class="params">(self, name, value)</span>:</span></span><br><span class="line">        print(<span class="string">"__setitem__:Set %s Value %s"</span> % (name, value))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    X = A()</span><br><span class="line"><span class="comment"># 输出结果如下</span></span><br><span class="line"><span class="comment"># __setitem__:Set B Value BB</span></span><br><span class="line"><span class="comment"># __setitem__:Set D Value DD</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># __getattr__(self, attr)  # 动态返回属性attr</span><br><span class="line"># 链式调用，SDK的API常用</span><br><span class="line"># __call__(self, name)  # 直接调用</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Chain</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, path=<span class="string">''</span>)</span>:</span></span><br><span class="line">        self._path = path</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getattr__</span><span class="params">(self, path)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> Chain(<span class="string">'%s/%s'</span> % (self._path, path))</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._path</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, user)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> Chain(self.__getattr__(user))</span><br><span class="line"></span><br><span class="line">    __repr__ = __str__</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(Chain().status.user.timeline.list)</span><br><span class="line"><span class="comment"># 输出: /status/user/timeline/list</span></span><br><span class="line">print(Chain().users(<span class="string">'Jason'</span>).repos)</span><br><span class="line"><span class="comment"># 输出: /users/Jason/repos</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 何动态获取和设置对象的属性 has,get,set &gt; attr</span></span><br><span class="line"><span class="keyword">if</span> hasattr(Parent，<span class="string">'x'</span>):</span><br><span class="line">    print(getattr(Parent, <span class="string">'x'</span>))</span><br><span class="line">    setattr(Parent, <span class="string">'x'</span>, <span class="number">3</span>)</span><br><span class="line">print(getattr(Parent, <span class="string">'x'</span>))</span><br></pre></td></tr></table></figure>
+
+<p><a href>未完，待补充</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://spiderblog.cn/MyTask.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar_bear.png">
+      <meta itemprop="name" content="Mr.Zhou">
+      <meta itemprop="description" content="喜欢的编程语言是Python，喜欢做爬虫与数据相关">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SpiderBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/MyTask.html" class="post-title-link" itemprop="url">MyTask</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-07 15:26:32" itemprop="dateCreated datePublished" datetime="2020-01-07T15:26:32+08:00">2020-01-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-17 23:17:23" itemprop="dateModified" datetime="2020-03-17T23:17:23+08:00">2020-03-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MyTask/" itemprop="url" rel="index">
+                    <span itemprop="name">MyTask</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="MyTask-studing"><a href="#MyTask-studing" class="headerlink" title="MyTask-studing"></a>MyTask-studing</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">多熟悉Python-面向对象编程</span><br><span class="line">熟悉常用函数库</span><br><span class="line">Xpath</span><br><span class="line">正则表达式</span><br><span class="line">Scrapy</span><br><span class="line">scrapyd</span><br><span class="line">Scrapy-redis</span><br><span class="line">Pyspider</span><br><span class="line">CSS提取</span><br><span class="line">JS逆向</span><br><span class="line">Mysql</span><br><span class="line">Redis</span><br><span class="line">Mongodb</span><br><span class="line">Linux-centos7</span><br><span class="line">HTTP协议</span><br><span class="line">selenium</span><br><span class="line">日志系统logging</span><br><span class="line">分布式爬虫系统设计</span><br><span class="line">防屏蔽：IP代理池（vps和免费代理池）</span><br><span class="line">防屏蔽：cookie池</span><br><span class="line">防屏蔽：验证码问题</span><br><span class="line">软件工程设计</span><br><span class="line">Kafka</span><br></pre></td></tr></table></figure>
+
+<h4 id="MyTask-ready"><a href="#MyTask-ready" class="headerlink" title="MyTask-ready"></a>MyTask-ready</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker</span><br><span class="line">flask</span><br><span class="line">django</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://spiderblog.cn/Github-pages-404.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar_bear.png">
+      <meta itemprop="name" content="Mr.Zhou">
+      <meta itemprop="description" content="喜欢的编程语言是Python，喜欢做爬虫与数据相关">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SpiderBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Github-pages-404.html" class="post-title-link" itemprop="url">Github-pages-404</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-07 14:59:05" itemprop="dateCreated datePublished" datetime="2020-01-07T14:59:05+08:00">2020-01-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-04 15:03:23" itemprop="dateModified" datetime="2020-02-04T15:03:23+08:00">2020-02-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/GitHub/" itemprop="url" rel="index">
+                    <span itemprop="name">GitHub</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="GitHub-pages"><a href="#GitHub-pages" class="headerlink" title="GitHub-pages"></a>GitHub-pages</h4><p>有时候会出现404，无法访问</p>
+<h5 id="情况一："><a href="#情况一：" class="headerlink" title="情况一："></a>情况一：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Jekyll theme，没有选择主题</span><br></pre></td></tr></table></figure>
+
+<h5 id="解决办法："><a href="#解决办法：" class="headerlink" title="解决办法："></a>解决办法：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在页面存储库根目录中创建一个.nojekyll文件并将其推送到GitHub，</span><br><span class="line">这样可以完全绕过GitHub Pages上的Jekyll处理</span><br></pre></td></tr></table></figure>
+
+<h5 id="情况二："><a href="#情况二：" class="headerlink" title="情况二："></a>情况二：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">username.github.io</span><br><span class="line"># 你的username弄错了</span><br></pre></td></tr></table></figure>
+
+<h5 id="解决办法：-1"><a href="#解决办法：-1" class="headerlink" title="解决办法："></a>解决办法：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">去settings里面修改Repository name</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://spiderblog.cn/Module.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar_bear.png">
+      <meta itemprop="name" content="Mr.Zhou">
+      <meta itemprop="description" content="喜欢的编程语言是Python，喜欢做爬虫与数据相关">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SpiderBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Module.html" class="post-title-link" itemprop="url">Module</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-07 14:35:32" itemprop="dateCreated datePublished" datetime="2020-01-07T14:35:32+08:00">2020-01-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-04 15:16:13" itemprop="dateModified" datetime="2020-02-04T15:16:13+08:00">2020-02-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="介绍模块相关一些小知识"><a href="#介绍模块相关一些小知识" class="headerlink" title="介绍模块相关一些小知识"></a>介绍模块相关一些小知识</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="string">' a test module '</span></span><br><span class="line"></span><br><span class="line">__author__ = <span class="string">'Jason '</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></span><br><span class="line">    args = sys.argv   <span class="comment"># 命令行参数，第一个默认为文件名</span></span><br><span class="line">    <span class="keyword">if</span> len(args)==<span class="number">1</span>:</span><br><span class="line">        print(<span class="string">'Hello, world!'</span>)</span><br><span class="line">    <span class="keyword">elif</span> len(args)==<span class="number">2</span>:</span><br><span class="line">        print(<span class="string">'Hello, %s!'</span> % args[<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">'Too many arguments!'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">'__main__'</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line">可以让文件直接在Unix/Linux/Mac上运行</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line">统一使用标准utf-8编码</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">任何模块代码的第一个字符串都被视为模块的文档注释</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">__author__变量是作者</span><br></pre></td></tr></table></figure>
+
+<h3 id="模块搜索路径"><a href="#模块搜索路径" class="headerlink" title="模块搜索路径"></a>模块搜索路径</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.append(<span class="string">'模块路径'</span>)</span><br><span class="line"><span class="comment"># 这种方法是在运行时修改（添加），运行结束后失效</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://spiderblog.cn/Decorator.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar_bear.png">
+      <meta itemprop="name" content="Mr.Zhou">
+      <meta itemprop="description" content="喜欢的编程语言是Python，喜欢做爬虫与数据相关">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SpiderBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Decorator.html" class="post-title-link" itemprop="url">Decorator</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-07 13:45:00" itemprop="dateCreated datePublished" datetime="2020-01-07T13:45:00+08:00">2020-01-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-04 15:03:46" itemprop="dateModified" datetime="2020-02-04T15:03:46+08:00">2020-02-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="装饰器（装饰模式）"><a href="#装饰器（装饰模式）" class="headerlink" title="装饰器（装饰模式）"></a>装饰器（装饰模式）</h3><h4 id="例子1"><a href="#例子1" class="headerlink" title="例子1"></a>例子1</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 两层</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log</span><span class="params">(func)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*args, **kw)</span>:</span></span><br><span class="line">        print(<span class="string">'log'</span>)</span><br><span class="line">        <span class="keyword">return</span> func(*args, **kw)</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"><span class="meta">@log</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">'test'</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="例子2"><a href="#例子2" class="headerlink" title="例子2"></a>例子2</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 三层：针对decorator有参数的时候</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log</span><span class="params">(text)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">decorater</span><span class="params">(func)</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*args, **kw)</span>:</span></span><br><span class="line">            print(<span class="string">'log:'</span>, text)</span><br><span class="line">            <span class="keyword">return</span> func(*args, **kw)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> decorater</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@log('text')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">'test'</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"><span class="meta">@functools.wraps(func)  # 将函数func的一些特殊属性复制给wrapper函数（最里层函数）</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://spiderblog.cn/Built-in-function.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -491,7 +921,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-04 15:12:58" itemprop="dateModified" datetime="2020-02-04T15:12:58+08:00">2020-02-04</time>
+                <time title="修改时间：2020-03-17 15:45:57" itemprop="dateModified" datetime="2020-03-17T15:45:57+08:00">2020-03-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -518,7 +948,7 @@
       
           <h4 id="0-“-amp-”"><a href="#0-“-amp-”" class="headerlink" title="0. “&amp;”"></a>0. “&amp;”</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">一般我们可在结尾加上&quot;&amp;&quot;来将命令同时放入后台运行</span><br><span class="line">但是关掉会话之后，进程就会被杀掉</span><br></pre></td></tr></table></figure>
 
-<h4 id="1-nohup"><a href="#1-nohup" class="headerlink" title="1. nohup"></a>1. nohup</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nohup ping www.ibm.com &amp;</span><br><span class="line"># nohup 的用途就是让提交的命令忽略 hangup 信号</span><br><span class="line"># 标准输出和标准错误缺省会被重定向到 nohup.out 文件中，也可使用 &gt;filename 2&gt;&amp;1 来重定向文件名</span><br></pre></td></tr></table></figure>
+<h4 id="1-nohup"><a href="#1-nohup" class="headerlink" title="1. nohup"></a>1. nohup</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nohup ping www.ibm.com &amp;</span><br><span class="line"># nohup 的用途就是让提交的命令忽略 hangup 信号</span><br><span class="line"># 标准输出和标准错误缺省会被重定向到 nohup.out 文件中，也可使用 &gt;filename 2&gt;&amp;1 来重定向文件名</span><br><span class="line">nohup python3 run.py &gt;&#x2F;dev&#x2F;null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
 
 <h4 id="2-setsid"><a href="#2-setsid" class="headerlink" title="2. setsid"></a>2. setsid</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">setsid ping www.ibm.com</span><br><span class="line"># 将命令进程放到1号进程下面（就不是子进程了，不再接收hangup信号）</span><br></pre></td></tr></table></figure>
 
@@ -635,123 +1065,11 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://spiderblog.cn/ADSL-IP-PROXY.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar_bear.png">
-      <meta itemprop="name" content="Mr.Zhou">
-      <meta itemprop="description" content="喜欢的编程语言是Python，喜欢做爬虫与数据相关">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SpiderBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/ADSL-IP-PROXY.html" class="post-title-link" itemprop="url">ADSL-IP-PROXY</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-01-03 11:19:07" itemprop="dateCreated datePublished" datetime="2020-01-03T11:19:07+08:00">2020-01-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-24 00:17:02" itemprop="dateModified" datetime="2020-02-24T00:17:02+08:00">2020-02-24</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spider/" itemprop="url" rel="index">
-                    <span itemprop="name">Spider</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">使用vps服务器搭建IP代理池（高匿名）</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-准备工作"><a href="#2-准备工作" class="headerlink" title="2.准备工作"></a>2.准备工作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">１、购买VPS主机（多台，至少两台），并预装centos7</span><br><span class="line">２、一台正常服务器（也可以再购买一台VPS主机）</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-搭建代理服务器"><a href="#3-搭建代理服务器" class="headerlink" title="3.搭建代理服务器"></a>3.搭建代理服务器</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 3.1 登录VPS服务器</span></span><br><span class="line">ssh root@<span class="number">58.218</span><span class="number">.209</span><span class="number">.207</span> -p <span class="number">20113</span>   <span class="comment"># 密码在“控制面版”</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 3.2 拨号-先拨号才可以连接外网</span></span><br><span class="line">adsl-start  <span class="comment"># 此命令是拨号</span></span><br><span class="line">adsl-stop   <span class="comment"># 此命令是停止拨号</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 3.3 查看主机的IP</span></span><br><span class="line">ifconfig</span><br><span class="line"><span class="comment"># 网卡名称叫ppp0,他的ip地址就是</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 3.4安装代理服务器TinyProxy</span></span><br><span class="line">yum install -y epel-release</span><br><span class="line">yum update -y</span><br><span class="line">yum install -y tinyproxy</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 3.5 配置TinyProxy</span></span><br><span class="line">vim /etc/tinyproxy/tinyproxy.conf</span><br><span class="line"><span class="comment"># 里面有一行是 Port 8888，这是代理端口，默认不修改</span></span><br><span class="line"><span class="comment"># 里面有一行是 Allow 127.0.0.1 ，将它注释掉，即可任何主机使用本代理服务器</span></span><br><span class="line"><span class="comment"># 设置完成之后，需要重启TinyProxy</span></span><br><span class="line">systemctl enable tinyproxy.service</span><br><span class="line">systemctl restart tinyproxy.service</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 3.6 开放防火墙端口</span></span><br><span class="line">iptables -I INPUT -p tcp --dport <span class="number">8888</span> -j ACCEPT</span><br><span class="line"><span class="comment"># 或者直接关闭防火墙</span></span><br><span class="line">systemctl stop firewall.service</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 3.7 验证TinyProxy</span></span><br><span class="line"><span class="comment"># 在其他主机输入curl命令</span></span><br><span class="line">curl -x <span class="number">112.84</span><span class="number">.118</span><span class="number">.216</span>:<span class="number">8888</span> httpbin.org/get</span><br><span class="line"><span class="comment"># 返回的“origin”是代理服务器即为成功</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="4-搭建代理池"><a href="#4-搭建代理池" class="headerlink" title="4.搭建代理池"></a>4.搭建代理池</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 4.1 存储模块：使用Redis数据库，存储各个代理服务器的代理ip和代理端口（正常服务器上）</span></span><br><span class="line"><span class="comment"># 先定义一个操作 Redis 数据库的类，示例如下：</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="comment"># Redis 数据库 IP</span></span><br><span class="line">REDIS_HOST = <span class="string">'remoteaddress'</span></span><br><span class="line"><span class="comment"># Redis 数据库密码，如无则填 None</span></span><br><span class="line">REDIS_PASSWORD = <span class="string">'password'</span></span><br><span class="line"><span class="comment"># Redis 数据库端口</span></span><br><span class="line">REDIS_PORT = <span class="number">6379</span></span><br><span class="line"><span class="comment"># 代理池键名</span></span><br><span class="line">PROXY_KEY = <span class="string">'adsl'</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RedisClient</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, host=REDIS_HOST, port=REDIS_PORT, password=REDIS_PASSWORD, proxy_key=PROXY_KEY)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        初始化 Redis 连接</span></span><br><span class="line"><span class="string">        :param host: Redis 地址</span></span><br><span class="line"><span class="string">        :param port: Redis 端口</span></span><br><span class="line"><span class="string">        :param password: Redis 密码</span></span><br><span class="line"><span class="string">        :param proxy_key: Redis 哈希表名</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        self.db = redis.StrictRedis(host=host, port=port, password=password, decode_responses=<span class="literal">True</span>)</span><br><span class="line">        self.proxy_key = proxy_key</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">set</span><span class="params">(self, name, proxy)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        设置代理</span></span><br><span class="line"><span class="string">        :param name: 主机名称</span></span><br><span class="line"><span class="string">        :param proxy: 代理</span></span><br><span class="line"><span class="string">        :return: 设置结果</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> self.db.hset(self.proxy_key, name, proxy)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self, name)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        获取代理</span></span><br><span class="line"><span class="string">        :param name: 主机名称</span></span><br><span class="line"><span class="string">        :return: 代理</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> self.db.hget(self.proxy_key, name)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">count</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        获取代理总数</span></span><br><span class="line"><span class="string">        :return: 代理总数</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> self.db.hlen(self.proxy_key)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">remove</span><span class="params">(self, name)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        删除代理</span></span><br><span class="line"><span class="string">        :param name: 主机名称</span></span><br><span class="line"><span class="string">        :return: 删除结果</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> self.db.hdel(self.proxy_key, name)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">names</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        获取主机名称列表</span></span><br><span class="line"><span class="string">        :return: 获取主机名称列表</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> self.db.hkeys(self.proxy_key)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">proxies</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        获取代理列表</span></span><br><span class="line"><span class="string">        :return: 代理列表</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> self.db.hvals(self.proxy_key)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">random</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        随机获取代理</span></span><br><span class="line"><span class="string">        :return:</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        proxies = self.proxies()</span><br><span class="line">        <span class="keyword">return</span> random.choice(proxies)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">all</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        获取字典</span></span><br><span class="line"><span class="string">        :return:</span></span><br><span class="line"><span class="string">        """</span><span class="keyword">return</span> self.db.hgetall(self.proxy_key)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 4.2 拨号模块：拨号，并把新的 IP 保存到 Redis 散列表里（本模块在vps拨号服务器上）</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> requests.exceptions <span class="keyword">import</span> ConnectionError, ReadTimeout</span><br><span class="line"><span class="keyword">from</span> db <span class="keyword">import</span> RedisClient</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 拨号网卡</span></span><br><span class="line">ADSL_IFNAME = <span class="string">'ppp0'</span></span><br><span class="line"><span class="comment"># 测试 URL</span></span><br><span class="line">TEST_URL = <span class="string">'http://www.baidu.com'</span></span><br><span class="line"><span class="comment"># 测试超时时间</span></span><br><span class="line">TEST_TIMEOUT = <span class="number">20</span></span><br><span class="line"><span class="comment"># 拨号间隔</span></span><br><span class="line">ADSL_CYCLE = <span class="number">100</span></span><br><span class="line"><span class="comment"># 拨号出错重试间隔</span></span><br><span class="line">ADSL_ERROR_CYCLE = <span class="number">5</span></span><br><span class="line"><span class="comment"># ADSL 命令</span></span><br><span class="line">ADSL_BASH = <span class="string">'adsl-stop;adsl-start'</span></span><br><span class="line"><span class="comment"># 代理运行端口</span></span><br><span class="line">PROXY_PORT = <span class="number">8888</span></span><br><span class="line"><span class="comment"># 客户端唯一标识</span></span><br><span class="line">CLIENT_NAME = <span class="string">'adsl1'</span></span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sender</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_ip</span><span class="params">(self, ifname=ADSL_IFNAME)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        获取本机 IP</span></span><br><span class="line"><span class="string">        :param ifname: 网卡名称</span></span><br><span class="line"><span class="string">        :return:</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        (status, output) = subprocess.getstatusoutput(<span class="string">'ifconfig'</span>)</span><br><span class="line">        <span class="keyword">if</span> status == <span class="number">0</span>:</span><br><span class="line">            pattern = re.compile(ifname + <span class="string">'.*?inet.*?(d+.d+.d+.d+).*?netmask'</span>, re.S)</span><br><span class="line">            result = re.search(pattern, output)</span><br><span class="line">            <span class="keyword">if</span> result:</span><br><span class="line">                ip = result.group(<span class="number">1</span>)</span><br><span class="line">                <span class="keyword">return</span> ip</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_proxy</span><span class="params">(self, proxy)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        测试代理</span></span><br><span class="line"><span class="string">        :param proxy: 代理</span></span><br><span class="line"><span class="string">        :return: 测试结果</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            response = requests.get(TEST_URL, proxies=&#123;</span><br><span class="line">                <span class="string">'http'</span>: <span class="string">'http://'</span> + proxy,</span><br><span class="line">                <span class="string">'https'</span>: <span class="string">'https://'</span> + proxy</span><br><span class="line">            &#125;, timeout=TEST_TIMEOUT)</span><br><span class="line">            <span class="keyword">if</span> response.status_code == <span class="number">200</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">except</span> (ConnectionError, ReadTimeout):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">remove_proxy</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        移除代理</span></span><br><span class="line"><span class="string">        :return: None</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        self.redis = RedisClient()</span><br><span class="line">        self.redis.remove(CLIENT_NAME)</span><br><span class="line">        print(<span class="string">'Successfully Removed Proxy'</span>)</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">set_proxy</span><span class="params">(self, proxy)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        设置代理</span></span><br><span class="line"><span class="string">        :param proxy: 代理</span></span><br><span class="line"><span class="string">        :return: None</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        self.redis = RedisClient()</span><br><span class="line">        <span class="keyword">if</span> self.redis.set(CLIENT_NAME, proxy):</span><br><span class="line">            print(<span class="string">'Successfully Set Proxy'</span>, proxy)</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">adsl</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        拨号主进程</span></span><br><span class="line"><span class="string">        :return: None</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            print(<span class="string">'ADSL Start, Remove Proxy, Please wait'</span>)</span><br><span class="line">            self.remove_proxy()</span><br><span class="line">            (status, output) = subprocess.getstatusoutput(ADSL_BASH)</span><br><span class="line">            <span class="keyword">if</span> status == <span class="number">0</span>:</span><br><span class="line">                print(<span class="string">'ADSL Successfully'</span>)</span><br><span class="line">                ip = self.get_ip()</span><br><span class="line">                <span class="keyword">if</span> ip:</span><br><span class="line">                    print(<span class="string">'Now IP'</span>, ip)</span><br><span class="line">                    print(<span class="string">'Testing Proxy, Please Wait'</span>)</span><br><span class="line">                    proxy = <span class="string">'&#123;ip&#125;:&#123;port&#125;'</span>.format(ip=ip, port=PROXY_PORT)</span><br><span class="line">                    <span class="keyword">if</span> self.test_proxy(proxy):</span><br><span class="line">                        print(<span class="string">'Valid Proxy'</span>)</span><br><span class="line">                        self.set_proxy(proxy)</span><br><span class="line">                        print(<span class="string">'Sleeping'</span>)</span><br><span class="line">                        time.sleep(ADSL_CYCLE)</span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        print(<span class="string">'Invalid Proxy'</span>)</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    print(<span class="string">'Get IP Failed, Re Dialing'</span>)</span><br><span class="line">                    time.sleep(ADSL_ERROR_CYCLE)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                print(<span class="string">'ADSL Failed, Please Check'</span>)</span><br><span class="line">                time.sleep(ADSL_ERROR_CYCLE)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">()</span>:</span></span><br><span class="line">    sender = Sender()</span><br><span class="line">    sender.adsl()</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 4.3 接口模块（正常服务器上）</span></span><br><span class="line"><span class="comment"># 利用 Tornado 的 Server 模块搭建 Web 接口服务</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> tornado.ioloop</span><br><span class="line"><span class="keyword">import</span> tornado.web</span><br><span class="line"><span class="keyword">from</span> tornado.web <span class="keyword">import</span> RequestHandler, Application</span><br><span class="line"> </span><br><span class="line"><span class="comment"># API 端口</span></span><br><span class="line">API_PORT = <span class="number">8000</span></span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MainHandler</span><span class="params">(RequestHandler)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">initialize</span><span class="params">(self, redis)</span>:</span></span><br><span class="line">        self.redis = redis</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self, api=<span class="string">''</span>)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> api:</span><br><span class="line">            links = [<span class="string">'random'</span>, <span class="string">'proxies'</span>, <span class="string">'names'</span>, <span class="string">'all'</span>, <span class="string">'count'</span>]</span><br><span class="line">            self.write(<span class="string">'&lt;h4&gt;Welcome to ADSL Proxy API&lt;/h4&gt;'</span>)</span><br><span class="line">            <span class="keyword">for</span> link <span class="keyword">in</span> links:</span><br><span class="line">                self.write(<span class="string">'&lt;a href='</span> + link + <span class="string">'&gt;'</span> + link + <span class="string">'&lt;/a&gt;&lt;br&gt;'</span>)</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">if</span> api == <span class="string">'random'</span>:</span><br><span class="line">            result = self.redis.random()</span><br><span class="line">            <span class="keyword">if</span> result:</span><br><span class="line">                self.write(result)</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">if</span> api == <span class="string">'names'</span>:</span><br><span class="line">            result = self.redis.names()</span><br><span class="line">            <span class="keyword">if</span> result:</span><br><span class="line">                self.write(json.dumps(result))</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">if</span> api == <span class="string">'proxies'</span>:</span><br><span class="line">            result = self.redis.proxies()</span><br><span class="line">            <span class="keyword">if</span> result:</span><br><span class="line">                self.write(json.dumps(result))</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">if</span> api == <span class="string">'all'</span>:</span><br><span class="line">            result = self.redis.all()</span><br><span class="line">            <span class="keyword">if</span> result:</span><br><span class="line">                self.write(json.dumps(result))</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">if</span> api == <span class="string">'count'</span>:</span><br><span class="line">            self.write(str(self.redis.count()))</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">server</span><span class="params">(redis, port=API_PORT, address=<span class="string">''</span>)</span>:</span></span><br><span class="line">    application = Application([(<span class="string">r'/'</span>, MainHandler, dict(redis=redis)),</span><br><span class="line">        (<span class="string">r'/(.*)'</span>, MainHandler, dict(redis=redis)),</span><br><span class="line">    ])</span><br><span class="line">    application.listen(port, address=address)</span><br><span class="line">    print(<span class="string">'ADSL API Listening on'</span>, port)</span><br><span class="line">    tornado.ioloop.IOLoop.instance().start()</span><br></pre></td></tr></table></figure>
-
-<h3 id="程序转后台运行命令"><a href="#程序转后台运行命令" class="headerlink" title="程序转后台运行命令"></a>程序转后台运行命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> vps server</span></span><br><span class="line">nohup python3  run.py &gt;/dev/null 2&gt;&amp;1 &amp;</span><br><span class="line"><span class="meta">#</span><span class="bash"> redis server</span></span><br><span class="line">nohup python3 api.py &gt;/dev/null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查询存活程序python3</span></span><br><span class="line">ps -ef | grep python3</span><br></pre></td></tr></table></figure>
-
-<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a href="https://cuiqingcai.com/8361.html" target="_blank" rel="external nofollow noopener noreferrer">崔老师-ADSL 拨号代理</a></p>
-<p><a href="https://github.com/squabbysheep/AdslProxy" target="_blank" rel="external nofollow noopener noreferrer">github项目链接</a></p>
-<h3 id="实例链接"><a href="#实例链接" class="headerlink" title="实例链接"></a>实例链接</h3><p><a href="http://121.36.55.134:80/" target="_blank" rel="external nofollow noopener noreferrer">ADSL实例</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -818,20 +1136,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-count">41</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://spiderblog.cn/Linux-1.html</loc>
+    <lastmod>2020-03-18</lastmod>
+  </url>  <url>
+    <loc>http://spiderblog.cn/Scrapy-1.html</loc>
+    <lastmod>2020-03-17</lastmod>
+  </url>  <url>
+    <loc>http://spiderblog.cn/MyTask.html</loc>
+    <lastmod>2020-03-17</lastmod>
+  </url>  <url>
+    <loc>http://spiderblog.cn/Linux-utils.html</loc>
+    <lastmod>2020-03-17</lastmod>
+  </url>  <url>
+    <loc>http://spiderblog.cn/Pip.html</loc>
+    <lastmod>2020-03-17</lastmod>
+  </url>  <url>
+    <loc>http://spiderblog.cn/Centos7-yum.html</loc>
+    <lastmod>2020-03-17</lastmod>
+  </url>  <url>
+    <loc>http://spiderblog.cn/Process-run-background.html</loc>
+    <lastmod>2020-03-17</lastmod>
+  </url>  <url>
+    <loc>http://spiderblog.cn/Scrapy-redis.html</loc>
+    <lastmod>2020-03-16</lastmod>
+  </url>  <url>
+    <loc>http://spiderblog.cn/CSV.html</loc>
+    <lastmod>2020-03-16</lastmod>
+  </url>  <url>
+    <loc>http://spiderblog.cn/Email.html</loc>
+    <lastmod>2020-03-01</lastmod>
+  </url>  <url>
     <loc>http://spiderblog.cn/ADSL-IP-PROXY.html</loc>
     <lastmod>2020-02-23</lastmod>
   </url>  <url>
@@ -21,9 +51,6 @@
   </url>  <url>
     <loc>http://spiderblog.cn/Scrapy_shell.html</loc>
     <lastmod>2020-02-22</lastmod>
-  </url>  <url>
-    <loc>http://spiderblog.cn/Scrapy-1.html</loc>
-    <lastmod>2020-02-16</lastmod>
   </url>  <url>
     <loc>http://spiderblog.cn/JS-reverse.html</loc>
     <lastmod>2020-02-15</lastmod>
@@ -49,13 +76,7 @@
     <loc>http://spiderblog.cn/Python-call-C.html</loc>
     <lastmod>2020-02-04</lastmod>
   </url>  <url>
-    <loc>http://spiderblog.cn/Process-run-background.html</loc>
-    <lastmod>2020-02-04</lastmod>
-  </url>  <url>
     <loc>http://spiderblog.cn/Linux-nous.html</loc>
-    <lastmod>2020-02-04</lastmod>
-  </url>  <url>
-    <loc>http://spiderblog.cn/Centos7-yum.html</loc>
     <lastmod>2020-02-04</lastmod>
   </url>  <url>
     <loc>http://spiderblog.cn/Hacked-20200109.html</loc>
@@ -71,9 +92,6 @@
     <lastmod>2020-02-04</lastmod>
   </url>  <url>
     <loc>http://spiderblog.cn/Supervisor.html</loc>
-    <lastmod>2020-02-04</lastmod>
-  </url>  <url>
-    <loc>http://spiderblog.cn/Linux-utils.html</loc>
     <lastmod>2020-02-04</lastmod>
   </url>  <url>
     <loc>http://spiderblog.cn/File-io.html</loc>
@@ -105,8 +123,5 @@
   </url>  <url>
     <loc>http://spiderblog.cn/Interview-3.html</loc>
     <lastmod>2020-01-27</lastmod>
-  </url>  <url>
-    <loc>http://spiderblog.cn/MyTask.html</loc>
-    <lastmod>2020-01-11</lastmod>
   </url>
 </urlset>

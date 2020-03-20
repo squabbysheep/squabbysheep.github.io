@@ -207,6 +207,574 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://spiderblog.cn/Xpath.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar_bear.png">
+      <meta itemprop="name" content="Mr.Zhou">
+      <meta itemprop="description" content="喜欢的编程语言是Python，喜欢做爬虫与数据相关">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SpiderBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Xpath.html" class="post-title-link" itemprop="url">Xpath</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-22 02:08:10" itemprop="dateCreated datePublished" datetime="2020-02-22T02:08:10+08:00">2020-02-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-23 00:42:18" itemprop="dateModified" datetime="2020-02-23T00:42:18+08:00">2020-02-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Xpath/" itemprop="url" rel="index">
+                    <span itemprop="name">Xpath</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="选取节点"><a href="#选取节点" class="headerlink" title="选取节点"></a>选取节点</h4><ul>
+<li>节点是通过沿着路径或者 step 来选取的</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">表达式</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">node_name</td>
+<td align="left">选取此节点的所有子节点。</td>
+</tr>
+<tr>
+<td align="left">/</td>
+<td align="left">从根节点选取。</td>
+</tr>
+<tr>
+<td align="left">//</td>
+<td align="left">从匹配选择的当前节点选择文档中的节点，而不考虑它们的位置。</td>
+</tr>
+<tr>
+<td align="left">.</td>
+<td align="left">选取当前节点。</td>
+</tr>
+<tr>
+<td align="left">..</td>
+<td align="left">选取当前节点的父节点。</td>
+</tr>
+<tr>
+<td align="left">@</td>
+<td align="left"><strong>选取属性。</strong></td>
+</tr>
+</tbody></table>
+<h4 id="谓语"><a href="#谓语" class="headerlink" title="谓语"></a>谓语</h4><ul>
+<li>谓语用来查找某个特定的节点或者包含某个指定的值的节点。</li>
+<li>谓语被嵌在方括号中。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">路径表达式</th>
+<th align="left">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">/bookstore/book[1]</td>
+<td align="left">选取属于 bookstore 子元素的第一个 book 元素。</td>
+</tr>
+<tr>
+<td align="left">/bookstore/book[last()]</td>
+<td align="left">选取属于 bookstore 子元素的最后一个 book 元素。</td>
+</tr>
+<tr>
+<td align="left">/bookstore/book[last()-1]</td>
+<td align="left">选取属于 bookstore 子元素的倒数第二个 book 元素。</td>
+</tr>
+<tr>
+<td align="left">/bookstore/book[position()&lt;3]</td>
+<td align="left">选取最前面的两个属于 bookstore 元素的子元素的 book 元素。</td>
+</tr>
+<tr>
+<td align="left">//title[@lang]</td>
+<td align="left">选取所有拥有名为 lang 的属性的 title 元素。</td>
+</tr>
+<tr>
+<td align="left">//title[@lang=’eng’]</td>
+<td align="left">选取所有 title 元素，且这些元素拥有值为 eng 的 lang 属性。</td>
+</tr>
+<tr>
+<td align="left">/bookstore/book[price&gt;35.00]</td>
+<td align="left">选取 bookstore 元素的所有 book 元素，且其中的 price 元素的值须大于 35.00。</td>
+</tr>
+<tr>
+<td align="left">/bookstore/book[price&gt;35.00]/title</td>
+<td align="left">选取 bookstore 元素中的 book 元素的所有 title 元素，且其中的 price 元素的值须大于 35.00。</td>
+</tr>
+</tbody></table>
+<h4 id="XPath-通配符"><a href="#XPath-通配符" class="headerlink" title="XPath 通配符"></a>XPath 通配符</h4><table>
+<thead>
+<tr>
+<th align="left">通配符</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">*</td>
+<td align="left">匹配任何元素节点。</td>
+</tr>
+<tr>
+<td align="left">@*</td>
+<td align="left">匹配任何属性节点。</td>
+</tr>
+<tr>
+<td align="left">node()</td>
+<td align="left">匹配任何类型的节点。</td>
+</tr>
+</tbody></table>
+<ul>
+<li>通过在路径表达式中使用“|”运算符，您可以选取若干个路径。</li>
+</ul>
+<h4 id="步的语法"><a href="#步的语法" class="headerlink" title="步的语法"></a>步的语法</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">轴名称::节点测试[谓语]</span><br></pre></td></tr></table></figure>
+
+<h4 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h4><ul>
+<li>XPath 表达式可返回节点集、字符串、逻辑值以及数字。（与python基本一样）</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">运算符</th>
+<th align="left">描述</th>
+<th align="left">实例</th>
+<th align="left">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">|</td>
+<td align="left">计算两个节点集</td>
+<td align="left">//book | //cd</td>
+<td align="left">返回所有拥有 book 和 cd 元素的节点集</td>
+</tr>
+<tr>
+<td align="left">div</td>
+<td align="left">除法</td>
+<td align="left">8 div 4</td>
+<td align="left">2</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://spiderblog.cn/Scrapy-1.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar_bear.png">
+      <meta itemprop="name" content="Mr.Zhou">
+      <meta itemprop="description" content="喜欢的编程语言是Python，喜欢做爬虫与数据相关">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SpiderBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Scrapy-1.html" class="post-title-link" itemprop="url">Scrapy_1</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-16 23:40:32" itemprop="dateCreated datePublished" datetime="2020-02-16T23:40:32+08:00">2020-02-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-17 23:19:41" itemprop="dateModified" datetime="2020-03-17T23:19:41+08:00">2020-03-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Scrapy/" itemprop="url" rel="index">
+                    <span itemprop="name">Scrapy</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">命令加上参数 --nolog 可以去掉log日志输出</span><br></pre></td></tr></table></figure>
+
+<h4 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scrapy.downloadermiddlewares.retry <span class="keyword">import</span> RetryMiddleware <span class="comment"># 参考这个写即可</span></span><br><span class="line"><span class="comment"># 设置最大等待时间、失败重试次数</span></span><br><span class="line">DOWNLOAD_TIMEOUT = <span class="number">10</span></span><br><span class="line">RETRY_ENABLED = <span class="literal">True</span>  <span class="comment"># 失败重试</span></span><br><span class="line">RETRY_TIMES = <span class="number">5</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="scrapy复习笔记"><a href="#scrapy复习笔记" class="headerlink" title="scrapy复习笔记"></a>scrapy复习笔记</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">allowed_domains = [] <span class="comment"># 与OffsiteMiddleware中间件挂钩</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy.FormRequest() <span class="comment"># post请求</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scrapy.downloadermiddlewares.retry <span class="keyword">import</span> RetryMiddleware </span><br><span class="line"><span class="comment"># 异常处理，必须看源码，必须对异常进行处理</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">get()和getall()</span><br><span class="line">get(default&#x3D;&#39;not-found&#39;) #设置默认值</span><br><span class="line">.attrib[&#39;src&#39;]  # 获取属性值，它返回第一个匹配元素的属性</span><br><span class="line">scrapy css特有的::text和::attr(name)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; response.css(&#39;base&#39;).attrib   # 变成dict了</span><br><span class="line">&#123;&#39;href&#39;: &#39;http:&#x2F;&#x2F;example.com&#x2F;&#39;&#125;</span><br><span class="line">&gt;&gt;&gt; response.css(&#39;base&#39;).attrib[&#39;href&#39;]</span><br><span class="line">&#39;http:&#x2F;&#x2F;example.com&#x2F;&#39;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"># 例子</span><br><span class="line">&gt;&gt;&gt; response.xpath(&#39;&#x2F;&#x2F;base&#x2F;@href&#39;).get()</span><br><span class="line">&#39;http:&#x2F;&#x2F;example.com&#x2F;&#39;</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; response.css(&#39;base::attr(href)&#39;).get()</span><br><span class="line">&#39;http:&#x2F;&#x2F;example.com&#x2F;&#39;</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; response.css(&#39;base&#39;).attrib[&#39;href&#39;]</span><br><span class="line">&#39;http:&#x2F;&#x2F;example.com&#x2F;&#39;</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; response.xpath(&#39;&#x2F;&#x2F;a[contains(@href, &quot;image&quot;)]&#x2F;@href&#39;).getall()</span><br><span class="line">[&#39;image1.html&#39;,</span><br><span class="line"> &#39;image2.html&#39;,</span><br><span class="line"> &#39;image3.html&#39;,</span><br><span class="line"> &#39;image4.html&#39;,</span><br><span class="line"> &#39;image5.html&#39;]</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; response.css(&#39;a[href*&#x3D;image]::attr(href)&#39;).getall()</span><br><span class="line">[&#39;image1.html&#39;,</span><br><span class="line"> &#39;image2.html&#39;,</span><br><span class="line"> &#39;image3.html&#39;,</span><br><span class="line"> &#39;image4.html&#39;,</span><br><span class="line"> &#39;image5.html&#39;]</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; response.xpath(&#39;&#x2F;&#x2F;a[contains(@href, &quot;image&quot;)]&#x2F;img&#x2F;@src&#39;).getall()</span><br><span class="line">[&#39;image1_thumb.jpg&#39;,</span><br><span class="line"> &#39;image2_thumb.jpg&#39;,</span><br><span class="line"> &#39;image3_thumb.jpg&#39;,</span><br><span class="line"> &#39;image4_thumb.jpg&#39;,</span><br><span class="line"> &#39;image5_thumb.jpg&#39;]</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; response.css(&#39;a[href*&#x3D;image] img::attr(src)&#39;).getall()</span><br><span class="line">[&#39;image1_thumb.jpg&#39;,</span><br><span class="line"> &#39;image2_thumb.jpg&#39;,</span><br><span class="line"> &#39;image3_thumb.jpg&#39;,</span><br><span class="line"> &#39;image4_thumb.jpg&#39;,</span><br><span class="line"> &#39;image5_thumb.jpg&#39;]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; response.xpath(&#39;&#x2F;&#x2F;span&#x2F;text()&#39;).get()</span><br><span class="line">&#39;good&#39;</span><br><span class="line">&gt;&gt;&gt; response.css(&#39;span::text&#39;).get()</span><br><span class="line">&#39;good&#39;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Selector类可以用文本直接构造，用于xpath解析</span><br><span class="line">&gt;&gt;&gt; from scrapy.selector import Selector</span><br><span class="line">&gt;&gt;&gt; body &#x3D; &#39;&lt;html&gt;&lt;body&gt;&lt;span&gt;good&lt;&#x2F;span&gt;&lt;&#x2F;body&gt;&lt;&#x2F;html&gt;&#39;</span><br><span class="line">&gt;&gt;&gt; Selector(text&#x3D;body).xpath(&#39;&#x2F;&#x2F;span&#x2F;text()&#39;).get()</span><br><span class="line">&#39;good&#39;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.css(&#39;.shout&#39;).xpath(&#39;.&#x2F;time&#x2F;@datetime&#39;).getall()  # xpath的&#39;.&#39;点号必须加上</span><br></pre></td></tr></table></figure>
+
+<h5 id="scrapy-shell"><a href="#scrapy-shell" class="headerlink" title="scrapy shell"></a>scrapy shell</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fetch(url[, redirect=<span class="literal">True</span>])   <span class="comment">#  Fetch URL and update local objects</span></span><br><span class="line">fetch(req)                    <span class="comment">#  Fetch a scrapy.Request and update local objects</span></span><br><span class="line">shelp()           <span class="comment"># Shell help (print this help)  很重要，常用，类似于help</span></span><br><span class="line">view(response)    <span class="comment"># View response in a browser</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># scrapy.shell.inspect_response的用法如下：便于运行时，检查</span></span><br><span class="line"><span class="keyword">from</span> scrapy.shell <span class="keyword">import</span> inspect_response</span><br><span class="line">inspect_response(response, self)</span><br></pre></td></tr></table></figure>
+
+<h5 id="请求"><a href="#请求" class="headerlink" title="请求"></a>请求</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FormRequest.from_response()</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://spiderblog.cn/JS.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar_bear.png">
+      <meta itemprop="name" content="Mr.Zhou">
+      <meta itemprop="description" content="喜欢的编程语言是Python，喜欢做爬虫与数据相关">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SpiderBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/JS.html" class="post-title-link" itemprop="url">JS</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-02-07 23:51:10 / 修改时间：23:52:14" itemprop="dateCreated datePublished" datetime="2020-02-07T23:51:10+08:00">2020-02-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="JS基础"><a href="#JS基础" class="headerlink" title="JS基础"></a>JS基础</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># $('#loginPwd')是获取窗口的一个常量</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://spiderblog.cn/JS-reverse.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar_bear.png">
+      <meta itemprop="name" content="Mr.Zhou">
+      <meta itemprop="description" content="喜欢的编程语言是Python，喜欢做爬虫与数据相关">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SpiderBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/JS-reverse.html" class="post-title-link" itemprop="url">JS-reverse</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-07 23:29:28" itemprop="dateCreated datePublished" datetime="2020-02-07T23:29:28+08:00">2020-02-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-15 11:12:29" itemprop="dateModified" datetime="2020-02-15T11:12:29+08:00">2020-02-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS-reverse/" itemprop="url" rel="index">
+                    <span itemprop="name">JS-reverse</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="基本格式"><a href="#基本格式" class="headerlink" title="基本格式"></a>基本格式</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getpwd</span>(<span class="params">plaintext</span>)</span>&#123;  <span class="comment">// 一定要先找到明文</span></span><br><span class="line">    ;</span><br><span class="line">    <span class="keyword">return</span> ciphertext  <span class="comment">// 返回格式有两种：Hex和base64</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="常见加密方式"><a href="#常见加密方式" class="headerlink" title="常见加密方式"></a>常见加密方式</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">MD5, SHA <span class="comment"># 不可逆 # 常用</span></span><br><span class="line">HMAC, RC4, </span><br><span class="line">AES, DES, <span class="number">3</span>DES <span class="comment"># 可逆 # 常用</span></span><br><span class="line">Base64, Rabbit, PBKDF2/EvpKDF</span><br><span class="line">RSA</span><br></pre></td></tr></table></figure>
+
+<h4 id="chrome-F12"><a href="#chrome-F12" class="headerlink" title="chrome-F12"></a>chrome-F12</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">search</span><br><span class="line">sensors <span class="comment"># 设置经纬度</span></span><br><span class="line">下断点</span><br><span class="line">Breakpoints <span class="comment"># 管理断点</span></span><br><span class="line">Call Stack <span class="comment"># 堆栈</span></span><br><span class="line">抓包勾选Preserve log（保存日志），页面跳转，也能保存上一个界面的日志</span><br></pre></td></tr></table></figure>
+
+<h4 id="工具网站"><a href="#工具网站" class="headerlink" title="工具网站"></a>工具网站</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">http://tool.chacuo.net/cryptdes</span><br><span class="line"><span class="comment"># 用来解析公钥（RSA加密），可获取key长度，模数，指数  </span></span><br><span class="line"><span class="comment"># 公钥没有反斜杠'\',只有'/'</span></span><br><span class="line"><span class="comment"># 指数看0x，一般为0x10001,所以就是10001</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 雷电模拟器 3.63</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="哈希系列通杀"><a href="#哈希系列通杀" class="headerlink" title="哈希系列通杀"></a>哈希系列通杀</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># CryptoJS.MD5('word')</span></span><br><span class="line"><span class="comment"># 哈希加密系列有一个固定值1732584193，可以直接搜索</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="AES加密"><a href="#AES加密" class="headerlink" title="AES加密"></a>AES加密</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mode <span class="comment"># 类型，常用CBC和ECB</span></span><br><span class="line">padding <span class="comment"># 常用Pkos7和Iso10126</span></span><br><span class="line">IV <span class="comment"># 一般为固定值,要选最初值</span></span><br><span class="line">key <span class="comment"># 一般为固定值</span></span><br><span class="line"><span class="comment"># IV和key都有Eno编码规则，如UTF8</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="RAS加密"><a href="#RAS加密" class="headerlink" title="RAS加密"></a>RAS加密</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">指数:一般为<span class="number">10001</span></span><br><span class="line">公钥:(很长)要找出来  <span class="comment"># 1.上一个请求的返回值(getpublickey) 2.js文件中默认 3.js代码生成</span></span><br><span class="line"><span class="comment"># B64编码</span></span><br><span class="line"><span class="comment"># PKCS1指的每次生成值不一样</span></span><br><span class="line"><span class="comment"># 内容反转</span></span><br><span class="line"><span class="comment"># 内存反转</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 小块弹窗，右键检查源码找到目标网址，放入浏览器打开，会出现一个干净的登录界面，方便抓包</span></span><br><span class="line"><span class="comment"># 密码一般为哈希加密</span></span><br><span class="line"><span class="comment"># 遇到Encrypt加断点</span></span><br><span class="line"><span class="comment"># 方法有传参数，就可能是的</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="JS逆向工具"><a href="#JS逆向工具" class="headerlink" title="JS逆向工具"></a>JS逆向工具</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WT-JS_DEBUG  <span class="comment"># 找安全版本，其他的好像有病毒</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="JS加密实例"><a href="#JS加密实例" class="headerlink" title="JS加密实例"></a>JS加密实例</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">中关村登录</span><br><span class="line">pwd: <span class="number">3</span>b8aaa16fa213573513038281774d9c0  <span class="comment"># wuyao666</span></span><br><span class="line"><span class="comment"># pwd : md5Password</span></span><br><span class="line"><span class="comment"># var md5Password = CryptoJS.MD5(password+"zol") + '';</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">今目标登录</span><br><span class="line">password: a2c13e941f4f68fde8d92399ddeb3bf25111a434 <span class="comment"># wuyao666</span></span><br><span class="line"><span class="comment"># var result = &#123;&#125;</span></span><br><span class="line"><span class="comment"># result.password = sha1(resultData.password)</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">升学e网通 <span class="comment"># AES</span></span><br><span class="line">password: <span class="string">"590d9a610747ab5392a8a164793516a8"</span> <span class="comment"># wuyao666</span></span><br><span class="line"><span class="comment"># password: i = (0, v.Encrypt)(i)</span></span><br><span class="line">t.Encrypt = function(e) &#123;</span><br><span class="line">            var t = n[<span class="string">"default"</span>].enc.Utf8.parse(e);</span><br><span class="line">            <span class="keyword">return</span> n[<span class="string">"default"</span>].AES.encrypt(t, i, &#123;</span><br><span class="line">                iv: o,</span><br><span class="line">                mode: n[<span class="string">"default"</span>].mode.CBC,</span><br><span class="line">                padding: n[<span class="string">"default"</span>].pad.Pkcs7</span><br><span class="line">            &#125;).ciphertext.toString().toUpperCase()</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment"># o = n["default"].enc.Utf8.parse("2017110912453698")</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">有赞 <span class="comment">// AES # 网站已经改了</span></span><br><span class="line">Fiddler抓包</span><br><span class="line"><span class="comment">// 对password 加密</span></span><br><span class="line">password: d.a.encrypt(e.password)</span><br><span class="line"><span class="comment">// 源码:</span></span><br><span class="line">n = e.enc.Utf8.parse(<span class="string">"youzan.com.aesiv"</span>)</span><br><span class="line">i = e.enc.Utf8.parse("youzan.com._key_")  # i在此处是key</span><br><span class="line"><span class="keyword">var</span> r = e.AES.encrypt(t, i, &#123;</span><br><span class="line">    mode: e.mode.CBC,</span><br><span class="line">    padding: e.pad.Iso10126,</span><br><span class="line">	iv: n  <span class="comment">// 这个值很容易混淆,要找初始值，即enc.Utf8.parse()之前的值.</span></span><br><span class="line">&#125;).toString()</span><br><span class="line"><span class="comment">// 对ticket 加密</span></span><br><span class="line">fingerPrint  <span class="comment">// 指纹，其实就是加密后的一个字符串</span></span><br><span class="line">date:&#123;</span><br><span class="line">    fingerPrint: t ? t + c.default.encrypt(r) : <span class="string">""</span>,  <span class="comment">// a?b:c</span></span><br><span class="line">    youzanType: <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 也是AES加密</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">华特东方注册加密 <span class="comment"># 都是AES</span></span><br><span class="line"><span class="comment"># password </span></span><br><span class="line"><span class="comment"># token</span></span><br><span class="line"><span class="comment"># tokens  #参数unid</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">网页百度登录加密 <span class="comment"># RSA</span></span><br><span class="line"><span class="comment"># token和codestring都是可以固定值的</span></span><br><span class="line"><span class="comment"># gid是随机的，随机数</span></span><br><span class="line"><span class="comment"># password是加密了的RSA,公钥通过请求获取 # password = </span></span><br><span class="line"><span class="comment"># 手机和网页端加密不一样</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">手机百度登录加密 <span class="comment"># RSA</span></span><br><span class="line"><span class="comment"># l.password = window.encryptedString(r,l.password)  # 前面明码经过了拼接</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">运动潮流单品交易平台 <span class="comment"># 拼接+md5</span></span><br><span class="line"><span class="comment"># sign 加密了</span></span><br><span class="line"><span class="comment"># 搜索sign</span></span><br><span class="line"><span class="comment"># t.data.sign || (t.data.sign = Object(I["b"])(t.data))</span></span><br><span class="line"><span class="comment"># t.transformRequest = M : t.params.sign = Object(I["b"])(t.params)</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 京东登录 #RSA</span></span><br><span class="line"><span class="comment"># nloginpwd</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 微博 # RSA和SHA1</span></span><br><span class="line">sp  <span class="comment"># e.sp = b;   # sp是密码</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 享物说 # 滑动验证(一般都是假的,提交的请求包,没有这些参数值)</span></span><br><span class="line">模拟器有时候会被识别为<span class="string">"高风险设备:伪造设备"</span>，就不会抓到真的包，需要用自己真的手机来抓包  <span class="comment"># fengkong</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://spiderblog.cn/Linux-command.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar_bear.png">
+      <meta itemprop="name" content="Mr.Zhou">
+      <meta itemprop="description" content="喜欢的编程语言是Python，喜欢做爬虫与数据相关">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SpiderBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Linux-command.html" class="post-title-link" itemprop="url">Linux-command</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-29 01:48:56" itemprop="dateCreated datePublished" datetime="2020-01-29T01:48:56+08:00">2020-01-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-04 15:00:08" itemprop="dateModified" datetime="2020-02-04T15:00:08+08:00">2020-02-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="port"><a href="#port" class="headerlink" title="port"></a>port</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看占用端口的进程</span></span><br><span class="line">netstat -tlnp|grep <span class="number">6379</span>  <span class="comment"># t-tcp,l-listen,n-不解析(速度快),p-process</span></span><br><span class="line"><span class="comment"># 一次性的清除占用80端口的程序</span></span><br><span class="line">lsof -i :<span class="number">80</span>|grep -v <span class="string">"PID"</span>|awk <span class="string">'&#123;print "kill -9",$2&#125;'</span>|sh</span><br><span class="line"><span class="comment"># 终止进程</span></span><br><span class="line">kill <span class="number">5014</span></span><br><span class="line"><span class="comment"># 强制终止进程</span></span><br><span class="line">kill <span class="number">-9</span> <span class="number">5014</span>  <span class="comment"># 是pid</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://spiderblog.cn/Interview-5.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -625,507 +1193,11 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://spiderblog.cn/Interview-1.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar_bear.png">
-      <meta itemprop="name" content="Mr.Zhou">
-      <meta itemprop="description" content="喜欢的编程语言是Python，喜欢做爬虫与数据相关">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SpiderBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Interview-1.html" class="post-title-link" itemprop="url">Interview-1</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-01-21 12:45:14" itemprop="dateCreated datePublished" datetime="2020-01-21T12:45:14+08:00">2020-01-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-03 23:21:50" itemprop="dateModified" datetime="2020-02-03T23:21:50+08:00">2020-02-03</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Interview/" itemprop="url" rel="index">
-                    <span itemprop="name">Interview</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">修改不可变数据会抛出TypeError异常</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">print</span> 方法默认调用 sys.stdout.write 方法</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 文件路径操作</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_directory_contents</span><span class="params">(abs_path)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    :param abs_path: 文件夹绝对地址</span></span><br><span class="line"><span class="string">    :return: 该文件夹中文件路径+包含的文件夹的文件路径</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">import</span> os</span><br><span class="line">    <span class="keyword">for</span> child_path <span class="keyword">in</span> os.listdir(abs_path):</span><br><span class="line">        abs_child_path = os.path.join(abs_path, child_path)</span><br><span class="line">        <span class="keyword">if</span> os.path.isdir(abs_child_path):</span><br><span class="line">            print_directory_contents(abs_child_path)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(abs_child_path)</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">os.remove()删除文件</span></span><br><span class="line"><span class="string">os.rename()重命名文件</span></span><br><span class="line"><span class="string">os.walk()生成目录树下的所有文件名</span></span><br><span class="line"><span class="string">os.chdir()改变目录</span></span><br><span class="line"><span class="string">os.mkdir/makedirs 创建目录/多层目录</span></span><br><span class="line"><span class="string">os.rmdir/removedirs 删除目录/多层目录</span></span><br><span class="line"><span class="string">os.listdir()列出指定目录的文件</span></span><br><span class="line"><span class="string">os.getcwd()取得当前工作目录</span></span><br><span class="line"><span class="string">os.chmod()改变目录权限</span></span><br><span class="line"><span class="string">os.path.basename()去掉目录路径，返回文件名</span></span><br><span class="line"><span class="string">os.path.dirname()去掉文件名，返回目录路径</span></span><br><span class="line"><span class="string">os.path.join()将分离的各部分组合成一个路径名</span></span><br><span class="line"><span class="string">os.path.split()返回（dirname(),basename())元组</span></span><br><span class="line"><span class="string">os.path.splitext()(返回 filename,extension)元组</span></span><br><span class="line"><span class="string">os.path.getatime\ctime\mtime 分别返回最近访问、创建、修改时间</span></span><br><span class="line"><span class="string">os.path.getsize()返回文件大小</span></span><br><span class="line"><span class="string">os.path.exists()是否存在</span></span><br><span class="line"><span class="string">os.path.isabs()是否为绝对路径</span></span><br><span class="line"><span class="string">os.path.isdir()是否为目录</span></span><br><span class="line"><span class="string">os.path.isfile()是否为文件</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 拷贝</span></span><br><span class="line"><span class="keyword">import</span> copy</span><br><span class="line">copy.deepcopy(a)  <span class="comment"># 深拷贝</span></span><br><span class="line"><span class="comment"># '原子'类型的对象拷贝,都是返回引用,不是新创建</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># random模块</span></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line">random.random()  <span class="comment"># [0,1) float</span></span><br><span class="line">random.uniform(a, b)  <span class="comment"># [a,b] float</span></span><br><span class="line">random.randint(a, b)  <span class="comment"># [a,b] int</span></span><br><span class="line">random.randrange(a, b, step)  <span class="comment"># [a,b) step为步长，随机一个数字</span></span><br><span class="line">random.choice(sequence)  <span class="comment"># list中随机一个元素</span></span><br><span class="line">random.shuffle(alist)  <span class="comment"># 打乱顺序，无返回值</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># datetime</span></span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line">date1 = datetime.date(year=int(<span class="number">100</span>),month=int(<span class="number">2</span>),day=int(<span class="number">22</span>))</span><br><span class="line">print((date1-date1).days + <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sys模块</span></span><br><span class="line">sys.path 主要是对 Python 解释器的系统环境参数的操作（动态的改变 Python 解释器搜索路径）</span><br><span class="line">sys.argv 命令行参数 List，第一个元素是程序本身代码（即此.py程序）<span class="comment"># 有时候带路径</span></span><br><span class="line">sys.exit(n) 退出程序，正常退出时 exit(<span class="number">0</span>)</span><br><span class="line">sys.maxint 最大的 Int 值</span><br><span class="line">sys.maxunicode 最大的 Unicode 值</span><br><span class="line">sys.stdout 标准输出</span><br><span class="line">sys.stdin 标准输入</span><br><span class="line">sys.stderr 错误输出</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Python 是强语言类型还是弱语言类型?</span></span><br><span class="line">Python 是强类型的动态脚本语言。  <span class="comment"># 强类型</span></span><br><span class="line">强类型：不允许不同类型相加。</span><br><span class="line">动态：不使用显示数据类型声明，且确定一个变量的类型是在第一次给它赋值的时候。</span><br><span class="line">脚本语言：一般也是解释型语言，运行代码只需要一个解释器，不需要编译。</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://www.woola.net/detail/2016-08-28-python-object-introspection.html" target="_blank" rel="external nofollow noopener noreferrer">Python自省 (introspection)</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># PEP8 规范</span></span><br><span class="line"><span class="comment"># 模块和包:除特殊模块 __init__ 之外，模块名称都使用不带下划线的小写字母。若是它们实现一个协议，那么通常使用lib为后缀</span></span><br><span class="line"><span class="comment"># 使用 has 或 is 前缀命名布尔元素 is_connect = True  has_member = False</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 性能分析</span></span><br><span class="line"><span class="keyword">import</span> cProfile</span><br><span class="line">cProfile.run(<span class="string">'func(agrs)'</span>)   <span class="comment"># 字符串</span></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://spiderblog.cn/Beethoven-2.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar_bear.png">
-      <meta itemprop="name" content="Mr.Zhou">
-      <meta itemprop="description" content="喜欢的编程语言是Python，喜欢做爬虫与数据相关">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SpiderBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Beethoven-2.html" class="post-title-link" itemprop="url">Beethoven-2</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-01-18 20:26:30" itemprop="dateCreated datePublished" datetime="2020-01-18T20:26:30+08:00">2020-01-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-04 16:42:01" itemprop="dateModified" datetime="2020-02-04T16:42:01+08:00">2020-02-04</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Beethoven/" itemprop="url" rel="index">
-                    <span itemprop="name">Beethoven</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="socket"><a href="#socket" class="headerlink" title="socket"></a>socket</h4><ul>
-<li>TCP</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># TCP客户端</span></span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line">s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)</span><br><span class="line">s.connect((<span class="string">'www.baidu.com'</span>,<span class="number">80</span>))</span><br><span class="line">s.send(bytes)  <span class="comment"># 发送</span></span><br><span class="line">s.recv(<span class="number">1024</span>)  <span class="comment"># 接收bytes,没有数据了，则为空</span></span><br><span class="line">s.close()</span><br><span class="line"><span class="comment"># TCP服务端</span></span><br><span class="line">s.bind((<span class="string">'127.0.0.1'</span>, <span class="number">80</span>))  <span class="comment"># 对外服务绑定0.0.0.0</span></span><br><span class="line">s.listen(<span class="number">5</span>)  <span class="comment"># 等待连接的最大数量</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="comment"># 接受一个新连接:</span></span><br><span class="line">    sock, addr = s.accept()  <span class="comment"># sock是socket对象,addr是客户端ip地址</span></span><br><span class="line">    <span class="comment"># 创建新线程来处理TCP连接:</span></span><br><span class="line">    t = threading.Thread(target=tcplink, args=(sock, addr))</span><br><span class="line">    t.start()</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">tcplink</span><span class="params">(sock, addr)</span>:</span></span><br><span class="line">    ...</span><br><span class="line">    sock.close()</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>UDP</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)</span><br><span class="line">s.bind((<span class="string">'127.0.0.1'</span>, <span class="number">80</span>))</span><br><span class="line">data, addr = s.recvfrom(<span class="number">1024</span>)  <span class="comment"># 接收</span></span><br><span class="line">s.sendto(data, (<span class="string">'127.0.0.1'</span>, <span class="number">80</span>))  <span class="comment"># 发送</span></span><br><span class="line">s.close()</span><br></pre></td></tr></table></figure>
-
-<h4 id="SMTP发送邮件"><a href="#SMTP发送邮件" class="headerlink" title="SMTP发送邮件"></a>SMTP发送邮件</h4><ul>
-<li>email构建邮件，smtplib发送邮件</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> email.header <span class="keyword">import</span> Header</span><br><span class="line"><span class="keyword">from</span> email.mime.text <span class="keyword">import</span> MIMEText</span><br><span class="line"><span class="comment"># 邮件一般是由标题，发信人，收件人，邮件内容，附件等构成</span></span><br><span class="line">msg = MIMEText(<span class="string">'hello,send by python...'</span>, <span class="string">'plain'</span>, <span class="string">'utf-8'</span>)  <span class="comment"># 内容</span></span><br><span class="line">msg[<span class="string">'From'</span>] = Header(<span class="string">'Jason'</span>)  <span class="comment"># 发件人</span></span><br><span class="line">msg[<span class="string">'To'</span>] = Header(<span class="string">'Administrators'</span>)  <span class="comment"># 收件人</span></span><br><span class="line">msg[<span class="string">'Subject'</span>] = Header(<span class="string">'来自SMTP的问候'</span>, <span class="string">'utf-8'</span>)  <span class="comment"># 标题</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> smtplib</span><br><span class="line">server = smtplib.SMTP(<span class="string">"smtp.qq.com"</span>, <span class="number">25</span>)</span><br><span class="line"><span class="comment"># server.set_debuglevel(1)   # 打印详细</span></span><br><span class="line">server.starttls()  <span class="comment"># 加密</span></span><br><span class="line">server.login(<span class="string">"1837722596@qq.com"</span>, <span class="string">"gphfapcvqmjubeje"</span>)  <span class="comment"># 授权码</span></span><br><span class="line">server.sendmail(<span class="string">"1837722596@qq.com"</span>, [<span class="string">"17859717522@163.com"</span>, <span class="string">"923810495@qq.com"</span>], msg.as_string())</span><br><span class="line">server.quit()</span><br></pre></td></tr></table></figure>
-
-<h4 id="POP3收取邮件"><a href="#POP3收取邮件" class="headerlink" title="POP3收取邮件"></a>POP3收取邮件</h4><ul>
-<li>email解析邮件，poplib下载邮件</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 可以不掌握</span></span><br><span class="line"><span class="keyword">import</span> poplib</span><br><span class="line">server = poplib.POP3(<span class="string">"pop.qq.com"</span>)</span><br><span class="line">server.user(<span class="string">"1837722596@qq.com"</span>)</span><br><span class="line">server.pass_(<span class="string">"gphfapcvqmjubeje"</span>)</span><br><span class="line">server.stat()   <span class="comment"># stat()返回邮件数量和占用空间</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="使用SQLite"><a href="#使用SQLite" class="headerlink" title="使用SQLite"></a>使用SQLite</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># SQLite是一种嵌入式数据库，它的数据库就是一个文件。</span></span><br><span class="line"><span class="comment"># SQLite本身是C写的,而且体积很小,轻量级、可嵌入</span></span><br><span class="line"><span class="keyword">import</span> sqlite3</span><br><span class="line">conn = sqlite3.connect(<span class="string">'test.db'</span>)</span><br><span class="line">cursor = conn.cursor()</span><br><span class="line">cursor.execute(<span class="string">'sql'</span>)</span><br><span class="line"><span class="comment"># cursor对象存储了执行sql语句的结果</span></span><br><span class="line"><span class="comment"># values = cursor.fetchall()  # 获取查询结果集,是list类型,里面是tuple对应一行记录.</span></span><br><span class="line"><span class="comment"># cursor.rowcount  # 获取受影响的行数 </span></span><br><span class="line">cursor.close()</span><br><span class="line">conn.commit()  <span class="comment"># 提交事务，非常重要</span></span><br><span class="line">conn.close()</span><br><span class="line"><span class="comment"># 参数问题  使用'?'占位符</span></span><br><span class="line">cursor.execute(<span class="string">'select * from user where name=? and pwd=?'</span>, (<span class="string">'abc'</span>, <span class="string">'password'</span>))</span><br></pre></td></tr></table></figure>
-
-<h4 id="使用MySQL"><a href="#使用MySQL" class="headerlink" title="使用MySQL"></a>使用MySQL</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># MySQL常用引擎是InnoDB</span></span><br><span class="line">mysql -u root -p   <span class="comment"># 登陆</span></span><br><span class="line">show variables like <span class="string">'%char%'</span>;   <span class="comment"># 检查编码格式,推荐在配置文件中设置为utf8mb4</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> mysql <span class="keyword">import</span> connector</span><br><span class="line">conn = connector.connect(user=<span class="string">'root'</span>,password=<span class="string">'pass'</span>,database=<span class="string">'test'</span>)</span><br><span class="line">cursor = conn.cursor()</span><br><span class="line">cursor.execute(<span class="string">'sql'</span>)</span><br><span class="line"><span class="comment"># 其他操作与SQLite使用相同</span></span><br><span class="line"><span class="comment"># (不同点):MySQL的SQL占位符是%s</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="使用SQLAlchemy"><a href="#使用SQLAlchemy" class="headerlink" title="使用SQLAlchemy"></a>使用SQLAlchemy</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># SQLAlchemy是python中最著名的ORM（Object Relationship Mapping）框架</span></span><br><span class="line"><span class="comment"># ORM框架的作用就是把数据库表的一行记录与一个对象互相做自动转换</span></span><br><span class="line"><span class="comment"># pip install sqlalchemy</span></span><br></pre></td></tr></table></figure>
-
-<p><a href="https://www.liaoxuefeng.com/wiki/1016959663602400/1017803857459008" target="_blank" rel="external nofollow noopener noreferrer">重新学习SQLAIchemy</a></p>
-<h4 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Hello<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">    h1 &#123;</span><br><span class="line"><span class="css">      <span class="selector-tag">color</span>: <span class="selector-id">#333333</span>;</span></span><br><span class="line">      font-size: 48px;</span><br><span class="line"><span class="css">      <span class="selector-tag">text-shadow</span>: 3<span class="selector-tag">px</span> 3<span class="selector-tag">px</span> 3<span class="selector-tag">px</span> <span class="selector-id">#666666</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">change</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="built_in">document</span>.getElementsByTagName(<span class="string">'h1'</span>)[<span class="number">0</span>].style.color = <span class="string">'#ff0000'</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span> <span class="attr">onclick</span>=<span class="string">"change()"</span>&gt;</span>Hello, world!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="WSGI接口"><a href="#WSGI接口" class="headerlink" title="WSGI接口"></a>WSGI接口</h4><ul>
-<li>Web Server Gateway Interface</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">application</span><span class="params">(environ, start_response)</span>:</span></span><br><span class="line">    start_response(<span class="string">'200 OK'</span>, [(<span class="string">'Content-Type'</span>, <span class="string">'text/html'</span>)])  <span class="comment"># headers</span></span><br><span class="line">    <span class="keyword">return</span> [<span class="string">b'&lt;h1&gt;Hello, web!&lt;/h1&gt;'</span>]   <span class="comment"># body</span></span><br><span class="line"><span class="comment"># environ：一个包含所有HTTP请求信息的dict对象</span></span><br><span class="line"><span class="comment"># start_response：一个发送HTTP响应的函数，headers</span></span><br><span class="line"><span class="comment"># application()函数必须由WSGI服务器来调用</span></span><br><span class="line"><span class="comment"># environ['PATH_INFO'][1:]  # [1:]是为了去掉/</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 认识原理,此代码不具有实用价值  # 处理不同HTTP方法</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">application</span><span class="params">(environ, start_response)</span>:</span></span><br><span class="line">    method = environ[<span class="string">'REQUEST_METHOD'</span>]</span><br><span class="line">    path = environ[<span class="string">'PATH_INFO'</span>]</span><br><span class="line">    <span class="keyword">if</span> method==<span class="string">'GET'</span> <span class="keyword">and</span> path==<span class="string">'/'</span>:</span><br><span class="line">        <span class="keyword">return</span> handle_home(environ, start_response)</span><br><span class="line">    <span class="keyword">if</span> method==<span class="string">'POST'</span> <span class="keyword">and</span> path=<span class="string">'/signin'</span>:</span><br><span class="line">        <span class="keyword">return</span> handle_signin(environ, start_response)</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
-
-<h4 id="flask"><a href="#flask" class="headerlink" title="flask"></a>flask</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> request</span><br><span class="line">app = Flask(__name__)  <span class="comment"># 创建app</span></span><br><span class="line"><span class="meta">@app.route('/',methed=['GET','POST'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">home</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'&lt;h1&gt;Home&lt;/h1&gt;'</span></span><br><span class="line"><span class="meta">@app.route('/signin',methed=['GET'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">signin_form</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'''&lt;form action="/signin" method="post"&gt;</span></span><br><span class="line"><span class="string">              &lt;p&gt;&lt;input name="username"&gt;&lt;/p&gt;</span></span><br><span class="line"><span class="string">              &lt;p&gt;&lt;input name="password" type="password"&gt;&lt;/p&gt;</span></span><br><span class="line"><span class="string">              &lt;p&gt;&lt;button type="submit"&gt;Sign In&lt;/button&gt;&lt;/p&gt;</span></span><br><span class="line"><span class="string">              &lt;/form&gt;'''</span></span><br><span class="line"><span class="meta">@app.route('/signin', methods=['POST'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">signin</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">if</span> request.form[<span class="string">'username'</span>]==<span class="string">'admin'</span> <span class="keyword">and</span> request.form[<span class="string">'password'</span>]==<span class="string">'password'</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'&lt;h3&gt;Hello, admin!&lt;/h3&gt;'</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'&lt;h3&gt;Bad username or password.&lt;/h3&gt;'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    app.run()</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://spiderblog.cn/Beethoven.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar_bear.png">
-      <meta itemprop="name" content="Mr.Zhou">
-      <meta itemprop="description" content="喜欢的编程语言是Python，喜欢做爬虫与数据相关">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SpiderBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Beethoven.html" class="post-title-link" itemprop="url">Beethoven</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-01-15 19:26:30" itemprop="dateCreated datePublished" datetime="2020-01-15T19:26:30+08:00">2020-01-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-04 14:55:45" itemprop="dateModified" datetime="2020-02-04T14:55:45+08:00">2020-02-04</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Beethoven/" itemprop="url" rel="index">
-                    <span itemprop="name">Beethoven</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="os"><a href="#os" class="headerlink" title="os"></a>os</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.getpid()</span><br><span class="line">os.getppid()</span><br></pre></td></tr></table></figure>
-
-<h4 id="multiprocessing"><a href="#multiprocessing" class="headerlink" title="multiprocessing"></a>multiprocessing</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 部署分布式（master）</span></span><br><span class="line"><span class="keyword">import</span> queue</span><br><span class="line">task_queue = queue.Queue()  <span class="comment"># 队列，后面会通过BaseManager封装，注册到网络上</span></span><br><span class="line"><span class="keyword">from</span> multiprocessing.managers <span class="keyword">import</span> BaseManager</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">QueueManager</span><span class="params">(BaseManager)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line">QueueManager.register(<span class="string">'get_task_queue'</span>, callable=<span class="keyword">lambda</span>: task_queue)  <span class="comment"># 必须注册</span></span><br><span class="line">manager = QueueManager(address=(<span class="string">''</span>, <span class="number">5000</span>), authkey=<span class="string">b'abc'</span>)</span><br><span class="line">task = manager.get_task_queue()  <span class="comment"># 获取队列queue</span></span><br><span class="line">manager.start()  <span class="comment"># 开启</span></span><br><span class="line">manager.shutdown()  <span class="comment"># 关闭</span></span><br><span class="line"><span class="comment"># slave</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">QueueManager</span><span class="params">(BaseManager)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line">QueueManager.register(<span class="string">'get_task_queue'</span>)  <span class="comment"># 一定要注册</span></span><br><span class="line">m = QueueManager(address=(master_ip, <span class="number">5000</span>), authkey=<span class="string">b'abc'</span>)</span><br><span class="line">m.connect()</span><br><span class="line">task = m.get_task_queue()</span><br></pre></td></tr></table></figure>
-
-<h4 id="threading"><a href="#threading" class="headerlink" title="threading"></a>threading</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line">threading.current_thread().name</span><br><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Thread</span><br><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Lock</span><br><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> local</span><br></pre></td></tr></table></figure>
-
-<h4 id="datetime"><a href="#datetime" class="headerlink" title="datetime"></a>datetime</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line">now = datetime.now()</span><br><span class="line">now.timestamp() <span class="comment"># 时间戳</span></span><br><span class="line">datetime.fromtimestamp(<span class="number">1429417200.0</span>)</span><br><span class="line">datetime.utcfromtimestamp(<span class="number">1429417200.0</span>)</span><br><span class="line">now.strftime(<span class="string">'%Y-%m-%d %H:%M:%S %A'</span>)</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> timedelta</span><br><span class="line">datetime.now() + timedelta(days=<span class="number">2</span>, hours=<span class="number">12</span>)</span><br><span class="line"><span class="comment"># 设置时区</span></span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> timezone</span><br><span class="line">now.replace(tzinfo=timezone(timedelta(hours=<span class="number">8</span>)))</span><br></pre></td></tr></table></figure>
-
-<h4 id="collections"><a href="#collections" class="headerlink" title="collections"></a>collections</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 具名元组</span></span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> namedtuple</span><br><span class="line">Point = namedtuple(<span class="string">'Point'</span>, [<span class="string">'x'</span>, <span class="string">'y'</span>])</span><br><span class="line">p = Point(<span class="number">1</span>, <span class="number">2</span>)  <span class="comment"># 使用 p.x</span></span><br><span class="line"><span class="comment"># 队列，等价于list；更高效</span></span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"><span class="comment"># 默认字典，等价于dict；key不存在，返回默认值，不报错</span></span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</span><br><span class="line">dd = defaultdict(<span class="keyword">lambda</span>: <span class="string">'N/A'</span>)</span><br><span class="line"><span class="comment"># 有序字典</span></span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> OrderedDict</span><br><span class="line">od = OrderedDict([(<span class="string">'a'</span>, <span class="number">1</span>), (<span class="string">'b'</span>, <span class="number">2</span>), (<span class="string">'c'</span>, <span class="number">3</span>)])</span><br><span class="line"><span class="comment"># ChainMap</span></span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> ChainMap</span><br></pre></td></tr></table></figure>
-
-<h4 id="ChainMap"><a href="#ChainMap" class="headerlink" title="ChainMap"></a>ChainMap</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> ChainMap</span><br><span class="line">combined = ChainMap(dict1, dict2, defaults)   <span class="comment"># 链式dict</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="Counter"><a href="#Counter" class="headerlink" title="Counter"></a>Counter</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line"><span class="comment"># 计数器</span></span><br><span class="line">c = Counter()</span><br><span class="line">c.update(<span class="string">'hello'</span>)</span><br></pre></td></tr></table></figure>
-
-<h4 id="base64"><a href="#base64" class="headerlink" title="base64"></a>base64</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line">base64.b64encode(<span class="string">b"abcde"</span>)   <span class="comment"># b'YWJjZGU='  编码</span></span><br><span class="line">base64.b64decode(<span class="string">b'YWJjZGU='</span>)     <span class="comment"># b'abcde'   解码</span></span><br><span class="line"><span class="comment"># Base64是一种任意二进制到文本字符串的编码方法，常用于在URL、Cookie、网页中传输少量二进制数据</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="struct"><a href="#struct" class="headerlink" title="struct"></a>struct</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> struct</span><br><span class="line"><span class="comment"># 转化为bytes</span></span><br><span class="line">struct.pack(<span class="string">'&gt;I'</span>,<span class="number">10240099</span>)   <span class="comment"># b'\x00\x9c@c'</span></span><br><span class="line"><span class="comment"># 转化为python数据</span></span><br><span class="line">struct.unpack(<span class="string">'&gt;IH'</span>, <span class="string">b'\xf0\xf0\xf0\xf0\x80\x80'</span>)   <span class="comment"># (4042322160, 32896)</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line">I：<span class="number">4</span>字节无符号整数,即unsigned int</span><br><span class="line">H：<span class="number">2</span>字节无符号整数,即unsigned short</span><br><span class="line">c: char</span><br></pre></td></tr></table></figure>
-
-<h4 id="hashlib"><a href="#hashlib" class="headerlink" title="hashlib"></a>hashlib</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line">md5 = hashlib.md5()   <span class="comment">#</span></span><br><span class="line">md5.update(<span class="string">"date"</span>.encode(<span class="string">'utf-8'</span>))</span><br><span class="line">md5.hexdigest()</span><br><span class="line"><span class="comment"># 补充</span></span><br><span class="line">hashlib.sha1()</span><br><span class="line"><span class="comment"># md5:128 bit字节,32位16进制</span></span><br><span class="line"><span class="comment"># sha1: 160 bit, 40位16进制</span></span><br><span class="line">单向计算特性决定了其作用是防篡改，不能用于加密（不能反推明文）</span><br></pre></td></tr></table></figure>
-
-<h4 id="hmac"><a href="#hmac" class="headerlink" title="hmac"></a>hmac</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> hmac</span><br><span class="line">h = hmac.new(key=<span class="string">b'key'</span>, msg=<span class="literal">None</span>, digestmod=<span class="string">'MD5'</span>)</span><br><span class="line">h.update(msg=<span class="string">b'msg'</span>)</span><br><span class="line">h.hexdigest()</span><br></pre></td></tr></table></figure>
-
-<h4 id="itertools"><a href="#itertools" class="headerlink" title="itertools"></a>itertools</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line">itertools.count(start=<span class="number">0</span>, step=<span class="number">1</span>)  <span class="comment"># 无限迭代器</span></span><br><span class="line">itertools.cycle(<span class="string">'ABC'</span>)  <span class="comment"># iterable 无限重复</span></span><br><span class="line">itertools.repeat(object [,times])</span><br><span class="line">itertools.takewhile(<span class="keyword">lambda</span> x: x &lt;= <span class="number">10</span>, natuals) </span><br><span class="line">itertools.chain(*iterables)  <span class="comment"># 合并成一个迭代器</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="contextlib"><a href="#contextlib" class="headerlink" title="contextlib"></a>contextlib</h4><ul>
-<li>上下文管理</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__enter__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self   <span class="comment"># 非常重要，一定要返回一个对象，一般返回self</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__exit__</span><span class="params">(self, exc_type, exc_value, traceback)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> exc_type:</span><br><span class="line">            print(<span class="string">"ERROR处理"</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">"NO ERROR"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"this is a test class.it is &#123;&#125;"</span>.format(self.name))</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> Test(<span class="string">'Bob'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.test()</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># @contextmanager用法一</span></span><br><span class="line"><span class="keyword">from</span> contextlib <span class="keyword">import</span> contextmanager</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Query</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">query</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'Query info about %s...'</span> % self.name)</span><br><span class="line"><span class="meta">@contextmanager</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_query</span><span class="params">(name)</span>:</span></span><br><span class="line">    print(<span class="string">'Begin'</span>)</span><br><span class="line">    q = Query(name)</span><br><span class="line">    <span class="keyword">yield</span> q</span><br><span class="line">    print(<span class="string">'End'</span>)</span><br><span class="line"><span class="keyword">with</span> create_query(<span class="string">'Bob'</span>) <span class="keyword">as</span> q:</span><br><span class="line">    q.query()</span><br><span class="line"><span class="comment"># 用法二</span></span><br><span class="line"><span class="meta">@contextmanager</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">tag</span><span class="params">(name)</span>:</span></span><br><span class="line">    print(<span class="string">"&lt;%s&gt;"</span> % name)</span><br><span class="line">    <span class="keyword">yield</span></span><br><span class="line">    print(<span class="string">"&lt;/%s&gt;"</span> % name)</span><br><span class="line"><span class="keyword">with</span> tag(<span class="string">"h1"</span>):</span><br><span class="line">    print(<span class="string">"hello"</span>)</span><br><span class="line">    print(<span class="string">"world"</span>)</span><br></pre></td></tr></table></figure>
-
-<h4 id="Pillow"><a href="#Pillow" class="headerlink" title="Pillow"></a>Pillow</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line">im = Image.open(<span class="string">'test.jpg'</span>)  <span class="comment"># 读取图片</span></span><br><span class="line">w, h = im.size   <span class="comment"># 图像尺寸</span></span><br><span class="line">im.thumbnail((w//<span class="number">2</span>, h//<span class="number">2</span>))   <span class="comment"># 缩小</span></span><br><span class="line">im.save(<span class="string">'thumbnail.jpg'</span>, <span class="string">'jpeg'</span>)  <span class="comment"># 保存</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image, ImageDraw, ImageFont</span><br><span class="line"><span class="comment"># 生成验证码</span></span><br><span class="line"><span class="comment"># 图片大小，字体类型，字内容，字大小，字</span></span><br><span class="line">image = Image.new(<span class="string">'RGB'</span>, (<span class="number">60</span> * <span class="number">4</span>, <span class="number">60</span>), (<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>))  <span class="comment"># 创建图片</span></span><br><span class="line">draw = ImageDraw.Draw(image)  <span class="comment"># 操作对象</span></span><br><span class="line">draw.point((<span class="number">50</span>, <span class="number">50</span>), fill=(<span class="number">100</span>, <span class="number">100</span>, <span class="number">100</span>))  <span class="comment"># 修改一个像素点</span></span><br><span class="line">font = ImageFont.truetype(<span class="string">'Arial.ttf'</span>, <span class="number">36</span>)  <span class="comment"># 指定字体类型和大小</span></span><br><span class="line">draw.text((<span class="number">60</span>, <span class="number">10</span>), <span class="string">"A"</span>, font=font, fill=(<span class="number">90</span>, <span class="number">90</span>, <span class="number">90</span>))  <span class="comment"># 写入一个“A”</span></span><br><span class="line">image.save(<span class="string">'code.jpg'</span>, <span class="string">'jpeg'</span>)</span><br></pre></td></tr></table></figure>
-
-<h4 id="chardet"><a href="#chardet" class="headerlink" title="chardet"></a>chardet</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 猜测bytes到str,的编码规则：utf8,ascii等各种编码格式，包括日语韩语等</span></span><br><span class="line">chardet.detect(<span class="string">b'Hello, world!'</span>)</span><br></pre></td></tr></table></figure>
-
-<h4 id="psutil"><a href="#psutil" class="headerlink" title="psutil"></a>psutil</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 运维</span></span><br><span class="line"><span class="keyword">import</span> psutil</span><br><span class="line">psutil.cpu_count()  <span class="comment"># CPU逻辑数量 4个</span></span><br><span class="line">psutil.cpu_count(logical=<span class="literal">False</span>)  <span class="comment"># CPU物理核心 2个</span></span><br><span class="line"><span class="comment"># 2说明是双核超线程(1个物理核心对应2个逻辑), 4则是4核非超线程</span></span><br></pre></td></tr></table></figure>
-
-<p><a href="https://github.com/giampaolo/psutil#example-usages" target="_blank" rel="external nofollow noopener noreferrer">psutil-example</a></p>
-<h4 id="virtualenv"><a href="#virtualenv" class="headerlink" title="virtualenv"></a>virtualenv</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir myproject</span><br><span class="line">cd myproject/</span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建一个独立的Python运行环境，命名为venv</span></span><br><span class="line">virtualenv --no-site-packages venv    # 会出现文件夹venv</span><br><span class="line">source venv/bin/activate  # 进入该环境，成功命令提示符前面会出现(venv)</span><br><span class="line">deactivate  # 退出该环境</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://spiderblog.cn/Metaclass.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar_bear.png">
-      <meta itemprop="name" content="Mr.Zhou">
-      <meta itemprop="description" content="喜欢的编程语言是Python，喜欢做爬虫与数据相关">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SpiderBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Metaclass.html" class="post-title-link" itemprop="url">Metaclass</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-01-11 15:14:42" itemprop="dateCreated datePublished" datetime="2020-01-11T15:14:42+08:00">2020-01-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-04 14:58:25" itemprop="dateModified" datetime="2020-02-04T14:58:25+08:00">2020-02-04</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Metaclass/" itemprop="url" rel="index">
-                    <span itemprop="name">Metaclass</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="元类"><a href="#元类" class="headerlink" title="元类"></a>元类</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello = type(<span class="string">'Hello'</span>, (object,), dict(hello=fn))</span><br></pre></td></tr></table></figure>
-
-<h4 id="元类-metaclass"><a href="#元类-metaclass" class="headerlink" title="元类 metaclass"></a>元类 metaclass</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># metaclass允许你创建类或者修改类</span></span><br><span class="line"><span class="comment"># 改变类创建时的行为</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListMetaclass</span><span class="params">(type)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__new__</span><span class="params">(cls, name, bases, attrs)</span>:</span></span><br><span class="line">        attrs[<span class="string">'add'</span>] = <span class="keyword">lambda</span> self, value: self.append(value)</span><br><span class="line">        <span class="keyword">return</span> type.__new__(cls, name, bases, attrs)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyList</span><span class="params">(list, metaclass=ListMetaclass)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="常见的错误类型继承关系"><a href="#常见的错误类型继承关系" class="headerlink" title="常见的错误类型继承关系"></a>常见的错误类型继承关系</h4><p><a href="https://docs.python.org/3/library/exceptions.html#exception-hierarchy" target="_blank" rel="external nofollow noopener noreferrer">官方文档</a></p>
-<h4 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h4><p><a href="https://www.liaoxuefeng.com/wiki/1016959663602400/1017629247922688" target="_blank" rel="external nofollow noopener noreferrer">廖雪峰-多线程</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://spiderblog.cn/Linux-firewalld.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar_bear.png">
-      <meta itemprop="name" content="Mr.Zhou">
-      <meta itemprop="description" content="喜欢的编程语言是Python，喜欢做爬虫与数据相关">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SpiderBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Linux-firewalld.html" class="post-title-link" itemprop="url">Linux-firewalld</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-01-09 15:12:42" itemprop="dateCreated datePublished" datetime="2020-01-09T15:12:42+08:00">2020-01-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-04 15:00:40" itemprop="dateModified" datetime="2020-02-04T15:00:40+08:00">2020-02-04</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="开启端口"><a href="#开启端口" class="headerlink" title="开启端口"></a>开启端口</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone&#x3D;public --add-port&#x3D;80&#x2F;tcp --permanent</span><br></pre></td></tr></table></figure>
-
-<h4 id="查询端口号80-是否开启"><a href="#查询端口号80-是否开启" class="headerlink" title="查询端口号80 是否开启"></a>查询端口号80 是否开启</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --query-port&#x3D;80&#x2F;tcp</span><br></pre></td></tr></table></figure>
-
-<h4 id="重启防火墙"><a href="#重启防火墙" class="headerlink" title="重启防火墙"></a>重启防火墙</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
-
-<h4 id="查询有哪些端口是开启的"><a href="#查询有哪些端口是开启的" class="headerlink" title="查询有哪些端口是开启的"></a>查询有哪些端口是开启的</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --list-port</span><br></pre></td></tr></table></figure>
-
-<h4 id="关闭防火墙"><a href="#关闭防火墙" class="headerlink" title="关闭防火墙"></a>关闭防火墙</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service</span><br></pre></td></tr></table></figure>
-
-<h4 id="禁止防火墙开机自启"><a href="#禁止防火墙开机自启" class="headerlink" title="禁止防火墙开机自启"></a>禁止防火墙开机自启</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl disable firewalld.service</span><br></pre></td></tr></table></figure>
-
-<h4 id="启动防火墙"><a href="#启动防火墙" class="headerlink" title="启动防火墙"></a>启动防火墙</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start firewalld</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1192,20 +1264,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-count">41</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

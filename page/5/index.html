@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://spiderblog.cn').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"mac"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: true,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="喜欢的编程语言是Python，喜欢做爬虫与数据相关">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SpiderBlog">
+<meta property="og:url" content="http://spiderblog.cn/page/5/index.html">
+<meta property="og:site_name" content="SpiderBlog">
+<meta property="og:description" content="喜欢的编程语言是Python，喜欢做爬虫与数据相关">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Mr.Zhou">
+<meta property="article:tag" content="Python-Spider-Data">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://spiderblog.cn/page/5/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: true,
+    isPost: false
+  };
+</script>
+
+  <title> spider - SpiderBlog喜欢的编程语言是Python，喜欢做爬虫与数据相关 </title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="SpiderBlog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">SpiderBlog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">一个专注于分享爬虫实践相关的博客</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="搜索..." spellcheck="false" type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/squabbysheep" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="external nofollow noopener noreferrer" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://spiderblog.cn/ADSL-IP-PROXY.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar_bear.png">
+      <meta itemprop="name" content="Mr.Zhou">
+      <meta itemprop="description" content="喜欢的编程语言是Python，喜欢做爬虫与数据相关">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SpiderBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/ADSL-IP-PROXY.html" class="post-title-link" itemprop="url">ADSL-IP-PROXY</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-03 11:19:07" itemprop="dateCreated datePublished" datetime="2020-01-03T11:19:07+08:00">2020-01-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-24 00:17:02" itemprop="dateModified" datetime="2020-02-24T00:17:02+08:00">2020-02-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spider/" itemprop="url" rel="index">
+                    <span itemprop="name">Spider</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">使用vps服务器搭建IP代理池（高匿名）</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-准备工作"><a href="#2-准备工作" class="headerlink" title="2.准备工作"></a>2.准备工作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">１、购买VPS主机（多台，至少两台），并预装centos7</span><br><span class="line">２、一台正常服务器（也可以再购买一台VPS主机）</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-搭建代理服务器"><a href="#3-搭建代理服务器" class="headerlink" title="3.搭建代理服务器"></a>3.搭建代理服务器</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 3.1 登录VPS服务器</span></span><br><span class="line">ssh root@<span class="number">58.218</span><span class="number">.209</span><span class="number">.207</span> -p <span class="number">20113</span>   <span class="comment"># 密码在“控制面版”</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 3.2 拨号-先拨号才可以连接外网</span></span><br><span class="line">adsl-start  <span class="comment"># 此命令是拨号</span></span><br><span class="line">adsl-stop   <span class="comment"># 此命令是停止拨号</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 3.3 查看主机的IP</span></span><br><span class="line">ifconfig</span><br><span class="line"><span class="comment"># 网卡名称叫ppp0,他的ip地址就是</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 3.4安装代理服务器TinyProxy</span></span><br><span class="line">yum install -y epel-release</span><br><span class="line">yum update -y</span><br><span class="line">yum install -y tinyproxy</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 3.5 配置TinyProxy</span></span><br><span class="line">vim /etc/tinyproxy/tinyproxy.conf</span><br><span class="line"><span class="comment"># 里面有一行是 Port 8888，这是代理端口，默认不修改</span></span><br><span class="line"><span class="comment"># 里面有一行是 Allow 127.0.0.1 ，将它注释掉，即可任何主机使用本代理服务器</span></span><br><span class="line"><span class="comment"># 设置完成之后，需要重启TinyProxy</span></span><br><span class="line">systemctl enable tinyproxy.service</span><br><span class="line">systemctl restart tinyproxy.service</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 3.6 开放防火墙端口</span></span><br><span class="line">iptables -I INPUT -p tcp --dport <span class="number">8888</span> -j ACCEPT</span><br><span class="line"><span class="comment"># 或者直接关闭防火墙</span></span><br><span class="line">systemctl stop firewall.service</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 3.7 验证TinyProxy</span></span><br><span class="line"><span class="comment"># 在其他主机输入curl命令</span></span><br><span class="line">curl -x <span class="number">112.84</span><span class="number">.118</span><span class="number">.216</span>:<span class="number">8888</span> httpbin.org/get</span><br><span class="line"><span class="comment"># 返回的“origin”是代理服务器即为成功</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-搭建代理池"><a href="#4-搭建代理池" class="headerlink" title="4.搭建代理池"></a>4.搭建代理池</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 4.1 存储模块：使用Redis数据库，存储各个代理服务器的代理ip和代理端口（正常服务器上）</span></span><br><span class="line"><span class="comment"># 先定义一个操作 Redis 数据库的类，示例如下：</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="comment"># Redis 数据库 IP</span></span><br><span class="line">REDIS_HOST = <span class="string">'remoteaddress'</span></span><br><span class="line"><span class="comment"># Redis 数据库密码，如无则填 None</span></span><br><span class="line">REDIS_PASSWORD = <span class="string">'password'</span></span><br><span class="line"><span class="comment"># Redis 数据库端口</span></span><br><span class="line">REDIS_PORT = <span class="number">6379</span></span><br><span class="line"><span class="comment"># 代理池键名</span></span><br><span class="line">PROXY_KEY = <span class="string">'adsl'</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RedisClient</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, host=REDIS_HOST, port=REDIS_PORT, password=REDIS_PASSWORD, proxy_key=PROXY_KEY)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        初始化 Redis 连接</span></span><br><span class="line"><span class="string">        :param host: Redis 地址</span></span><br><span class="line"><span class="string">        :param port: Redis 端口</span></span><br><span class="line"><span class="string">        :param password: Redis 密码</span></span><br><span class="line"><span class="string">        :param proxy_key: Redis 哈希表名</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        self.db = redis.StrictRedis(host=host, port=port, password=password, decode_responses=<span class="literal">True</span>)</span><br><span class="line">        self.proxy_key = proxy_key</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">set</span><span class="params">(self, name, proxy)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        设置代理</span></span><br><span class="line"><span class="string">        :param name: 主机名称</span></span><br><span class="line"><span class="string">        :param proxy: 代理</span></span><br><span class="line"><span class="string">        :return: 设置结果</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> self.db.hset(self.proxy_key, name, proxy)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self, name)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        获取代理</span></span><br><span class="line"><span class="string">        :param name: 主机名称</span></span><br><span class="line"><span class="string">        :return: 代理</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> self.db.hget(self.proxy_key, name)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">count</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        获取代理总数</span></span><br><span class="line"><span class="string">        :return: 代理总数</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> self.db.hlen(self.proxy_key)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">remove</span><span class="params">(self, name)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        删除代理</span></span><br><span class="line"><span class="string">        :param name: 主机名称</span></span><br><span class="line"><span class="string">        :return: 删除结果</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> self.db.hdel(self.proxy_key, name)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">names</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        获取主机名称列表</span></span><br><span class="line"><span class="string">        :return: 获取主机名称列表</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> self.db.hkeys(self.proxy_key)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">proxies</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        获取代理列表</span></span><br><span class="line"><span class="string">        :return: 代理列表</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> self.db.hvals(self.proxy_key)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">random</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        随机获取代理</span></span><br><span class="line"><span class="string">        :return:</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        proxies = self.proxies()</span><br><span class="line">        <span class="keyword">return</span> random.choice(proxies)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">all</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        获取字典</span></span><br><span class="line"><span class="string">        :return:</span></span><br><span class="line"><span class="string">        """</span><span class="keyword">return</span> self.db.hgetall(self.proxy_key)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 4.2 拨号模块：拨号，并把新的 IP 保存到 Redis 散列表里（本模块在vps拨号服务器上）</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> requests.exceptions <span class="keyword">import</span> ConnectionError, ReadTimeout</span><br><span class="line"><span class="keyword">from</span> db <span class="keyword">import</span> RedisClient</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 拨号网卡</span></span><br><span class="line">ADSL_IFNAME = <span class="string">'ppp0'</span></span><br><span class="line"><span class="comment"># 测试 URL</span></span><br><span class="line">TEST_URL = <span class="string">'http://www.baidu.com'</span></span><br><span class="line"><span class="comment"># 测试超时时间</span></span><br><span class="line">TEST_TIMEOUT = <span class="number">20</span></span><br><span class="line"><span class="comment"># 拨号间隔</span></span><br><span class="line">ADSL_CYCLE = <span class="number">100</span></span><br><span class="line"><span class="comment"># 拨号出错重试间隔</span></span><br><span class="line">ADSL_ERROR_CYCLE = <span class="number">5</span></span><br><span class="line"><span class="comment"># ADSL 命令</span></span><br><span class="line">ADSL_BASH = <span class="string">'adsl-stop;adsl-start'</span></span><br><span class="line"><span class="comment"># 代理运行端口</span></span><br><span class="line">PROXY_PORT = <span class="number">8888</span></span><br><span class="line"><span class="comment"># 客户端唯一标识</span></span><br><span class="line">CLIENT_NAME = <span class="string">'adsl1'</span></span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sender</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_ip</span><span class="params">(self, ifname=ADSL_IFNAME)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        获取本机 IP</span></span><br><span class="line"><span class="string">        :param ifname: 网卡名称</span></span><br><span class="line"><span class="string">        :return:</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        (status, output) = subprocess.getstatusoutput(<span class="string">'ifconfig'</span>)</span><br><span class="line">        <span class="keyword">if</span> status == <span class="number">0</span>:</span><br><span class="line">            pattern = re.compile(ifname + <span class="string">'.*?inet.*?(d+.d+.d+.d+).*?netmask'</span>, re.S)</span><br><span class="line">            result = re.search(pattern, output)</span><br><span class="line">            <span class="keyword">if</span> result:</span><br><span class="line">                ip = result.group(<span class="number">1</span>)</span><br><span class="line">                <span class="keyword">return</span> ip</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_proxy</span><span class="params">(self, proxy)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        测试代理</span></span><br><span class="line"><span class="string">        :param proxy: 代理</span></span><br><span class="line"><span class="string">        :return: 测试结果</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            response = requests.get(TEST_URL, proxies=&#123;</span><br><span class="line">                <span class="string">'http'</span>: <span class="string">'http://'</span> + proxy,</span><br><span class="line">                <span class="string">'https'</span>: <span class="string">'https://'</span> + proxy</span><br><span class="line">            &#125;, timeout=TEST_TIMEOUT)</span><br><span class="line">            <span class="keyword">if</span> response.status_code == <span class="number">200</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">except</span> (ConnectionError, ReadTimeout):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">remove_proxy</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        移除代理</span></span><br><span class="line"><span class="string">        :return: None</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        self.redis = RedisClient()</span><br><span class="line">        self.redis.remove(CLIENT_NAME)</span><br><span class="line">        print(<span class="string">'Successfully Removed Proxy'</span>)</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">set_proxy</span><span class="params">(self, proxy)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        设置代理</span></span><br><span class="line"><span class="string">        :param proxy: 代理</span></span><br><span class="line"><span class="string">        :return: None</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        self.redis = RedisClient()</span><br><span class="line">        <span class="keyword">if</span> self.redis.set(CLIENT_NAME, proxy):</span><br><span class="line">            print(<span class="string">'Successfully Set Proxy'</span>, proxy)</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">adsl</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        拨号主进程</span></span><br><span class="line"><span class="string">        :return: None</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            print(<span class="string">'ADSL Start, Remove Proxy, Please wait'</span>)</span><br><span class="line">            self.remove_proxy()</span><br><span class="line">            (status, output) = subprocess.getstatusoutput(ADSL_BASH)</span><br><span class="line">            <span class="keyword">if</span> status == <span class="number">0</span>:</span><br><span class="line">                print(<span class="string">'ADSL Successfully'</span>)</span><br><span class="line">                ip = self.get_ip()</span><br><span class="line">                <span class="keyword">if</span> ip:</span><br><span class="line">                    print(<span class="string">'Now IP'</span>, ip)</span><br><span class="line">                    print(<span class="string">'Testing Proxy, Please Wait'</span>)</span><br><span class="line">                    proxy = <span class="string">'&#123;ip&#125;:&#123;port&#125;'</span>.format(ip=ip, port=PROXY_PORT)</span><br><span class="line">                    <span class="keyword">if</span> self.test_proxy(proxy):</span><br><span class="line">                        print(<span class="string">'Valid Proxy'</span>)</span><br><span class="line">                        self.set_proxy(proxy)</span><br><span class="line">                        print(<span class="string">'Sleeping'</span>)</span><br><span class="line">                        time.sleep(ADSL_CYCLE)</span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        print(<span class="string">'Invalid Proxy'</span>)</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    print(<span class="string">'Get IP Failed, Re Dialing'</span>)</span><br><span class="line">                    time.sleep(ADSL_ERROR_CYCLE)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                print(<span class="string">'ADSL Failed, Please Check'</span>)</span><br><span class="line">                time.sleep(ADSL_ERROR_CYCLE)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">()</span>:</span></span><br><span class="line">    sender = Sender()</span><br><span class="line">    sender.adsl()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 4.3 接口模块（正常服务器上）</span></span><br><span class="line"><span class="comment"># 利用 Tornado 的 Server 模块搭建 Web 接口服务</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> tornado.ioloop</span><br><span class="line"><span class="keyword">import</span> tornado.web</span><br><span class="line"><span class="keyword">from</span> tornado.web <span class="keyword">import</span> RequestHandler, Application</span><br><span class="line"> </span><br><span class="line"><span class="comment"># API 端口</span></span><br><span class="line">API_PORT = <span class="number">8000</span></span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MainHandler</span><span class="params">(RequestHandler)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">initialize</span><span class="params">(self, redis)</span>:</span></span><br><span class="line">        self.redis = redis</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self, api=<span class="string">''</span>)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> api:</span><br><span class="line">            links = [<span class="string">'random'</span>, <span class="string">'proxies'</span>, <span class="string">'names'</span>, <span class="string">'all'</span>, <span class="string">'count'</span>]</span><br><span class="line">            self.write(<span class="string">'&lt;h4&gt;Welcome to ADSL Proxy API&lt;/h4&gt;'</span>)</span><br><span class="line">            <span class="keyword">for</span> link <span class="keyword">in</span> links:</span><br><span class="line">                self.write(<span class="string">'&lt;a href='</span> + link + <span class="string">'&gt;'</span> + link + <span class="string">'&lt;/a&gt;&lt;br&gt;'</span>)</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">if</span> api == <span class="string">'random'</span>:</span><br><span class="line">            result = self.redis.random()</span><br><span class="line">            <span class="keyword">if</span> result:</span><br><span class="line">                self.write(result)</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">if</span> api == <span class="string">'names'</span>:</span><br><span class="line">            result = self.redis.names()</span><br><span class="line">            <span class="keyword">if</span> result:</span><br><span class="line">                self.write(json.dumps(result))</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">if</span> api == <span class="string">'proxies'</span>:</span><br><span class="line">            result = self.redis.proxies()</span><br><span class="line">            <span class="keyword">if</span> result:</span><br><span class="line">                self.write(json.dumps(result))</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">if</span> api == <span class="string">'all'</span>:</span><br><span class="line">            result = self.redis.all()</span><br><span class="line">            <span class="keyword">if</span> result:</span><br><span class="line">                self.write(json.dumps(result))</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">if</span> api == <span class="string">'count'</span>:</span><br><span class="line">            self.write(str(self.redis.count()))</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">server</span><span class="params">(redis, port=API_PORT, address=<span class="string">''</span>)</span>:</span></span><br><span class="line">    application = Application([(<span class="string">r'/'</span>, MainHandler, dict(redis=redis)),</span><br><span class="line">        (<span class="string">r'/(.*)'</span>, MainHandler, dict(redis=redis)),</span><br><span class="line">    ])</span><br><span class="line">    application.listen(port, address=address)</span><br><span class="line">    print(<span class="string">'ADSL API Listening on'</span>, port)</span><br><span class="line">    tornado.ioloop.IOLoop.instance().start()</span><br></pre></td></tr></table></figure>
+
+<h3 id="程序转后台运行命令"><a href="#程序转后台运行命令" class="headerlink" title="程序转后台运行命令"></a>程序转后台运行命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> vps server</span></span><br><span class="line">nohup python3  run.py &gt;/dev/null 2&gt;&amp;1 &amp;</span><br><span class="line"><span class="meta">#</span><span class="bash"> redis server</span></span><br><span class="line">nohup python3 api.py &gt;/dev/null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查询存活程序python3</span></span><br><span class="line">ps -ef | grep python3</span><br></pre></td></tr></table></figure>
+
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a href="https://cuiqingcai.com/8361.html" target="_blank" rel="external nofollow noopener noreferrer">崔老师-ADSL 拨号代理</a></p>
+<p><a href="https://github.com/squabbysheep/AdslProxy" target="_blank" rel="external nofollow noopener noreferrer">github项目链接</a></p>
+<h3 id="实例链接"><a href="#实例链接" class="headerlink" title="实例链接"></a>实例链接</h3><p><a href="http://121.36.55.134:80/" target="_blank" rel="external nofollow noopener noreferrer">ADSL实例</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+  </div>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Mr.Zhou" src="/images/avatar_bear.png">
+  <p class="site-author-name" itemprop="name">Mr.Zhou</p>
+  <div class="site-description" itemprop="description">喜欢的编程语言是Python，喜欢做爬虫与数据相关</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr.Zhou</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">NexT.Pisces</a> v7.6.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      element.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+  
+
+    </div>
+  <!-- 小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>
