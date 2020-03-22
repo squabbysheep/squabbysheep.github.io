@@ -207,6 +207,101 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://spiderblog.cn/Python-call-C.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar_bear.png">
+      <meta itemprop="name" content="Mr.Zhou">
+      <meta itemprop="description" content="喜欢的编程语言是Python，喜欢做爬虫与数据相关">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SpiderBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Python-call-C.html" class="post-title-link" itemprop="url">Python-call-C</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-03 12:19:08" itemprop="dateCreated datePublished" datetime="2020-01-03T12:19:08+08:00">2020-01-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-04 15:13:41" itemprop="dateModified" datetime="2020-02-04T15:13:41+08:00">2020-02-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-C/" itemprop="url" rel="index">
+                    <span itemprop="name">C&C++</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Python3-调用C语言代码"><a href="#Python3-调用C语言代码" class="headerlink" title="Python3 调用C语言代码"></a>Python3 调用C语言代码</h3><h5 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">centos7+python3.6</span><br></pre></td></tr></table></figure>
+
+<h5 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Python中的ctypes模块可能是Python调用C方法中最简单的一种。</span><br><span class="line">ctypes模块提供了和C语言兼容的数据类型和函数来加载dll文件，</span><br><span class="line">因此在调用时不需对源文件做任何的修改，也正是如此奠定了这种方法的简单性。</span><br></pre></td></tr></table></figure>
+
+<h5 id="准备文件"><a href="#准备文件" class="headerlink" title="准备文件"></a>准备文件</h5><h6 id="1-准备C语言程序，保存为add-c"><a href="#1-准备C语言程序，保存为add-c" class="headerlink" title="1.准备C语言程序，保存为add.c"></a>1.准备C语言程序，保存为add.c</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">add_int</span><span class="params">(<span class="keyword">int</span>, <span class="keyword">int</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">float</span> <span class="title">add_float</span><span class="params">(<span class="keyword">float</span>, <span class="keyword">float</span>)</span></span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">add_int</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">float</span> <span class="title">add_float</span><span class="params">(<span class="keyword">float</span> num1, <span class="keyword">float</span> num2)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="2-编译成so库"><a href="#2-编译成so库" class="headerlink" title="2.编译成so库"></a>2.编译成so库</h6><p>输入命令即可，会出现一个.so文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -shared -Wl,-soname,adder -o adder.so -fPIC add.c</span><br></pre></td></tr></table></figure>
+
+<h6 id="3-准备python代码，保存为python-c-py"><a href="#3-准备python代码，保存为python-c-py" class="headerlink" title="3.准备python代码，保存为python-c.py"></a>3.准备python代码，保存为python-c.py</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ctypes</span><br><span class="line"> </span><br><span class="line"><span class="comment">#load the shared object file</span></span><br><span class="line">adder = ctypes.cdll.LoadLibrary(<span class="string">'./adder.so'</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment">#Find sum of integers</span></span><br><span class="line">res_int = adder.add_int(<span class="number">4</span>,<span class="number">5</span>)</span><br><span class="line">print(<span class="string">"4 + 5 = "</span> + str(res_int))</span><br><span class="line"> </span><br><span class="line"><span class="comment">#Find sum of floats</span></span><br><span class="line">a = ctypes.c_float(<span class="number">5.5</span>)</span><br><span class="line">b = ctypes.c_float(<span class="number">4.1</span>)</span><br><span class="line"> </span><br><span class="line">add_float = adder.add_float</span><br><span class="line">add_float.restype = ctypes.c_float</span><br><span class="line"> </span><br><span class="line">print(<span class="string">"5.5 + 4.1 = "</span> + str(add_float(a, b)))</span><br></pre></td></tr></table></figure>
+
+<h6 id="4-执行"><a href="#4-执行" class="headerlink" title="4.执行"></a>4.执行</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 python-c.py</span><br></pre></td></tr></table></figure>
+
+<p>执行结果如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">4 + 5 &#x3D; 9</span><br><span class="line">5.5 + 4.1 &#x3D; 9.600000381469727</span><br></pre></td></tr></table></figure>
+
+<h6 id="5-特殊说明"><a href="#5-特殊说明" class="headerlink" title="5.特殊说明"></a>5.特殊说明</h6><ul>
+<li>在Python文件中，一开始先导入ctypes模块，然后使用cdll.LoadLibrary函数来加载我们创建的库文件。这样我们就可以通过变量adder来使用C类库中的函数了。当adder.add_int()被调用时，内部将发起一个对C函数add_int的调用。ctypes接口允许我们在调用C函数时使用原生Python中默认的字符串型和整型。</li>
+<li>而对于其他类似布尔型和浮点型这样的类型，必须要使用正确的ctype类型才可以。如向adder.add_float()函数传参时, 我们要先将Python中的十进制值转化为c_float类型，然后才能传送给C函数。这种方法虽然简单，清晰，但是却很受限。例如，并不能在C中对对象进行操作。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://spiderblog.cn/ADSL-IP-PROXY.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -386,20 +481,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-count">42</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
