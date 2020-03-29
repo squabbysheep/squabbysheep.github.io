@@ -46,15 +46,15 @@
   };
 </script>
 
-  <meta name="description" content="安装源和更新123# 这操作很重要，可以避免很多版本性bugyum install -y epel-releaseyum update -y  安装Python1yum install python36  安装Redis1234567yum install redis# 配置文件默认在&#x2F;etc&#x2F;redis.conf # 修改bind 127.0.0.1为0.0.0.0 修改po">
+  <meta name="description" content="安装源和更新123# 这操作很重要，可以避免很多版本性bugyum install -y epel-releaseyum update -y 安装Python1yum install python36 安装Redis1234567yum install redis# 配置文件默认在&#x2F;etc&#x2F;redis.conf # 修改bind 127.0.0.1为0.0.0.0 修改port">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Centos7-yum">
 <meta property="og:url" content="http://spiderblog.cn/Centos7-yum.html">
 <meta property="og:site_name" content="SpiderBlog">
-<meta property="og:description" content="安装源和更新123# 这操作很重要，可以避免很多版本性bugyum install -y epel-releaseyum update -y  安装Python1yum install python36  安装Redis1234567yum install redis# 配置文件默认在&#x2F;etc&#x2F;redis.conf # 修改bind 127.0.0.1为0.0.0.0 修改po">
+<meta property="og:description" content="安装源和更新123# 这操作很重要，可以避免很多版本性bugyum install -y epel-releaseyum update -y 安装Python1yum install python36 安装Redis1234567yum install redis# 配置文件默认在&#x2F;etc&#x2F;redis.conf # 修改bind 127.0.0.1为0.0.0.0 修改port">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-01-09T04:04:59.000Z">
-<meta property="article:modified_time" content="2020-03-17T07:46:25.284Z">
+<meta property="article:modified_time" content="2020-03-23T18:27:28.035Z">
 <meta property="article:author" content="Mr.Zhou">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
@@ -239,7 +239,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-17 15:46:25" itemprop="dateModified" datetime="2020-03-17T15:46:25+08:00">2020-03-17</time>
+                <time title="修改时间：2020-03-24 02:27:28" itemprop="dateModified" datetime="2020-03-24T02:27:28+08:00">2020-03-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -265,17 +265,12 @@
 
       
         <h4 id="安装源和更新"><a href="#安装源和更新" class="headerlink" title="安装源和更新"></a>安装源和更新</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 这操作很重要，可以避免很多版本性bug</span></span><br><span class="line">yum install -y epel-release</span><br><span class="line">yum update -y</span><br></pre></td></tr></table></figure>
-
 <h4 id="安装Python"><a href="#安装Python" class="headerlink" title="安装Python"></a>安装Python</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install python36</span><br></pre></td></tr></table></figure>
-
 <h4 id="安装Redis"><a href="#安装Redis" class="headerlink" title="安装Redis"></a>安装Redis</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">yum install redis</span><br><span class="line"># 配置文件默认在&#x2F;etc&#x2F;redis.conf </span><br><span class="line"># 修改bind 127.0.0.1为0.0.0.0 修改port 6379为8888 修改protected-mode yes为no</span><br><span class="line"># 修改 requirepass foobared 为自己的密码</span><br><span class="line"># redis-server &#x2F;etc&#x2F;redis.conf  # 运行服务</span><br><span class="line"># redis-cli -h 127.0.0.1 -p 8888 -a password  # 登录</span><br><span class="line"># nohup redis-server &#x2F;etc&#x2F;redis.conf &gt;&#x2F;dev&#x2F;null 2&gt;&amp;1 &amp;  # 后台运行</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">编译安装redis链接：https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_39185919&#x2F;article&#x2F;details&#x2F;100564713</span><br></pre></td></tr></table></figure>
-
 <h4 id="安装Mongodb"><a href="#安装Mongodb" class="headerlink" title="安装Mongodb"></a>安装Mongodb</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># 1.创建仓库文件</span><br><span class="line">vim &#x2F;etc&#x2F;yum.repos.d&#x2F;mongodb-org-3.4.repo</span><br><span class="line">添加如下内容</span><br><span class="line">[mongodb-org-3.4]</span><br><span class="line">name&#x3D;MongoDB Repository</span><br><span class="line">baseurl&#x3D;https:&#x2F;&#x2F;repo.mongodb.org&#x2F;yum&#x2F;redhat&#x2F;$releasever&#x2F;mongodb-org&#x2F;3.4&#x2F;x86_64&#x2F;</span><br><span class="line">gpgcheck&#x3D;1</span><br><span class="line">enabled&#x3D;1</span><br><span class="line">gpgkey&#x3D;https:&#x2F;&#x2F;www.mongodb.org&#x2F;static&#x2F;pgp&#x2F;server-3.4.asc</span><br><span class="line"># 2.yum安装</span><br><span class="line">yum install -y mongodb-org</span><br><span class="line"># 3.修改配置文件，解除ip地址绑定信息</span><br><span class="line">vim &#x2F;etc&#x2F;mongod.conf</span><br><span class="line">修改为0.0.0.0 端口也修改为27027</span><br><span class="line"># 启动，重启</span><br><span class="line">systemctl start firewalld</span><br><span class="line">systemctl start mongod</span><br><span class="line">systemctl restart mongod</span><br><span class="line"># 检查</span><br><span class="line">cat &#x2F;var&#x2F;log&#x2F;mongodb&#x2F;mongod.log</span><br><span class="line">mongo</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 卸载</span><br><span class="line">yum erase $(rpm -qa | grep mongodb-org)</span><br><span class="line">rm -r &#x2F;var&#x2F;log&#x2F;mongodb</span><br><span class="line">rm -r &#x2F;var&#x2F;lib&#x2F;mongo</span><br></pre></td></tr></table></figure>
-
+<h4 id="安装mysql"><a href="#安装mysql" class="headerlink" title="安装mysql"></a>安装mysql</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;blog.csdn.net&#x2F;wohiusdashi&#x2F;article&#x2F;details&#x2F;89358071</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -360,7 +355,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装源和更新"><span class="nav-number">1.</span> <span class="nav-text">安装源和更新</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Python"><span class="nav-number">2.</span> <span class="nav-text">安装Python</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Redis"><span class="nav-number">3.</span> <span class="nav-text">安装Redis</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Mongodb"><span class="nav-number">4.</span> <span class="nav-text">安装Mongodb</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装源和更新"><span class="nav-number">1.</span> <span class="nav-text">安装源和更新</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Python"><span class="nav-number">2.</span> <span class="nav-text">安装Python</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Redis"><span class="nav-number">3.</span> <span class="nav-text">安装Redis</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Mongodb"><span class="nav-number">4.</span> <span class="nav-text">安装Mongodb</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装mysql"><span class="nav-number">5.</span> <span class="nav-text">安装mysql</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
