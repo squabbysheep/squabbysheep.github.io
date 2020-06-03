@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://spiderblog.cn/Pip.html</loc>
+    
+    <lastmod>2020-06-03T14:46:31.588Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://spiderblog.cn/CSV.html</loc>
     
     <lastmod>2020-03-29T23:29:06.311Z</lastmod>
@@ -61,13 +68,6 @@
     <loc>http://spiderblog.cn/Linux-utils.html</loc>
     
     <lastmod>2020-03-17T08:08:29.392Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://spiderblog.cn/Pip.html</loc>
-    
-    <lastmod>2020-03-17T08:02:10.198Z</lastmod>
     
   </url>
   
